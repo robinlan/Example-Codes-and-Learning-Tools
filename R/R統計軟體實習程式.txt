@@ -1,0 +1,258 @@
+陳鐘誠統計教學
+http://ccckmit.wikidot.com/st:example
+
+############暖身##############
+(10+40)/2+3
+10^50/10^30
+y<-1/sqrt(2*pi)*exp(-1/2)
+
+sigma<-1
+mu<-0
+x<-2
+1/(sqrt(2*pi)* sigma)*exp(-((x - mu)^2/(2*sigma^2))) 
+
+x<-rnorm(n=32,mean=80,sd=10) 
+       #產生32個來自平均值為80標準偏差為10的常態分布的隨機數值 
+x
+x+5    #向量x中所有的數值+5
+x  
+hist(x)  #畫x的直方圖
+?Syntax  #查詢R基本術語
+
+############物件簡介##############
+a<-1 ; b<-"sec"; c<-1i ;d<-"TRUE"
+mode(a);mode(b);mode(c);mode(d)
+ls()     #列出所有物件
+rm(a)  #清除物件a
+
+##############運算子###############
+x<-matrix(1:6,2,3) #製造一個2*3的矩陣x，其數值為1到6
+x[2,3]==6  # x矩陣第2row第3column的值是否等於6
+x[x<=3]     # 列出x矩陣內小於或等於3的數值
+x[x!=6]     # 列出x矩陣內不等於6的數值
+x[x<=3 & x!=2]  #列出x矩陣內小於或等於3且不等於2的值
+
+
+############物件_序列資料###########
+s1<-1:10 ; s1   #產生一個1到10的序列;
+seq(from=1,to=5,length=0.5)  #產生一個序列從1到5間隔為0.5的序列;
+s2<-c(1,3,5); s2  #產生數值序列1,3,5  
+s3<-c("a","b","c"); s3 #產生文字序列1,3,5
+rep(1,10)   #產生數值1重複10次的序列;
+rep("M",10) #產生文字序列 重複"M" 10次
+sequence(c(3,5))  #產生1到3接連1到5的序列;
+
+########物件_產生隨機序列資料#######
+rnorm(n=30,mean=0,sd=1)
+dnorm(1)== 1/sqrt(2*pi)*exp(-1/2)
+pnorm(1.645, mean=0,sd=1)
+qnorm(0.95,mean=0,sd=1)
+
+2014/2/19
+
+#############物件_因子###############
+f1<-factor(1:3); f1; 
+f2<-factor(1:3,level=1:5); f2; #產生三個因子1,2,3 有五個等級 
+f3<-factor(rep(1:3,5)); f3;
+f4<-factor(c(3,5),level=1:5); f4
+
+gl(3, 5)  #產生一組factor, 有3個等級，每個等級重複5次;
+gl(3,5,label=c("a","b","c") ) # 同上，另將此三個等級分別命名為"a","b","c";
+gl(3,5,length=30)
+gl(2,10) 
+gl(2,1,length=20)  #區分不同
+expand.grid(h=c(60,80),w=c(100,300),sex=c("Male","Female"))
+
+############物件_資料框##################
+############輸入外部資料#################
+test1<-read.table(“c:/test.csv”, header=T, sep=",")
+#讀取C:\test.csv檔案，有標題，分隔符號為 “,”  
+test2<-read.csv(“c:/test.csv”, header=T , col.names=c("M","F"))
+#讀取C:\test.csv檔案，有標題，將column 1 ,2分別命名為 “M”及 “F”  
+
+x<-1:4 ; n<-10; M<-c(10,35); y<-24
+data.frame(x,n); 
+data.frame(x,M)
+data.frame(x,y)
+x<-c("a","b","c","d")
+
+data2<-scan("c:/test.csv", sep=", " ,skip=1); data2
+
+data3<-scan()  
+1 2 3 4 5 
+6 7 8 9 10
+
+data3
+
+#########輸出外部資料#############
+write.table(file=test2,"c:/test2.csv", sep=",")
+#輸出物件test資料框物件到C:\test2.csv
+
+
+
+
+
+############矩陣##################
+#產生矩陣
+m1<-matrix(1,nr=2,nc=3); m1;
+m2<-matrix(c(1,2,3,4,5,6),nr=2,nc=3); m2;
+m3<-matrix(c(1,2,3,4,5,6),2,3,byrow=T);m3
+m4<-c(1,2,3,4,5,6); dim(m4);
+dim(m4)<-c(2,3); m4
+#矩陣操作
+cbind(m1,m2) 
+rbind(m1,m2)
+m2[,2] ; m2[2,2]
+m5<-matrix(c(2,0,0,2),2,2); 
+m6<-solve(m5); m6;
+m6%*%m5
+diag(m5); diag(m5)<-3; m5
+
+############物件_Expression###############
+x<-3; y<-2.5; z<-1
+exp1<-expression(x / (y+exp(z))) 
+exp1
+expression(x / (y+exp(z)))
+eval(exp1)
+
+D(exp1, "x")  #對x偏微分
+D(exp1, "y")
+D(exp1, "z")
+
+
+############物件操作###############
+test1<-read.table("c:/test.csv", header=T, sep=",");
+test1[1,] ; test1[,2]; 
+test1[,2, drop=F ]
+test1[-1,]
+test1[test1>=170]
+
+
+###############基礎函數##############
+x<-1:10
+mean(x)
+cat("mean of x = " ,mean(x), "\n")
+cat("range of x =" ,range(x), "\n")
+cat("median of x =" ,median(x), "\n")
+
+
+
+
+#############基礎繪圖###############
+x<-rnorm(20)
+stem(x) #莖葉圖
+boxplot(x) #盒鬚圖
+hist(x) #直方圖
+plot(x) #散布圖
+abline(h=0)
+
+y<-rnorm(20)
+plot(x,y)
+y<-x*2+rnorm(20)
+plot(x,y)
+reg<-lm(y~x)
+lines(reg)
+######################################
+
+###########撰寫程式及函數#############
+?Control
+x<-numeric(10)
+for(i in 1:10) 
+{
+  x[i]<-i*rnorm(1,mean=0,sd=5)
+} 
+x
+
+for(i in 1:10) 
+{
+  if (x[i]<0)
+   {x[i]<-0}
+ else
+   {x[i]<-1}
+}
+
+fun<-function(x,mu,sigma)
+{ 1/(sqrt(2*pi)* sigma)*exp(-((x - mu)^2/(2*sigma^2))) } 
+fun(1,0,1)
+
+#########################################
+
+
+################基礎資料分析#############
+
+################二項分布#################
+binomial<-function(x,n,p)
+{choose(n,x)*p^x*(1-p)^(n-x)}
+p<-20/100
+n<-10
+sum(binomial(3:10,n,p))
+
+binomial(2,10,0.2)
+dbinom(2,10,0.2)
+1-pbinom(2,10,0.2)
+##########################################
+
+############### t-test###################
+T<-rnorm(30,mean=80,sd=10)
+K<-rnorm(30,mean=75,sd=10)
+sex<-c(rep("Man",15),rep("Female",15))
+data1<-data.frame(sex,T,K)
+
+ttest1<-t.test(T,K,alternative="two.sided",var.equal=T,conf.level=0.95)
+print(ttest1)
+ttest2<-t.test(T,K,alternative="greater",var.equal=T,conf.level=0.95)
+print(ttest2)
+ttest3<-t.test(T~sex,alternative="two.sided",var.equal=T,conf.level=0.95)
+#注意 T~sex 表示T這向量內的值根據sex因子分類做t-test 
+print(ttest3)
+####################################################
+T<-rnorm(35,mean=100,sd=10)
+K<-rnorm(29,mean=75,sd=5)
+ttest4<-t.test(T,K,alternative="greater",var.equal=F,conf.level=0.99)
+print(ttest4)
+#####################################################
+
+################迴歸分析############################
+ 
+regression<-function(x,y)
+{
+ ex.lm<-lm(y~x)
+ print(summary(ex.lm))
+ print(anova(ex.lm))
+ win.graph()
+ plot(x,y)
+ abline(lm(y~x))
+ res<-ex.lm$residuals  #residual plot
+ yhat<-predict(ex.lm)
+ win.graph()
+ plot(yhat,res,main="residuals against fit value")
+ abline(h=0)
+ win.graph()
+ qqnorm(res)
+ qqline(res)
+}
+x<-rnorm(20)
+y<-2*x+rnorm(20)
+regression(x,y)
+
+################################################
+####################變方分析####################
+temp<-ordered(rep(c(150,160,170),each=6))
+press<-ordered(rep(c(200,215,230),each=2))
+y<-c(90.4,90.2,90.7,90.6,90.2,90.4,90.1,90.3,90.5,90.6,89.9,90.1,90.5,90.7,90.8,90.9,90.4,90.1)
+ex51<-data.frame(temp,press,y)
+ex51.aov<-aov(y~temp*press,data=ex51)
+res<-ex51.aov$residuals
+yhat<-predict(ex51.aov)
+ex51
+summary(ex51.aov)
+plot(yhat,res)
+qqnorm(res)
+qqline(res)
+#(add interaction to error)
+ex51b<-aov(y~temp+press,data=ex51)
+ybhat<-predict(ex51b)
+res1<-ex51b$residuals
+qqnorm(res1)
+plot(ybhat,res1)
+summary(bb)

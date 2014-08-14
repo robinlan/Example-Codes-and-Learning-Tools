@@ -1,0 +1,1 @@
+myTeam: 名稱 = "Greater China", 項目 = "2008 Olympics, 4x100", 隊員 = [王建民 姚明 劉翔 朱木炎 ]

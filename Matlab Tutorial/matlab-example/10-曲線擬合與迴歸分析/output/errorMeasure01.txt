@@ -1,0 +1,8 @@
+{??? Error using ==> eval
+Undefined function or variable 'errorMeasure01'.
+
+Error in ==> <a href="matlab: opentoline('D:\users\jang\books\goWriteOutputFile.m',30,0)">goWriteOutputFile at 30</a>
+	eval(command);
+} 
+goWriteOutputFile
+1/14: censusPlot01

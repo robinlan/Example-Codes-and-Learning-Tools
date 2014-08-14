@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+window.onload = function() {
+	var calcHistory = [];
+	var buttons = [
+		['C','H','BS','*'],
+		['7','8','9','/'],
+		['4','5','6','+'],
+		['1','2','3','-'],
+		['0','.','%','=']
+	];
+	// 動態建立按鍵
+	for (var y = 0; y < buttons.length; y++) {
+		var div = document.createElement("div");
+		var bline = buttons[y];
+		for (var x = 0; x < bline.length; x++) {
+			var ch = bline[x];
+			var btn = document.createElement("button");
+			btn.innerHTML = btn.value = ch;
+			btn.onclick = buttonClickHandler;
+			div.appendChild(btn);
+		}
+		$("mainPanel").appendChild(div);
+	}
+	// 按下(碰觸)按鍵時所執行的動作
+	function buttonClickHandler(e) {
+		droid.vibrate(100); // 振動裝置100毫秒
+		// droid.beep();
+		// 各種按鍵按下時的處理
+		var num_txt = $("num_txt");
+		var ch = e.target.value;
+		if (ch == "=") { // 計算總合
+			try {
+				var exp = num_txt.value;
+				var ans = eval(exp);
+				num_txt.value = ans;
+				calcHistory.push(exp);
+			} catch(e) {
+				alert(e.message); // 顯示計算式有誤
+			}
+		} else if (ch == "BS") { // 退回一個字元
+			var s = num_txt.value;
+			num_txt.value = s.substr(0, s.length - 1);
+		} else if(ch == "C"){ // 清除鍵
+			num_txt.value = "0";
+			calcHistory = [];
+		} else if (ch == "H"){ // 顯示歷史記錄鍵
+			if (calcHistory.length > 0) {
+				num_txt.value = calcHistory.pop();
+			}
+		} else {
+			if (num_txt.value == "0") num_txt.value = "";
+			num_txt.value = num_txt.value + ch;
+		}
+	}
+	
+	// 加上切換背景主題的選單
+	droid.setMenuItem(0, true, "Wood", "", skinWood);
+	droid.setMenuItem(1, true, "Metal", "", skinMetal);
+	// 切換背景主題
+	function skinWood() { setSkin("wood.png", "wood-button.png"); }
+	function skinMetal(){ setSkin("metal.png", "metal-button.png"); }
+	function setSkin(backImage, buttonImage) {
+		var bs = document.body.style;
+		bs.backgroundRepeat = "repeat";
+		bs.backgroundImage = "url("+backImage+")";
+		var tags = document.getElementsByTagName("button");
+		for (var i = 0; i < tags.length; i++) {
+			var btn = tags[i].style;
+			btn.backgroundColor = "transparent";
+			btn.backgroundImage = "url("+buttonImage+")";
+			btn.border = "none";
+		}
+	}
+	
+	// 晃動時進行清除重設
+	droid.watchShake(function(){
+		// 和按清除鍵時傳入相同的參數進行呼叫
+		buttonClickHandler({target:{value:"C"}});
+	});
+	
+	// 寄送電子郵件
+	droid.setMenuItem(2, true, "Mail", "ic_menu_send", sendMail);
+	function sendMail() {
+		var subject = encodeURI("[計算結果]" + $("num_txt").value);
+		var body = encodeURI("算式:\n" + calcHistory.join("\n"));
+		var uri = "mailto:a@example.com?subject=" + subject + "&body=" + body;
+		droid.startIntent(uri);
+	}
+};
+
+
+</script>
+<style>
+	*  { margin:0; padding:0; font-size:32px; }
+	body { text-align:center; background-color:black; }
+	button{ width:64px; height:64px; margin:2px; }
+	#num_txt { width:80%; padding:8px; margin:16px; text-align:right; }
+</style>
+</head><body>
+	<input id="num_txt" type="text" value="0" />
+	<div id="mainPanel"></div>
+</body></html>

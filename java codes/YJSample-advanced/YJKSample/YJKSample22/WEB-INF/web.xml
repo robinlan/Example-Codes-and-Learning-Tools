@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+    <display-name>YasaJava</display-name>
+    <description>YasaJava</description>
+
+    <filter>
+        <filter-name>SampleFilter</filter-name>
+        <filter-class>SampleFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>SampleFilter</filter-name>
+        <url-pattern>/servlet/Sample7</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>Sample1</servlet-name>
+        <servlet-class>Sample1</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample1</servlet-name>
+        <url-pattern>/servlet/Sample1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample2</servlet-name>
+        <servlet-class>Sample2</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample2</servlet-name>
+        <url-pattern>/servlet/Sample2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample3</servlet-name>
+        <servlet-class>Sample3</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample3</servlet-name>
+        <url-pattern>/servlet/Sample3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample4</servlet-name>
+        <servlet-class>Sample4</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample4</servlet-name>
+        <url-pattern>/servlet/Sample4</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample5</servlet-name>
+        <servlet-class>Sample5</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample5</servlet-name>
+        <url-pattern>/servlet/Sample5</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample6</servlet-name>
+        <servlet-class>Sample6</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample6</servlet-name>
+        <url-pattern>/servlet/Sample6</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample7</servlet-name>
+        <servlet-class>Sample7</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample7</servlet-name>
+        <url-pattern>/servlet/Sample7</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample8</servlet-name>
+        <servlet-class>Sample8</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample8</servlet-name>
+        <url-pattern>/servlet/Sample8</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SampleP1</servlet-name>
+        <servlet-class>SampleP1</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SampleP1</servlet-name>
+        <url-pattern>/servlet/SampleP1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SampleP2</servlet-name>
+        <servlet-class>SampleP2</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SampleP2</servlet-name>
+        <url-pattern>/servlet/SampleP2</url-pattern>
+    </servlet-mapping>
+
+   <security-constraint>
+      <web-resource-collection>
+         <web-resource-name>Sample8</web-resource-name>
+         <url-pattern>/servlet/Sample8</url-pattern>
+      </web-resource-collection>
+      <auth-constraint>
+         <role-name>admin</role-name>
+      </auth-constraint>
+   </security-constraint>
+
+   <login-config>
+      <auth-method>BASIC</auth-method>
+   </login-config>
+
+   <security-role>
+      <role-name>admin</role-name>
+   </security-role>
+
+</web-app>

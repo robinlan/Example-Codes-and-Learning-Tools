@@ -1,0 +1,23 @@
+<!DOCTYPE html>  
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+// info
+droid.setMenuItem(
+    0, 
+    true, 
+    "關於本軟體",
+    "ic_menu_info_details",
+    function(){
+        alert("jsWaffle for Android");
+    }
+);
+// quit
+droid.setMenuItem(
+    1, true, "結束", "ic_menu_close_clear_cancel",
+    function() {
+        var b = confirm("結束嗎？"); // 顯示確認訊息
+        if (b) droid.quit();
+    }
+);
+</script>

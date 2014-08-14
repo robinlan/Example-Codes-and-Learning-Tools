@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>  
+<html><head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript">
+var savedir = "/sdcard/CameraDiary/"; // 照片的儲存路徑
+droid.mkdir(savedir);
+function takePicture(ext,type) { // 照相
+	// 決定檔名
+	var d = new Date();
+	var fname = savedir + (d.getFullYear()) + "-" + 
+		(d.getMonth()+1) + "-" + (d.getDate()) + "_" +
+		(d.getHours() + "-" + (d.getMinutes())) + "-" +
+		(d.getSeconds()) + "." + ext;
+	// 啟動照相機
+	droid.startIntentForResult(
+		type + ":" + fname, 
+		function(code){
+			if (code == 0) return; // 若取消的話則不做任何處理
+			// 照完相片後則提示要求輸入對照片的評語
+			var comment = prompt("請輸入對照片的評語");
+			droid.saveText(fname + ".txt", comment);
+		}
+	);
+}
+function showDiary() { // 觀看記錄
+	var html = "";
+	var list = droid.fileList(savedir); // 列出檔案清單
+	list.sort(); // 排序
+	for (var i in list) { // 處理各個檔案
+		var fname = list[i];
+		if (fname.match(/jpeg$/)) { // 若是JPEG檔則加上<img>
+			html += "<img src='file://" + savedir + fname + "' width=250 height=200/><br/>";
+		}
+		if (fname.match(/mpg$/)) { // 若是影片檔則加上圖示以及連結
+			html += "<a href='file://" + savedir + fname + "'>";
+			html += "  <img src='video.png' border='0'/>"; // 影片圖示
+			html += "</a><br/>";
+		}
+		if (fname.match(/txt$/)) { // 若是文字檔則加上其內容
+			var s = droid.loadText(savedir + fname);
+			html += "<div>" + s + "</div>";
+		}
+	}
+	$("disp").innerHTML = "<h2>記錄一覽表</h2>" + html;
+}
+</script>
+</head><body>
+	<h1>照片日記</h1>
+	<button onclick="takePicture('jpeg','camera')">拍照</button><br/>
+	<button onclick="takePicture('mpg', 'video')">錄影</button><br/>
+	<button onclick="showDiary()">觀看記錄</button>
+	<div id="disp"></div>
+</body></html>

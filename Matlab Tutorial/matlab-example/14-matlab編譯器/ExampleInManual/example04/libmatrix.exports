@@ -1,0 +1,9 @@
+libmatrixInitialize
+libmatrixInitializeWithHandlers
+libmatrixTerminate
+mlxAddmatrix
+mlfAddmatrix
+mlxMultiplymatrix
+mlfMultiplymatrix
+mlxEigmatrix
+mlfEigmatrix

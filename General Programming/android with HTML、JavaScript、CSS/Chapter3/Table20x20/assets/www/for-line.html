@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas id="canvasMain" width="300" height="300"></canvas>
+<script type="text/javascript">
+	var canvas = document.getElementById("canvasMain");
+	var c = canvas.getContext("2d");
+	c.strokeStyle = "#ff0000";
+	c.width = 5;
+	for (var i = 0; i < 30; i++) {
+		c.beginPath();
+		c.moveTo(0,0); 
+		c.lineTo(i*10, 300); 
+		c.stroke();
+	}
+</script>

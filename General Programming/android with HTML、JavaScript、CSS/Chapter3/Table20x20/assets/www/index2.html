@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>  
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="jsWaffle.js"></script>
+</head>
+<body>
+  <h1>九九乘法</h1>
+  <div style="text-align:center;">
+    <select id="index_sel" size="1"></select>
+  </div><br/>
+  <div id="list_div"></div>
+  <script type="text/javascript">
+    // 建立選擇要顯示那一段九九乘法的索引值
+    var index_sel = $("index_sel");
+    for (var i = 1; i <= 20; i++) {
+      var o = new Option(i + "段", i);
+      index_sel.options.add(o);
+    }
+    // 當選擇框中的選擇值改變時
+    index_sel.onchange = function() {
+      var i = index_sel.selectedIndex;
+      showList(index_sel.options[i].value);
+    };
+    // 顯示一覽表的函式
+    function showList(no) {
+      var list_div = document.getElementById("list_div");
+      var html = "";
+      for (var i = 1; i <= 20; i++) {
+          html += no + " × " + i + " ＝ ";
+        html += (no * i) + "<br/>";
+      }
+      list_div.innerHTML = html;
+    }
+  </script>
+  <!-- 編寫設計畫面的CSS -->
+  <style type="text/css">
+    h1 { background-color:red; color:white; font-size:16px; }
+    button { width: 60px; }
+    select { width: 120px; }
+    #list_div { -webkit-column-width:140px; }
+  </style>
+</body>
+</html>

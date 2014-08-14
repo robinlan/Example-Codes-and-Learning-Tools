@@ -1,0 +1,4 @@
+由檔案 "regExp.htm" 抽取出 3 個連結：:
+	1: 連結文字："MathWorks", 連結網址："http://www.mathworks.com"
+	2: 連結文字："Roger Jang", 連結網址："http://www.cs.nthu.edu.tw/~jang"
+	3: 連結文字："Google", 連結網址："http://www.google.com"

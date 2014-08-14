@@ -1,0 +1,21 @@
+ 
+ Func-count    x          f(x)             Procedure
+    2              -1      -5.13779        initial
+    3       -0.513876      -4.02235        interpolation
+    4       -0.513876      -4.02235        bisection
+    5       -0.473635      -3.83767        interpolation
+    6       -0.115287      0.414441        bisection
+    7       -0.115287      0.414441        interpolation
+    8       -0.132562    -0.0226907        interpolation
+    9       -0.131666    -0.0011492        interpolation
+   10       -0.131618   1.88371e-07        interpolation
+   11       -0.131618   -2.7935e-11        interpolation
+   12       -0.131618   8.88178e-16        interpolation
+   13       -0.131618   8.88178e-16        interpolation
+ 
+Zero found in the interval [-1, 1]
+
+a =
+
+   -0.1316
+

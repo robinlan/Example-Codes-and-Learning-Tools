@@ -1,0 +1,9 @@
+myMatLibInitialize
+myMatLibInitializeWithHandlers
+myMatLibTerminate
+myMatLibPrintStackTrace
+mlxMyMatInv
+mlfMyMatInv
+mlxMyMatMultiply
+mlfMyMatMultiply
+

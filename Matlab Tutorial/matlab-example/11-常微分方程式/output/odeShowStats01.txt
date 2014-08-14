@@ -1,0 +1,3 @@
+71 successful steps
+10 failed attempts
+487 function evaluations

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript" src="SuperMemo.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+	// 解析URL參數
+	var p = parseUrlParams();
+	var fname = $("title").innerHTML = p["fname"];
+	if (!fname.match(/\.txt$/)) fname += ".txt"; 
+	// 若有檔案的話將檔案讀入
+	if (droid.fileExists(savedir + fname)) {
+		$("text").value = droid.loadText(savedir + fname);
+	}
+	// 加上存檔的選單
+	droid.setMenuItem(0, true, "存檔", "ic_menu_save", menuSave);
+	function menuSave() {
+		droid.saveText(savedir + fname, $("text").value);
+		alert("存檔完成。\n" + fname);
+		location.replace("index.html");
+	}
+};
+</script>
+<style>
+	*     { margin:0; padding:0; }
+	body  { background-color: black; color:white; }
+	h1    { text-align:center; }
+	#text { width:100%; height:100%; position:absolute; }
+</style>
+</head><body>
+	<h1 id="title"></h1><textarea id="text"></textarea>
+</body></html>

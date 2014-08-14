@@ -1,0 +1,1 @@
+time1=0.214358 sec, time2=0.0536109 sec, time1/time2=3.9984

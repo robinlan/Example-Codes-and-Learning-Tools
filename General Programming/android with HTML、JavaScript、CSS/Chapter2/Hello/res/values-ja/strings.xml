@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="test">テスト</string>
+    <!-- menu -->
+    <string name="menu_save">保存</string>
+    <string name="menu_saveas">名前を付けて保存</string>
+    <string name="menu_load">読み込む</string>
+    <string name="menu_close">閉じる</string>
+</resources>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>  
+<html><head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript" src="quiz_data.js"></script>
+<script>
+	var score = 0; // 記錄分數的變數
+	// 執行問答的函式
+	function startQuiz() {
+		score = 0;     // 初始化分數(答對題數)
+		shuffleData(); // 將問題洗牌
+		// 依序出題
+		for (var i = 1; i <= quiz_list.length; i++) {
+			var q = quiz_list[i-1]; // 取出目前的問題
+			var title = i + "問題:" + q["question"];
+			// 以對話框顯示問題
+			var user = droid.dialogList(title, q["selection"]);
+			if (user == q["answer"]) { // 檢查答案
+				score++;
+				alert("答對! 現在" + score + "分");
+			} else {
+				alert("可惜!!答案是..." + q["answer"] + "。");
+			}
+		}
+		// 結果表示
+		var per = Math.floor(score / quiz_list.length * 100);
+		alert("辛苦了、測驗結束!\n" + score + "分(答對率:" + per + "%)");
+	}
+	// 將問題的出題順序洗牌
+	function shuffleData() {
+		for (var i = 0; i < quiz_list.length; i++) {
+			var r = Math.floor(Math.random() * quiz_list.length);
+			var tmp = quiz_list[r];
+			quiz_list[r] = quiz_list[i];
+			quiz_list[i] = tmp;
+		}
+	}
+</script></head>
+<body><button onclick="startQuiz()">問答開始</button></body>
+</html>

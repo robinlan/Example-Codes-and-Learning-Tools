@@ -1,0 +1,16 @@
+MATLAB version=7.14.0.739 (R2012a)
+Compiling myEigValue.m...
+DEMO Compiler license.  
+  The generated application will expire 30 days from today,  
+  on Sat Sep 15 20:06:02 2012. 
+Time for compiling = 45.2777 sec
+Running DOS command: myEigValue\myEigValue.exe magic(5)
+   65.0000 
+  -21.2768 
+  -13.1263 
+   21.2768 
+   13.1263 
+Running DOS command: myEigValue\myEigValue.exe "[1 2 3; 3 2 1; 1 1 1]"
+    5.0000 
+   -1.0000 
+    0.0000 

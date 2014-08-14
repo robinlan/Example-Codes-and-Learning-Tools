@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+window.onload = function () {
+	var templateFile = "/sdcard/CopyText.txt";
+	// 檢查是否有常用短文檔案
+	if (!droid.fileExists(templateFile)) {
+		//若沒有的話則使用下面的預設短文
+		var temp = "您好\n再見\n謝謝\n現在馬上出發。\n" +
+			"不好意思遲到了。\n之後再打電話給您。\n馬上就到了。";
+		droid.saveText(templateFile, temp);
+	}
+	// 讀入常用短文的檔案
+	var txt = droid.loadText(templateFile);
+	var txt_array = txt.split("\n");
+	// 建立一個按鍵來表示一個短文
+	var html = "";
+	for (var i = 0; i < txt_array.length; i++) {
+		var line = txt_array[i];
+		if (line == "") continue;
+		var t = "<button onclick=\"cpy('STR')\">STR</button>";
+		html += t.replace(/STR/g, line);
+	}
+	$("buttons").innerHTML = html;
+};
+function cpy(text) {
+	droid.clipboardSetText(text);
+	alert("複製了：" + text);
+}
+</script>
+<style> button { width:90%; font-size:24px; } </style>
+</head><body>
+	<h1>複製常用短文</h1>
+	<div id="buttons" style="text-align:center;"></div>
+	<textarea style="width:90%">這邊可以測試貼上。</textarea>
+</body>
+</html>

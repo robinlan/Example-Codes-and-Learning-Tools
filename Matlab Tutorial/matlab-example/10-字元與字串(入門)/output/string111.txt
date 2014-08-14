@@ -1,0 +1,7 @@
+  Name      Size                   Bytes  Class
+  x         1x3                       24  double array
+  x3        3x3                       72  double array
+  x4        4x4                      128  double array
+  x5        5x5                      200  double array
+  x6        6x6                      288  double array
+Grand total is 89 elements using 712 bytes

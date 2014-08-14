@@ -1,0 +1,4 @@
+out1 =
+char
+out2 =
+     0

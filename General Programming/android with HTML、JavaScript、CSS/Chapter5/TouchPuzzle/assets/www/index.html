@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript">
+// 初始化變數
+var block_width = 32; // 一個方塊的大小
+var canvas_width = 320; // 設定畫布(Canvas)的尺寸
+var canvas_height = 416;// 32px * 13;
+var blocks = []; // 表示方塊的資料
+var block_cols = canvas_width / block_width; // 方塊的行數
+var block_rows = canvas_height / block_width;// 方塊的列數
+var block_colors = ["rgba(0,0,0,0)","rgba(255,0,0,0.8)", // 方塊的顏色
+	"rgba(0,255,0,0.8)","rgba(0,0,255,0.8)","rgba(0,255,255,0.8)"];
+var context; // 畫圖用的本文(Context)物件
+var x_table = [ 0, 1, 0, -1]; // 表示上右下左的表格
+var y_table = [-1, 0, 1,  0];
+var image = new Image(); // 讀入遊戲的過關(背景)圖片
+image.src = "photo.jpg";
+var score = 0; // 遊戲的得分
+// 進行各種初始設定
+function initGame() {
+	// Canvas的初始化
+	var canvas = $("a_canvas");
+	context = canvas.getContext("2d");
+	canvas.width = canvas_width;
+	canvas.height = canvas_height;
+	canvas.onmousedown = function (e){ // PC用
+		canvasDownHandler(e, e.pageX, e.pageY);
+	};
+	canvas.ontouchstart = function(e){ // Android用
+		canvasDownHandler(e, e.touches[0].pageX, e.touches[0].pageY);
+	};
+	// 加上重置遊戲的選單
+	droid.setMenuItem(0, true, "新遊戲", "", newGame);
+	// 開始新遊戲
+	newGame();
+}
+// 新遊戲
+function newGame() {
+	score = 0;
+	initBlock();
+	drawBlocks();
+}
+// 依方塊的位置(x,y)來查詢它在陣列當中的索引值(Index)
+function xy(x, y) { return y * block_cols + x; }
+// 初始化方塊
+function initBlock() {
+	for (var i = 0; i < block_cols * block_rows; i++) {
+		blocks[i] = Math.floor(Math.random() * 4 + 1);
+	}
+}
+// 繪製方塊
+function drawBlocks() {
+	// 畫面的初始化
+	context.clearRect(0,0,canvas_width,canvas_height);
+	// 繪製過關圖片
+	context.drawImage(image, 0, 0);
+	// 繪製方塊
+	for (var y = 0; y < block_rows; y++) {
+		for (var x = 0; x < block_cols; x++) {
+			var v = blocks[xy(x,y)];
+			context.beginPath();
+			context.fillStyle = block_colors[v];
+			context.fillRect(
+				x * block_width,
+				y * block_width,
+				block_width, block_width);
+		}
+	}
+}
+// 觸碰方塊時的處理
+function canvasDownHandler(e, px, py) {
+	var x = Math.floor(px / block_width);
+	var y = Math.floor(py / block_width);
+	e.preventDefault();
+	// 加上除錯訊息查看觸碰到那種方塊
+	droid.log(x + "," + y + "=" + blocks[xy(x,y)]); 
+	var bcolor = blocks[xy(x,y)];
+	if (bcolor == 0) return; // 若是空的方塊則不進行任何處理
+	// 確認四周是否有相鄰的方塊
+	var count = checkBlock(x, y, bcolor);
+	if (count <= 1) return; // 若是相鄰的方塊顏色不同則不能消除
+	if (count > 1) { // 加上分數
+		score += Math.pow(count,2);
+		$("info").innerHTML = "SCORE " + score;
+	}
+	// 方塊消除的處理
+	// (1) 消除相鄰的方塊
+	removeBlock(x, y, bcolor);
+	drawBlocks();
+	// (2) 若有空方塊的部份則進行方塊的搬移處理
+	setTimeout(moveBlocks, 500);
+}
+// 檢查是否有相鄰的方塊
+function checkBlock(x, y, testColor) {
+	return checkBlock_r(x, y, testColor, [], false);
+}
+// 消除相鄰的方塊
+function removeBlock(x, y, removeColor) {
+	checkBlock_r(x, y, removeColor, [], true);
+}
+// 利用遞迴的方式檢查方塊
+function checkBlock_r(x, y, test, footprint, flagRemove) {
+	if (x < 0 || y < 0 || x >= block_cols || y >= block_rows) return 0;
+	var i = xy(x,y);
+	if (footprint[i]) return 0; // 若是檢查過就離開
+	if (blocks[i] != test) return 0; // 若不是相同的顏色就離開
+	footprint[i] = true;
+	if (flagRemove) blocks[i] = 0; // 消除方塊
+	droid.log("foot:" + x + "," + y);
+	var count = 1;
+	for (var j = 0; j < 4; j++) { // 檢查上下左右
+		count += checkBlock_r(
+			x + x_table[j], y + y_table[j],
+			test, footprint, flagRemove);
+	}
+	return count;
+}
+// 有空方塊的部份則進行方塊的搬移處理
+function moveBlocks() {
+	// 將方塊往下移動
+	var tmp = createZeroArray(block_rows * block_cols);
+	for (var x = 0; x < block_cols; x++) {
+		var ny = block_rows - 1;
+		for (var y = block_rows - 1; y >= 0 ; y--) {
+			var v = blocks[xy(x,y)];
+			if (v == 0) continue;
+			tmp[xy(x, ny--)] = v;
+		}
+	}
+	blocks = tmp;
+	drawBlocks();
+	// 將方塊往右側搬移
+	tmp = createZeroArray(block_rows * block_cols);
+	for (var y = 0; y < block_rows; y++) {
+		var nx = block_cols - 1;
+		for (var x = block_cols - 1; x >= 0 ; x--) {
+			var v = blocks[xy(x,y)];
+			if (v == 0) continue;
+			tmp[xy(nx--, y)] = v;
+		}
+	}
+	blocks = tmp;
+	// 稍微暫停一下再進行搬移
+	setTimeout(drawBlocks, 500);
+	// 判斷是否過關
+	if (checkGameClear()) {
+		setTimeout(function(){
+			alert("恭禧！您過關了!!" +
+				"分數:" + score);
+			newGame();
+		}, 2000);
+	}
+}
+function checkGameClear() {　// 判斷是否過關的函式
+	for (var i = 0; i < blocks.length; i++) {
+		if (blocks[i] != 0) return false;
+	}
+	return true;
+}
+function createZeroArray(cnt) { // 建立陣列的函式
+	var a = [];
+	for (var i=0; i<cnt; i++) a.push(0);
+	return a;
+}
+</script>
+<style> *{ padding:0px; margin:0px; } </style>
+</head><body onload="initGame()">
+	<canvas id="a_canvas"></canvas>
+	<div id="info">消除相鄰方塊的遊戲</div>
+</body></html>

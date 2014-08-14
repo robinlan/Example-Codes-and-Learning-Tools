@@ -1,0 +1,12 @@
+string = bat cat can car coat court cut ct caoueouat
+pattern = c[aeiou]+t
+Matched substrings:
+	1: cat
+	2: coat
+	3: cut
+	4: caoueouat
+start = 
+    [1x2 double]    [1x2 double]    [11]
+There are 2 matched strings:
+	1: matched="sid", token="ide"
+	2: matched="exag", token="ixxxxx"

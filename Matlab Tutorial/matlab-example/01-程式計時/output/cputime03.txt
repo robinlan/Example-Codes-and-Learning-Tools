@@ -1,0 +1,10 @@
+
+myCpuTime =
+
+    1.0140
+
+
+myElapsedTime =
+
+    0.2540
+

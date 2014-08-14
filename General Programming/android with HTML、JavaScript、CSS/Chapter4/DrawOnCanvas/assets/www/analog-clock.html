@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<script>
+window.onload = function() {
+	var $ = function(id){ return document.getElementById(id); }
+    var a_canvas = $("a_canvas");
+    var context = a_canvas.getContext("2d");
+    var a_txt = document.getElementById("a_txt");
+    var canvasW = a_canvas.width;
+    var canvasH = a_canvas.height;
+    var centerX = a_canvas.width / 2;
+    var centerY = a_canvas.height / 2;
+    setInterval(showTime, 500);
+    function showTime() {
+        context.clearRect(0, 0, canvasW, canvasH);
+		// 描繪時鐘的外框
+        context.fillStyle = "#f0e0e0";
+        context.arc(centerX,centerY,centerX,0,2*Math.PI,true);
+        context.fill();
+		// 顯示現在的時間
+        var now = new Date();
+        var h = now.getHours() % 12;
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        $("digit").innerHTML = h + ":" + m + ":" + s;
+        drawArrow(360 * (h / 12),  70, 9, "blue"); // 時
+        drawArrow(360 * (m / 60), 100, 6, "blue"); // 分
+        drawArrow(360 * (s / 60), 130, 2, "red");   // 秒
+    }
+	// 依指定的角度、長度以及顏色繪製時鐘的時針
+    function drawArrow(angele_deg, length, width, color) {
+        angele_deg = angele_deg - 90; // 12時的方向為0度
+        // 將單位轉換為弧度(radian)
+        var angle_rad = (angele_deg * Math.PI / 180);
+        var pointX = centerX + Math.cos(angle_rad) * length;
+        var pointY = centerY + Math.sin(angle_rad) * length;
+		// 描繪針的圖形
+        context.beginPath();
+        context.lineWidth = width;
+        context.strokeStyle = color;
+        context.moveTo(centerX, centerY);
+        context.lineTo(pointX, pointY);
+        context.closePath();
+        context.stroke();
+    }
+};
+</script>
+</head><body>
+	<div style="text-align:center;">
+	    <canvas id="a_canvas" width="300" height="300"></canvas>
+		<div id="digit">00:00:00</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+fileName=C:\Users\user\AppData\Local\Temp\test.txt
+cellStr =     'This'    'is'    'a'    'test.'
+The contents of "cellStr" have been written to "C:\Users\user\AppData\Local\Temp\test.txt":
+
+This
+is
+a
+test.
+

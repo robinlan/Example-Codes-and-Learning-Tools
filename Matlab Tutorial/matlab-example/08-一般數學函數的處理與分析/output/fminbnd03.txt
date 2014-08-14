@@ -1,0 +1,22 @@
+ 
+ Func-count     x          f(x)         Procedure
+    1       0.567376      12.9098        initial
+    2       0.732624      13.7746        golden
+    3       0.465248      25.1714        golden
+    4       0.644416      11.2693        parabolic
+    5       0.611083      11.4646        parabolic
+    6       0.677749      11.7353        parabolic
+ 
+Optimization terminated:
+ the current x satisfies the termination criteria using OPTIONS.TolX of 1.000000e-01 
+
+
+x =
+
+    0.6444
+
+
+minValue =
+
+   11.2693
+

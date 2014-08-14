@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="jsWaffle.js"></script>
+		<!-- for jQuery Mobile -->
+		<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.0a2.min.js"></script>
+		<link rel="stylesheet" href="jquery.mobile-1.0a2.min.css" />
+	</head>
+<body>
+  <!-- (*1)產生要顯示那一段的索引 -->
+  <div id="index_page" data-role="page">
+    <div data-role="header"><h1>九九乘法表</h1></div>
+    <div data-role="content">
+      <h1>選擇要顯示九九乘法的那一段</h1>
+      <ul id="index_ul" data-role="listview" data-inset="true"></ul>
+    </div>
+  </div>
+  <div id="list_page" data-role="page">
+    <div data-role="header"><h1>九九乘法表</h1></div>
+    <div data-role="content">
+    	<h1 id="title">**段</h1>
+    	<div id="list_div"></ul>
+    </div>
+  </div>
+  <!-- 顯示一覽表的部份 -->
+  <script type="text/javascript">
+    // 建立選擇要顯示那一段九九乘法的索引值
+    var html = "";
+    for (var i = 1; i <= 20; i++) {
+      html += "<li><a href='#list_page' data-transition='slide' " +
+	    "onclick='showList("+i+")'>" + i + "段</li>";
+    }
+    $("#index_ul").html(html);
+	
+    // 顯示一覽表的函式
+    function showList(no) {
+      // (*8)建立九九乘法表
+      var html = "<ul data-inset='true' >";
+      for (var i = 1; i <= 20; i++) {
+        html += "<li>" + no + " × " + i + " ＝ ";
+        html += (no * i) + "</li>";
+      }
+	  html += "</ul>";
+	  $("#list_div").html(html).find("ul").listview();
+	  $("#title").html(no + "段");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+body {
+	background: white url("images/bg.png") no-repeat fixed top right;
+}
+.order_form {
+	line-height: 180%;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	border: thin dotted rgb(0,102,51)
+}
+.order_col {
+	padding: 3px;
+}

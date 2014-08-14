@@ -1,0 +1,14 @@
+censusPlot01
+census01
+census02
+census03
+peaks01
+peaks02
+peaks03
+errorMeasure1
+errorMeasure2
+nonlinearFit01
+nonlinearFit02
+transformFit01
+transformFit02
+cftool01

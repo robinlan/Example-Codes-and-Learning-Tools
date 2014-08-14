@@ -1,0 +1,19 @@
+MATLAB version=7.14.0.739 (R2012a)
+Creating shared library myMatLib and put it under sharedLibrary...
+DEMO Compiler license.  
+  The generated application will expire 30 days from today,  
+  on Sat Sep 15 20:07:18 2012. 
+Time for creating shared library = 50.5487 sec
+Compiling myMatLibMain.c...
+Copying myMatLib.dll to the current directory...
+Running DOS command: myMatLibMain.exe...
+矩陣相乘的結果： 
+7.00	10.00	16.00	 
+55.00	70.00	104.00	 
+68.00	88.00	129.00	 
+ 
+計算反矩陣的結果： 
+-0.86	-1.29	1.14	 
+0.93	0.64	-0.57	 
+-0.14	0.29	-0.14	 
+ 

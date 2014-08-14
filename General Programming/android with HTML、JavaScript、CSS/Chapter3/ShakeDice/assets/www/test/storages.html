@@ -1,0 +1,196 @@
+<!DOCTYPE html>  
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../res/demo.css" />
+	<title>Storage Sample</title>
+	<script type="text/javascript" src="../jsWaffle.js"></script>
+	<script type="text/javascript" src="../res/demo-common.js"></script>
+	<script type="text/javascript">
+		function init() {
+			$("ver").innerHTML = droid.getWaffleVersion();
+			setMyMenuItem();
+		}
+	</script>
+</head>
+<body onload="init()">
+	<!-- title -->
+	<div class="pageHeader">
+		<div class="header_btn"><a href="../index.html">&lt; Back</a></div>
+		<h1>jsWaffle DEMO</h1>
+	</div>
+	<!-- logo -->
+	<div id="logo">
+		<div style="text-align:center;">
+			<a href="../index.html">
+				<img src="../res/logo150.png" alt="jsWaffle">
+			</a>
+		</div>
+		<div style="text-align:center;margin-bottom:8px;">jsWaffle ver.<span id="ver" ></span></div>
+	</div>
+	
+	<!-- *** sample *** -->
+	<h2>File IO/localStorage</h2>
+	<div class="buttons">
+		<button onclick="TestSaveFile()">Save File</button>
+		<button onclick="TestLoadFile()">Load File</button>
+		<button onclick="TestPref()">Counter Test(pref_get)</button>
+		<button onclick="RemovePref()">Reset Counter</button>
+	</div>
+	<div class="disp">
+		<div id="storage_disp">counter : ?</div>
+	</div>
+	<script type="text/javascript">
+		function RemovePref() {
+			droid.pref_remove("counter");
+			alert(droid.pref_get("counter", 0));
+		}
+		function TestSaveFile() {
+			var txt = prompt("Input Text!!");
+			if (txt == "") { txt = "no input"; }
+			droid.saveText("hoge.txt", txt);
+			alert("Save Text");
+		}
+		function TestLoadFile() {
+			var txt = droid.loadText("hoge.txt");
+			alert(txt);
+		}
+		function TestPref() {
+			var cnt = parseInt(droid.pref_get("counter", 0));
+			if (isNaN(cnt)) { cnt = 0; }
+			cnt++;
+			droid.pref_set("counter", cnt);
+			$("storage_disp").innerHTML = "counter : " + cnt;
+			droid.beep();
+		}
+	</script>
+
+	<h2>Voice Recorder</h2>
+	<div id="db_buttons_div" class="buttons">
+		<button onclick="rec_start()">Recording Start</button>
+		<button onclick="rec_stop()">Recordeing Stop</button>
+		<button onclick="rec_start2()">VoiceRecoder</button>
+	</div>
+	<script type="text/javascript">
+		var rec_path = "/sdcard/test.amr";
+		function rec_start() {
+			alert("録音を開始します");
+			var b = droid.audiorecStart(rec_path);
+			if (!b) {
+				alert("[失敗]" + droid.getLastError());
+			}
+		}
+		function rec_stop() {
+			droid.audiorecStop();
+			alert("録音を停止しました");
+			if (droid.fileExists(rec_path)) {
+				droid.playSound(rec_path);
+			}
+		}
+		function rec_start2(){
+			// オーディオレコーダーを起動するだけ
+			droid.startIntentForResult("record:/sdcard/", function(s){
+				alert(s);
+			});
+		}
+	</script>
+	
+	<h2>Database(SQLite)</h2>
+	<div id="db_buttons_div" class="buttons">
+		<button onclick="openDB()">Open DB</button>
+		<button onclick="insertDB()">Insert</button>
+		<button onclick="showDB()">Show</button>
+		<button onclick="clearDB()">Clear</button>
+		<button onclick="testSyncDB()">TestSync</button>
+	</div>
+	<div class="disp" id="db_div">
+		&nbsp; ***
+	</div>
+	<script type="text/javascript">
+		var db = null;
+		function db_lockUI() {
+			$("db_buttons_div").style.visible = "hidden";
+		}
+		function db_unlockUI() {
+			$("db_buttons_div").style.visible = "visible";
+		}
+		function openDB(){
+			db_lockUI();
+			db = droid.openDatabase("test3.db");
+			droid.executeSql(db,
+				"CREATE TABLE IF NOT EXISTS test (name,value)",
+				function(){ alert('Open database!'); db_unlockUI(); showDB(); },
+				function(e){ alert('Create database error:' + e); db_unlockUI(); }
+			);
+		}
+		function insertDB(){
+			if (db == null) { alert('DB not opened.'); return; }
+			db_lockUI();
+			var name = "hoge" + Math.floor(Math.random() * 1000);
+			var val = Math.floor(Math.random() * 1000);
+			val = parseInt(val);
+			droid.executeSql(db, 
+				"INSERT INTO test (name,value)VALUES('"+name+"',"+val+")",
+				function(){ alert("success!"); showDB(); db_unlockUI(); },
+				function(e){ alert("insert error:" + e); db_unlockUI(); }
+			);
+		}
+		function showDB() {
+			if (db == null) { alert('DB not opened.'); return; }
+			droid.executeSql(db, 
+				"SELECT * FROM test", 
+				testDB_selectResult,
+				function(e){alert("select error:" + e); db_unlockUI();}
+			);
+		}
+		function testDB_selectResult(result) {
+			var txt = "";
+			for (var i in result) {
+				var line = result[i];
+				for (var key in line) {
+					txt += key + ":" + line[key] + "<br/>";
+				}
+			}
+			$("db_div").innerHTML = txt;
+			db_unlockUI();
+		}
+		function clearDB() {
+			db_lockUI();
+			droid.executeSql(db, 
+				"DELETE from test",
+				function(){ alert("success!"); db_unlockUI(); },
+				function(e){alert("insert error:" + e); db_unlockUI(); }
+			);
+			$('db_div').innerHTML = "clear";
+		}
+		function testSyncDB() {
+			db = droid.openDatabase("test3.db");
+			alert("database opend");
+			droid.executeSqlSync(db,
+				"CREATE TABLE IF NOT EXISTS test2 (id, name)");
+			alert("created table");
+			droid.executeSqlSync(db,
+				"INSERT INTO test2 (id,name)VALUES(1, 'Yan')");
+			droid.executeSqlSync(db,
+				"INSERT INTO test2 (id,name)VALUES(2, 'Tan')");
+			alert("data inserted");
+			var result = droid.executeSqlSync(db,
+				"SELECT * FROM test2");
+			var txt = "";
+			for (var i in result) {
+				var line = result[i];
+				for (var key in line) {
+					txt += key + ":" + line[key] + "<br/>";
+				}
+			}
+			$("db_div").innerHTML = txt;
+			alert("data selected");
+		}
+	</script>		
+	
+	<h2>Other Sample</h2>
+	<div class="buttons">
+		<button onclick="location.href='../index.html'">Back</button>
+	</div>
+</body>
+</html>

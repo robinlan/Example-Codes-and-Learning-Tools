@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>  
+<html><head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript" src="quiz_data.js"></script>
+<script>
+	var score = 0; // 記錄分數的變數
+	var index = 0; // 出到第幾題
+	var currentQuiz; // 正在出題的題目
+	// 執行問答的函式
+	function startQuiz() {
+		shuffleData(); // 將問題洗牌
+    score = 0;     // 初始化分數(答對題數)
+		index = 0;     // 初始化問題編號
+		nextQuiz();    // 開始出題
+	}
+	// 依照順序出題
+	function nextQuiz() {
+		if (index >= quiz_list.length) { // 全部問題都出過了嗎？
+			showResult(); return;
+		}
+		var q = currentQuiz = quiz_list[index]; // 目前的問題
+		$("title").innerHTML = "第" + (index + 1) + "問:" +
+			q["question"];
+		for (var n = 1; n <= 4; n++) { // 在按鍵上設置答案
+			$("btn" + n).innerHTML = q["selection"][n - 1];
+			$("btn" + n).onclick = checkAnswer;
+		}
+		index++;
+	}
+	// 檢查使用者的回覆的答案
+	function checkAnswer(event) {
+		var touch_btn = event.target;
+		var user_answer = touch_btn.innerHTML;
+		if (user_answer == currentQuiz["answer"]) {
+			score++;
+			alert("答對! 現在" + score + "分");
+		} else {
+			alert("可惜!!答案是..." + currentQuiz["answer"] + "。");
+		}
+		nextQuiz();
+	}
+	// 顯示測驗的結果
+	function showResult() {
+		var per = Math.floor(score / quiz_list.length * 100);
+		alert("辛苦了、測驗結束!\n" + score + "分(答對率:" + per + "%)");
+		startQuiz();
+	}
+	// 將問題的出題順序洗牌
+	function shuffleData() {
+		for (var i = 0; i < quiz_list.length; i++) {
+			var r = Math.floor(Math.random() * quiz_list.length);
+			var tmp = quiz_list[r];
+			quiz_list[r] = quiz_list[i];
+			quiz_list[i] = tmp;
+		}
+	}
+</script>
+<style> button { width: 300px; height: 40px; }</style>
+</head><body onload="startQuiz()">
+	<h3 id="title"></h3>
+	<div style="text-align:center;">
+		<button id="btn1" /><button id="btn2" />
+		<button id="btn3" /><button id="btn4" />
+	</div>
+</body>
+</html>

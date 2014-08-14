@@ -1,0 +1,6 @@
+totalSize =
+       34032
+  Name            Size             Bytes  Class     Attributes
+
+  west0479      479x479            34032  double    sparse    
+

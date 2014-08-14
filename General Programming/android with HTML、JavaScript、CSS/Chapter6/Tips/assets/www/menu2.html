@@ -1,0 +1,12 @@
+<!DOCTYPE html>  
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+// 建立選單
+droid.setMenuItem(
+    0, true, "清除", "ic_menu_close_clear_cancel",
+    function() {
+		droid.setMenuItem(0, false); // 清除選單
+    }
+);
+</script>

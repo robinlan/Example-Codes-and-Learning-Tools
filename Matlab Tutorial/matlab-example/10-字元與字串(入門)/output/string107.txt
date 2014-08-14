@@ -1,0 +1,3 @@
+  Name           Size                   Bytes  Class
+  sentence       1x16                      32  char array
+Grand total is 16 elements using 32 bytes

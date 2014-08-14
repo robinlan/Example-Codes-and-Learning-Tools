@@ -1,0 +1,2 @@
+regexp('Chapter 5 is my favorite', '^Chapter') = 1
+regexp('I like Chapter 2', '^Chapter') = 

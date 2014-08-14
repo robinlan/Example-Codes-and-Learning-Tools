@@ -1,0 +1,21 @@
+{??? Error using ==> eval
+Undefined function or variable 'ch23'.
+
+Error in ==> <a href="matlab: opentoline('d:\users\jang\books\goWriteOutputFile.m',34,0)">goWriteOutputFile at 34</a>
+	eval(command);
+} 
+<a href="matlab: opentoline('d:\users\jang\books\goWriteOutputFile.m',34,1)">34  </a>	eval(command);
+dbquit
+goWriteOutputFile
+1/11: file=cStruct2matlab01
+2/11: file=cStruct2matlabTest
+3/11: file=ch23_18
+4/11: file=matlabEngine01
+5/11: file=matlabEngine02
+6/11: file=matlabEngine03
+7/11: file=matlabStruct2c01
+8/11: file=matlabStruct2cTest
+9/11: file=plotSine
+10/11: file=scalarx2
+11/11: file=showOpsFile
+1/11: cStruct2matlab01

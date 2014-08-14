@@ -1,0 +1,4 @@
+Matched substrings:
+	1: Y2K
+	2: B2B
+	3: B2C

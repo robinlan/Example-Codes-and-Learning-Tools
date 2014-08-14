@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jsWaffle.js"></script>
+	<style>
+		h2      { background-color: #944; color:#fff; }
+		body    { background-color: #ccc; }
+		.result { font-size:2em; padding:8px; color:red; }
+	</style>
+</head>
+<body>
+	<!-- 輸入表單 -->
+	<h2>英寸轉為公分</h2>
+	<div><input id="inch" type="text">inch</div>
+	<div id="result_inch" class="result"></div>
+	<h2>公分轉為英寸</h2>
+	<div><input id="cm" type="text">cm</div>
+	<div id="result_cm" class="result"></div>
+	<script>
+		$("inch").onchange = function(){
+			var cm_value = $("inch").value * 2.54;
+			$("result_inch").innerHTML = "→" + cm_value + "cm";
+		};
+		$("cm").onchange = function(){
+			var inch_value = $("cm").value / 2.54;
+			$("result_cm").innerHTML = "→" + inch_value + "inch";
+		};
+	</script>
+</body>
+</html>

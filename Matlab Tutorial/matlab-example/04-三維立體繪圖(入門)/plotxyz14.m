@@ -1,0 +1,3 @@
+peaks;
+colormap cool; 
+colorbar

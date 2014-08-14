@@ -1,0 +1,1 @@
+area = quad(@humps, 0, 1)

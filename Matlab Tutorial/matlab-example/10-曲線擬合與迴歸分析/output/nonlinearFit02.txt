@@ -1,0 +1,26 @@
+{Warning: Rank deficient, rank = 1,  tol =   2.1368e-014.} 
+> In <a href="matlab: opentoline('d:\users\jang\books\matlabProgramming4guru\example\10-曲線擬合與迴歸分析\errorMeasure2.m',6,1)">errorMeasure2 at 6</a>
+  In <a href="matlab: opentoline('C:\Program Files\MATLAB\R2010b\toolbox\matlab\funfun\fminsearch.m',195,1)">fminsearch at 195</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\matlabProgramming4guru\example\10-曲線擬合與迴歸分析\nonlinearFit02.m',4,1)">nonlinearFit02 at 4</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\dummyFunction.m',4,1)">dummyFunction at 4</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\goWriteOutputFile.m',37,1)">goWriteOutputFile at 37</a>
+{Warning: Rank deficient, rank = 1,  tol =   2.1374e-014.} 
+> In <a href="matlab: opentoline('d:\users\jang\books\matlabProgramming4guru\example\10-曲線擬合與迴歸分析\errorMeasure2.m',6,1)">errorMeasure2 at 6</a>
+  In <a href="matlab: opentoline('C:\Program Files\MATLAB\R2010b\toolbox\matlab\funfun\fminsearch.m',310,1)">fminsearch at 310</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\matlabProgramming4guru\example\10-曲線擬合與迴歸分析\nonlinearFit02.m',4,1)">nonlinearFit02 at 4</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\dummyFunction.m',4,1)">dummyFunction at 4</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\goWriteOutputFile.m',37,1)">goWriteOutputFile at 37</a>
+{Warning: Rank deficient, rank = 1,  tol =   2.1370e-014.} 
+> In <a href="matlab: opentoline('d:\users\jang\books\matlabProgramming4guru\example\10-曲線擬合與迴歸分析\errorMeasure2.m',6,1)">errorMeasure2 at 6</a>
+  In <a href="matlab: opentoline('C:\Program Files\MATLAB\R2010b\toolbox\matlab\funfun\fminsearch.m',351,1)">fminsearch at 351</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\matlabProgramming4guru\example\10-曲線擬合與迴歸分析\nonlinearFit02.m',4,1)">nonlinearFit02 at 4</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\dummyFunction.m',4,1)">dummyFunction at 4</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\goWriteOutputFile.m',37,1)">goWriteOutputFile at 37</a>
+{Warning: Rank deficient, rank = 1,  tol =   2.1371e-014.} 
+> In <a href="matlab: opentoline('d:\users\jang\books\matlabProgramming4guru\example\10-曲線擬合與迴歸分析\errorMeasure2.m',6,1)">errorMeasure2 at 6</a>
+  In <a href="matlab: opentoline('C:\Program Files\MATLAB\R2010b\toolbox\matlab\funfun\fminsearch.m',366,1)">fminsearch at 366</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\matlabProgramming4guru\example\10-曲線擬合與迴歸分析\nonlinearFit02.m',4,1)">nonlinearFit02 at 4</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\dummyFunction.m',4,1)">dummyFunction at 4</a>
+  In <a href="matlab: opentoline('d:\users\jang\books\goWriteOutputFile.m',37,1)">goWriteOutputFile at 37</a>
+計算時間 = 0.0292132
+誤差平方和 = 1.477226e-001

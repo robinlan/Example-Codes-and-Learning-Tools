@@ -1,0 +1,4 @@
+I am the contents of testfile line1.
+I am the contents of testfile line2.
+¤¤¤å´ú¸Õ¡Cline 3.
+

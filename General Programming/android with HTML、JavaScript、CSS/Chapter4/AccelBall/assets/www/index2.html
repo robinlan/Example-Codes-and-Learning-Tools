@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>  
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<canvas id="a_canvas" width="300" height="300"></canvas>
+<script>
+window.onload = function() {
+    var a_canvas = document.getElementById("a_canvas");
+    var context = a_canvas.getContext("2d");
+    var canvasW = a_canvas.width;
+    var canvasH = a_canvas.height;
+    var ballX = 150, ballY = 150; // 設定球的初始位置
+    var dirX = 15, dirY = 15;     // 球的速度
+	var blocks = [];              // 管理方塊的陣列變數
+	var blockW = 40, blockH = 20; // 定義方塊的大小
+	var blockPad = 5;             // 定義方塊間的距離
+	var blockColors = ["red","blue","yellow"]; // 方塊的顏色
+	// 各種初始化
+	initBlocks();                  // 配置方塊
+    setInterval(moveBall, 100);    // 設定定時移動方塊
+	droid.watchAccel(function(x,y,z){ // 檢測加速度感應器
+		dirX = x * -1; dirY = y;
+	});
+	// 配置方塊
+	function initBlocks() {
+		for (var y = 0; y < 6; y++) {
+			for (var x = 0; x < 6; x++) {
+				var color = blockColors[(x*5+y) % 3];
+				blocks.push({
+					"x" : (x * (blockW + blockPad) + blockPad),
+					"y" : (y * (blockH + blockPad) + blockPad),
+					"color": color
+				});
+			}
+		}
+	}
+	// 球的移動、繪製，判斷是否與方塊碰觸到
+    function moveBall() {
+        context.clearRect(0,0,300,300); // 畫面的初始化
+        // 繪製方塊
+		for (var i = 0; i < blocks.length; i++) {
+			var b = blocks[i];
+			context.beginPath();
+			context.rect(b.x, b.y, blockW, blockH);
+			context.fillStyle = b.color;
+			context.fill();
+		}
+		// 繪製球
+        context.beginPath();
+		context.arc(ballX, ballY, 16, 0, 2*Math.PI, true);
+		context.fillStyle="green";
+        context.fill();
+        var tx = ballX + dirX;
+        var ty = ballY + dirY;
+        if (0 < tx && tx < canvasW) { ballX = tx; }
+        if (0 < ty && ty < canvasH) { ballY = ty; }
+		// 方塊的碰觸判定
+		var j = 0;
+		while (j < blocks.length) {
+			var b = blocks[j];
+			if (b.x <= tx && tx <= (b.x + blockW) &&
+			    b.y <= ty && ty <= (b.y + blockH)) {
+				blocks.splice(j, 1); // 消除方塊
+				continue;
+			}
+			j++;
+		}
+		if (blocks.length == 0) {
+			alert("消除所有的方塊了!!");
+			initBlocks();
+		}
+    }
+};
+</script>

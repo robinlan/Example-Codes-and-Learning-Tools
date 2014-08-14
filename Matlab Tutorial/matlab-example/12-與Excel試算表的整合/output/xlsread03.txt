@@ -1,0 +1,8 @@
+numericData =
+    11    11
+    12    14
+    13    19
+    14    26
+    15    35
+headerText = 
+    'Time (sec)'    'Position (m)'

@@ -1,0 +1,1 @@
+A = xlsread('data2.xls')		% 將 data.xls 的內容讀到矩陣 A

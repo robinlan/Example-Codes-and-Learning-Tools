@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------------------------------
+MATLAB Version: 8.1.0.604 (R2013a)
+MATLAB License Number: DEMO
+Operating System: Microsoft Windows 7 Version 6.1 (Build 7601: Service Pack 1)
+Java Version: Java 1.6.0_17-b04 with Sun Microsystems Inc. Java HotSpot(TM) 64-Bit Server VM mixed mode
+-------------------------------------------------------------------------------------------------------
+Parallel Computing Toolbox                            Version 6.2        (R2013a)
+Starting matlabpool using the 'local' profile ... connected to 4 workers.
+time1 = 4.94823, time2 = 1.62187, speedup factor = 3.05094
+Sending a stop signal to all the workers ... stopped.

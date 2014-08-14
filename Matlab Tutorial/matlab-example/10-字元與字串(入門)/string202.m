@@ -1,0 +1,1 @@
+departments = char('ee', 'cs', 'econ')	% 注意「()」及「,」的使用

@@ -1,0 +1,4 @@
+MATLAB version = 8.1.0.604 (R2013a)
+time1 = 0.00156713 sec, time2 = 0.310063 sec, time3 = 0.00122577 sec
+time1/time2 = 0.00505423
+time1/time3 = 1.27849

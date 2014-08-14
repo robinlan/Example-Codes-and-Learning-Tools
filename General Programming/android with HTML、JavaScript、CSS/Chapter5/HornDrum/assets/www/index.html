@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript">
+window.onload = function() {
+	// 將效果音讀入到SoundPool中
+	var boo1 = droid.loadSoundPool("file:///android_asset/www/boo1.ogg");
+	var boo2 = droid.loadSoundPool("file:///android_asset/www/boo2.ogg");
+	// 碰觸圖像時更換圖片並播放音效
+	$("h1").ontouchstart = function() {
+		$("h1").src = "handle-down.png";
+		droid.playSoundPool(boo1);
+	};
+	$("h2").ontouchstart = function() {
+		$("h2").src = "handle-down.png";
+		droid.playSoundPool(boo2);
+	};
+	// 手指離開圖像時變更回原圖片
+	$("h1").ontouchend = function() {　$("h1").src = "handle-up.png";　};
+	$("h2").ontouchend = function() {　$("h2").src = "handle-up.png";　};
+};
+</script>
+</head><body>
+	<div style="text-align:right">
+		<img id="h1" src="handle-up.png" />
+	</div>
+	<div style="text-align:left">
+		<img id="h2" src="handle-up.png" />
+	</div>
+</body></html>

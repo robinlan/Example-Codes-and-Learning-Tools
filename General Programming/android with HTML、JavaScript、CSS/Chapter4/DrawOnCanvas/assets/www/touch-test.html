@@ -1,0 +1,24 @@
+﻿<div style="border:solid 1px red;">
+	<canvas id="a_canvas" width="300" height="200"></canvas>
+</div>
+<div id="info"></div>
+<script>
+	var info = document.getElementById("info");
+	var a_canvas = document.getElementById("a_canvas");
+	var context = a_canvas.getContext("2d");
+	a_canvas.ontouchstart = showTouchLog;
+	a_canvas.ontouchmove = showTouchLog;
+	a_canvas.ontouchend = showTouchLog;
+	// 顯示觸控事件
+	function showTouchLog(event) {
+		event.preventDefault(); //使瀏覽器事件無效
+		var s = "-" + event.type + ":";
+		for (var i = 0; i < event.touches.length; i++) {
+			var x = event.touches[i].pageX;
+			var y = event.touches[i].pageY;
+			s += "(" + x + "," + y + ")"; // 記錄座標
+			context.rect(x, y, 3, 3); context.fill(); // 在畫面上進行描繪
+		}
+		info.innerHTML = s + "<br/>" + info.innerHTML;
+	}
+</script>

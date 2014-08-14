@@ -1,0 +1,11 @@
+
+ans =
+
+  Columns 1 through 4
+
+        2012           3          26          16
+
+  Columns 5 through 6
+
+          18          53
+

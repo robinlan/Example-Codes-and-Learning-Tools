@@ -1,0 +1,1072 @@
+%案Ctrl+F尋找
+
+MATLAB函數指令表
+
+
+在我們使用matlab的過程中,常常疑惑於需要的函數/指令名稱,但原公司提供的help檔案
+卻因為語言的關係,讓使用者產生誤解或無所適從,而且指令繁多,有時需要用到比較冷門
+的指令便要花許多時間瀏覽資料,但若有一份中文對照表就會方便許多,故在網路上尋找並
+重新排版此份對照表,盼有裨益.
+
+
+1 常用指令(General Purpose Commands)
+
+1.1 通用資訊查詢(General information)
+demo 演示程式
+help 線上幫助指令
+helpbrowser 超文本文檔幫助資訊
+helpdesk 超文本文檔幫助資訊
+helpwin 打開線上幫助窗
+info MATLAB 和MathWorks 公司的資訊
+subscribe MATLAB 用戶註冊
+ver MATLAB 和TOOLBOX 的版本資訊
+version MATLAB 版本
+whatsnew 顯示版本新特徵
+
+1.2 工作空間管理(Managing the workspace)
+clear 從記憶體中清除變數和函數
+exit 關閉MATLAB
+load 從磁片中調入資料變數
+pack 合併工作記憶體中的碎塊
+quit 退出MATLAB
+save 把記憶體變數存入磁片
+who 列出工作記憶體中的變數名
+whos 列出工作記憶體中的變數細節
+workspace 工作記憶體流覽器
+
+1.3 管理指令和函數(Managing commands and functions)
+edit 矩陣編輯器
+edit 打開M 文件
+inmem 查看記憶體中的P 碼檔
+mex 創建MEX 文件
+open 打開文件
+pcode 生成P 碼檔
+type 顯示檔內容
+what 列出當前目錄上的M、MAT、MEX 文件
+which 確定指定函數和檔的位置
+
+1.4 搜索路徑的管理(Managing the seach patli)
+addpath 添加搜索路徑
+rmpath 從搜索路徑中刪除目錄
+path 控制MATLAB 的搜索路徑
+pathtool 修改搜索路徑
+
+1.5 指令窗控制(Controlling the command window)
+beep 產生beep 聲
+echo 顯示命令檔指令的切換開關
+diary 儲存MATLAB 指令窗操作內容
+format 設置資料輸出格式
+more 命令視窗分頁輸出的控制開關
+
+1.6 作業系統指令(Operating system commands)
+cd 改變當前工作目錄
+computer 電腦類型
+copyfile 檔拷貝
+delete 刪除檔
+dir 列出的文件
+dos 執行dos 指令並返還結果
+getenv 給出環境值
+ispc MATLAB 為PC(Windows)版本則為真
+isunix MATLAB 為Unix 版本則為真
+mkdir 創建目錄
+pwd 改變當前工作目錄
+unix 執行unix 指令並返還結果
+vms 執行vms dcl 指令並返還結果
+web 打開web 流覽器
+! 執行外部應用程式
+
+
+2 運算符和特殊算符(Operators and special characters)
+2.1 算術運算符(Arithmetic operators)
++ 加
+- 減
+* 矩陣乘
+.* 陣列乘
+^ 矩陣乘方
+.^ 陣列乘方
+\ 反斜杠或左除
+/ 斜杠或右除
+./或.\ 陣列除
+張量積
+[注]本表第三欄括弧中的字元供線上救助時help 指令引述用
+2.2 關係運算符(Relational operators)
+= = 等號
+~= 不等號
+< 小於
+> 大於
+<= 小於或等於
+>= 大於或等於
+2.3 邏輯操作(Logical operators)
+& 邏輯與
+| 邏輯或
+~ 邏輯非
+xor 異或
+any 有非零元則為真
+all 所有元素均非零則為真
+2.4 特殊算符(Special characters)
+： 冒號
+( ) 圓括號
+[ ] 方括號
+{ } 花括弧
+@ 創建函數控制碼
+. 小數點
+. 構架域的關節點
+.. 父目錄
+? 續行號
+, 逗號
+; 分號
+% 注釋號
+! 調用作業系統命令
+= 賦值符號
+ˊ 引號
+ˊ 複數轉置號
+.ˊ 轉置號
+[,] 水準串接
+[;] 垂直串接
+( ),{ },. 下標賦值
+( ),{ },. 下標標識
+subsindex 下標標識
+
+
+3 編程語言結構(Programming language constructs)
+3.1 控制語句(Control flow)
+break 終止最內迴圈
+case 同switch 一起使用
+catch 同try 一起使用
+continue 將控制轉交給外層的for 或while 迴圈
+else 同if 一起使用
+elseif 同if 一起使用
+end 結束for,while,if 語句
+for 按規定次數重複執行語句
+if 條件執行語句
+otherwise 可同switch 一起使用
+return 返回
+switch 多個條件分支
+try try-cathch 結構
+while 不確定次數重複執行語句
+
+3.2 計算運行(Evaluation and execution)
+assignin 跨空間賦值
+builtin 執行內建的函數
+eval 字串巨集指令
+evalc 執行MATLAB 字串
+evalin 跨空間計算串運算式的值
+feval 函數巨集指令
+run 執行腳本檔
+
+3.3 腳本檔、函數及變數(Scripts,function,and variables)
+exist 檢查變數或函數是否被定義
+function 函數檔頭
+global 定義總體變數
+isglobal 若是總體變數則為真
+iskeyword 若是關鍵字則為真
+mfilename 正在執行的M 檔的名字
+persistent 定義永久變數
+script MATLAB 命令文件
+
+3.4 宗量處理(Augument handling)
+inputname 實際調用變數名
+nargchk 輸入變數個數檢查
+nargin 函數輸入宗量的個數
+nargout 函數輸出宗量的個數
+nargoutchk 輸出變數個數檢查
+varagin 輸入宗量
+varagout 輸出宗量
+
+3.5 資訊顯示(Message display)
+disp 顯示矩陣和文字內容
+display 顯示矩陣和文字內容的重載函數
+error 顯示錯誤資訊
+fprintf 把格式化資料寫到檔或螢幕
+lasterr 最後一個錯誤資訊
+lastwarn 最後一個警告資訊
+sprintf 按格式把數位轉換為串
+warning 顯示警告資訊
+
+3.6 互動式輸入(Interactive input)
+input 提示鍵盤輸入
+keyboard 啟動鍵盤做為命令檔
+pause 暫停
+uicontrol 創建用戶介面控制
+uimenu 創建用戶介面功能表
+
+
+4 基本矩陣函數和操作(Elementary matrices and matrix manipulation)
+4.1 基本矩陣(Elementary matrices)
+eye 單位陣
+linspace 線性等分向量
+logspace 對數等分向量
+meshgrid 用於三維曲面的分格線座標
+ones 全1 矩陣
+rand 均勻分佈隨機陣
+randn 正態分佈隨機陣
+repmat 鋪放模組陣列
+zeros 全零矩陣
+: 矩陣的援引和重排
+
+4.2 矩陣基本資訊(Basic array information)
+disp 顯示矩陣和文字內容
+isempty 若是空矩陣則為真
+isequal 若對應元素相等則為1
+islogical 尤其是邏輯數則為真
+isnumeric 若是數值則為真
+length 確定向量的長度
+logical 將數值轉化為邏輯值
+ndims 陣列A 的維數
+size 確定矩陣的維數
+
+4.3 矩陣操作(Matrix manipulateion)
+blkdiag 塊對角陣串接
+diag 創建對角陣，抽取對角向量
+end 陣列的長度，即最大下標
+find 找出非零元素1 的下標
+fliplr 矩陣的左右翻轉
+flipud 矩陣的上下翻轉
+flipdim 交換對稱位置上的元素
+ind2sub 據單下標換算出全下標
+reshape 矩陣變維
+rot90 矩陣逆時針90°旋轉
+sub2idn 據全下標換算出單下標
+tril 抽取下三角陣
+triu 抽取上三角陣
+
+4.4 特殊變數和常數(Special variables and constants)
+ans 最新運算式的運算結果
+eps 浮點相對誤差
+i,j 虛數單位
+inf 或Inf 無窮大
+isfinite 若是有限數則為真
+isinf 若是無窮大則為真
+isnan 若為非數則為真
+NaN 或nan 非數
+pi 3.1415926535897?.
+realmax 最大浮點數
+realmin 最小正浮點數
+why 一般問題的簡明答案
+
+4.5 特殊矩陣(Specialized matrices)
+compan 伴隨矩陣
+gallery 一些小測試矩陣
+hadamard Hadamard 矩陣
+hankel Hankel 矩陣
+hilb Hilbert 矩陣
+invhilb 逆Hilbert 矩陣
+magic 魔方陣
+pascal Pascal 矩陣
+rosser 典型對稱特徵值實驗問題
+toeplitz Toeplitz 矩陣
+vander Vandermonde 矩陣
+wilkinson Wilkinson’s 對稱特徵值實驗矩陣
+
+
+5 基本數學函數(Elementary math functions)
+
+5.1 三角函數(Trigonometric)
+acos 反余弦
+acosh 反雙曲余弦
+acot 反餘切
+acoth 反雙曲餘切
+acsc 反余割
+acsch 反雙曲余割
+asec 反正割
+asech 反雙曲正割
+asin 反正弦
+asinh 反雙曲正弦
+atan 反正切
+atanh 反雙曲正切
+atan2 四象限反正切
+cos 余弦
+cosh 雙曲余弦
+cot 餘切
+coth 雙曲餘切
+csc 余割
+csch 雙曲余割
+sec 正割
+sech 雙曲正割
+sin 正弦
+sinh 雙曲正弦
+tan 正切
+tanh 雙曲正切
+
+5.2 指數函數(Exponential)
+exp 指數
+log 自然對數
+log10 常用對數
+log2 以2 為底的對數
+nestpow2 最近鄰的2 的冪
+pow2 2 的冪
+sqrt 平方根
+
+5.3 複數函數(Complex)
+abs 絕對值
+angle 相角
+complex 將實部和虛部構成複數
+conj 複數共軛
+cplxpair 複數陣成共軛對形式排列
+imag 複數虛部
+isreal 若是實數矩陣則為真
+real 複數實部
+unwrap 相位角360°線調整
+
+5.4 圓整和求餘函數(Rounding and remainder)
+ceil 朝正無窮大方向取整
+fix 朝零方向取整
+floor 朝負無窮大方向取整
+mod 模數求餘
+rem 求餘數
+round 四捨五入取整
+sign 符號函數
+
+6 特殊函數(Specialized math functions)
+cart2pol 直角坐標變為柱(或極)座標
+cart2sph 直角坐標變為球座標
+cross 向量叉積
+dot 向量內積
+isprime 若是質數則為真
+pol2cart 柱(或極)座標變為直角坐標
+sph2cart 球座標變為直角坐標
+
+
+7 矩陣函數和數值線性代數(Matrix functions－numerical linear algebra)
+
+7.1 矩陣分析(Matrix analysis)
+det 行列式的值
+norm 矩陣或向量範數
+normest 估計2 範數
+null 零空間
+orth 值空間
+rank 秩
+rref 轉換為行階梯形
+trace 跡
+subspace 子空間的角度
+
+7.2 線性方程(Linear equations)
+chol Cholesky 分解
+cholinc 不完全Cholesky 分解
+cond 矩陣條件數
+condest 估計1-範數條件數
+inv 矩陣的逆
+lu LU 分解
+luinc 不完全LU 分解
+lscov 已知協方差的最小二乘積
+nnls 非負二乘解
+pinv 偽逆
+qr QR 分解
+rcond LINPACK 逆條件數
+\、/ 解線性方程
+
+7.3 特性值與奇異值(Eigenvalues and singular values)
+condeig 矩陣各特徵值的條件數
+eig 矩陣特徵值和特徵向量
+eigs 多個特徵值
+gsvd 歸一化奇異值分解
+hess Hessenberg 矩陣
+poly 特徵多項式
+polyeig 多項式特徵值問題
+qz 廣義特徵值
+schur Schur 分解
+svd 奇異值分解
+svds 多個奇異值
+
+7.4 矩陣函數(Matrix functions)
+expm 矩陣指數
+expm1 矩陣指數的Pade 逼近
+expm2 用泰勒級數求矩陣指數
+expm3 通過特徵值和特徵向量求矩陣指數
+funm 計算一般矩陣函數
+logm 矩陣對數
+sqrtm 矩陣平方根
+
+7.5 因式分解(Factorization utility)
+cdf2rdf 複數對角型轉換到實塊對角型
+balance 改善特徵值精度的平衡刻度
+rsf2csf 實塊對角型轉換到複數對角型
+
+8 資料分析和傅裏葉變換(Date analysis and Fourier transforms)
+
+8.1 基本運算(Basic operations)
+cumprod 元素累計積
+cumsum 元素累計和
+cumtrapz 累計積分
+hist 統計頻數直方圖
+histc 直方圖統計
+max 最大值
+mean 平均值
+median 中值
+min 最小值
+prod 元素積
+sort 由小到大排序
+sortrows 由小到大按行排序
+std 標準差
+sum 元素和
+trapz 梯形數值積分
+var 求方差
+
+8.2 有限差分(Finite differentces)
+del2 五點離散Laplacian
+diff 差分和近似微分
+gradient 梯度
+
+8.3 相關(Correlation)
+corrcoef 相關係數
+cov 協方差矩陣
+subspace 子空間之間的角度
+
+8.4 濾波和卷積(Filtering and convoluteion)
+conv 卷積和多項式相乘
+conv2 二維卷積
+convn N 維卷積
+detrend 去除線性分量
+deconv 解卷和多項式相除
+filter 一維數字濾波器
+fliter2 二維數字濾波器
+
+8.5 傅裏葉變換(Fourier transforms)
+fft 快速離散傅裏葉變換
+fft2 二維離散傅裏葉變換
+fftn N 維離散傅裏葉變換
+fftshift 重排fft 和fft2 的輸出
+ifft 離散傅裏葉反變換
+ifft2 二維離散傅城葉反變換
+ifftn N 維離散傅裏葉反變換
+ifftshift 反fftshift
+
+9 音頻支援(Audio support)
+
+9.1 音頻硬體驅動(Audio hardware drivers)
+sound 播放向量
+soundsc 自動標刻並播放
+waveplay 利用系統音頻輸出設配播放
+waverecor 利用系統音頻輸入設配錄音
+
+9.2 音頻檔輸入輸出(Audio file import and export)
+auread 讀取音頻檔(.au)
+auwrite 創建音頻檔(.au)
+wavread 讀取音頻檔(.wav)
+wavwrite 創建音頻檔(.wav)
+
+9.3 工具(Utilities)
+lin2mu 將線性信號轉換為μ 一律編碼的信號
+mu2lin 將μ 一律編碼信號轉換為線性信號
+
+10 插補多項式函數(Interpolation and polynomials)
+
+10.1 數據插補(Data Interpolation)
+griddata 分格點數據
+griddata3 三維分格點數據
+griddatan 多維分格點數據
+interpft 利用FFT 方法一維插補
+interp1 一維插補
+interp1q 快速一維插補
+interp2 二維插補
+interp3 三維插補
+intern N 維插補
+pchip hermite 插補
+
+10.2 樣條插補(Spline Interpolation)
+ppval 計算分段多項式
+spline 三次樣條插補
+
+10.3 多項式(Polynomials)
+conv 多項式相乘
+deconv 多項式相除
+poly 由根創建多項式
+polyder 多項式微分
+polyfit 多項式擬合
+polyint 積分多項式分析
+polyval 求多項式的值
+polyvalm 求矩陣多項式的值
+residue 求部分分式表達
+roots 求多項式的根
+
+11 數值泛函函數和ODE 解算器(Function functions and ODE solvers)
+
+11.1 優化和尋根(Optimization and root finding)
+fminbnd 非線性函數在某區間中極小值
+fminsearch 單純形法求多元函數極值點指令
+fzero 單變數函數的零點
+
+11.2 優化選項處理(Optimization Option handling)
+optimget 從OPTIONS 構架中取得優化參數
+optimset 創建或修改OPTIONS 構架
+
+11.3 數值積分(Numerical intergration)
+dblquad 二重(閉型)數值積分指令
+quad 低階法數值積分
+quadl 高階法數值積分
+
+11.4 繪圖(Plotting)
+ezcontour 畫等位線
+ezcontourf 畫填色等位線
+ezmesh 繪製網格圖
+ezmeshc 繪製含等高線的網格圖
+ezplot 繪製曲線
+ezplot3 繪製3 維曲線
+ezpolar 採用極座標繪圖
+ezsurf 畫曲面圖
+ezsurfc 畫帶等位線的曲面圖
+fplot 畫函數曲線圖
+
+11.5 內聯函數物件(Inline function object)
+argnames 給出函數的輸入宗量
+char 創建字元傳輸組或者將其他類型變數轉化為字串陣列
+formula 函數公式
+inline 創建內聯函數
+
+11.6 差微分函數解算器(Differential equation solvers)
+ode113 變階法解方程
+ode15s 變階法解剛性方程
+ode23 低階法解微分方程
+ode23s 低階法解剛性微分方程
+ode23t 解適度剛性微分方程
+odet23tb 低階法解剛性微分方程
+ode45 高階法解微分方程
+
+12 二維圖形函數(Two dimensional graphs)
+
+12.1 基本平面圖形(Elementary X－Y graphs)
+loglog 雙對數刻度曲線
+plot 直角坐標下線性刻度曲線
+plotyy 雙縱坐標圖
+polar 極座標曲線圖
+semilogx X 軸半對數刻度曲線
+semilogy Y 軸半對數刻度曲線
+
+12.2 軸控制(Axis control)
+axes 創建軸
+axis 軸的刻度和表現
+box 座標形式在封閉式和開啟詞式之間切換
+grid 畫座標格線
+hold 圖形的保持
+subplot 創建子圖
+zoom 二維圖形的變焦放大
+
+12.3 圖形注釋(Graph annotation)
+gtext 用滑鼠在圖上標注文字
+legend 圖例說明
+plotedit 圖形編輯工具
+text 在圖上標注文字
+texlabel 將字串轉換為Tex 格式
+title 圖形標題
+xlabel X 軸名標注
+ylabel Y 軸名標注
+
+12.4 硬拷貝(Hardcopy and printing)
+orient 設置送紙方向
+print 列印圖形或把圖存入檔
+printopt 印表機設置
+
+13 三維圖形函數(Three dimensional graphs)
+
+13.1 基本三維圖形(Elementary 3－D plots)
+fill3 三維曲面多邊形填色
+mesh 三維網線圖
+plot3 三維直角坐標曲線圖
+surf 三維表面圖
+
+13.2 色彩控制(Color control)
+alpha 透明色控制
+brighten 控制色彩的明暗
+caxis (偽)顏色軸刻度
+colordef 用色風格
+colormap 設置色圖
+graymon 設置缺省圖形視窗為單色顯示幕
+hidden 消隱
+shading 圖形渲染模式
+whitebg 設置圖形視窗為白底
+
+13.3 光照模式(Lighting)
+diffuse 漫反射表面係數
+light 燈光控制
+lighting 設置照明模式
+material 使用預定義反射模式
+specular 漫反射
+surfnorm 表面圖的法線
+surfl 帶光照的三維表面圖
+
+13.4 色圖(Color maps)
+autumn 紅、黃濃淡色
+bone 藍色調灰度圖
+colorcube 三濃淡多彩交錯色
+cool 青和品紅濃淡色圖
+copper 線性變化純銅色調圖
+flag 紅－白－藍黑交錯色圖
+gray 線性灰度
+hot 黑－紅－黃－白交錯色圖
+hsv 飽和色彩圖
+jet 變異HSV 色圖
+lines 採用plot 繪線色
+pink 淡粉紅色圖
+prism 光譜色圖
+spring 青、黃濃淡色
+summer 綠、黃濃淡色
+vga 16 色
+white 全白色
+winter 藍、綠濃淡色
+
+13.5 軸的控制(Axis control)
+axes 創建軸
+axis 軸的刻度和表現
+box 座標形式在封閉式和開啟式之間切換
+daspect 軸的DataAspectRatio 屬性
+grid 畫座標格線
+hold 圖形的保持
+pbaspect 畫座標框的PlotBoxAspectRatio 屬性
+subplot 創建子圖
+xlim X 軸範圍
+ylim Y 軸範圍
+zlim Z 軸範圍
+zoom 二維圖形的變焦放大
+
+13.6 視角控制(Viewpoint control)
+rotate3d 旋動三維圖形
+view 設定3－D 圖形觀測點
+viewmtx 觀測點轉換矩陣
+
+13.7 圖形注釋(Graph annotation)
+colorbar 顯示色條
+gtext 用滑鼠在圖上標注文字
+plotedit 圖形編輯工具
+text 在圖上標注文字
+title 圖形標題
+xlabel X 軸名標注
+ylabel Y 軸名標注
+zlabel Z 軸名標注
+
+13.8 硬拷貝(Hardcopy and printing)
+orient 設置送紙方向
+print 列印圖形或把圖存入檔
+printopt 印表機設置
+verml 將圖形保存為VRML2.0 檔
+
+14 特殊圖形(Specialized graphs)
+
+14.1 特殊平面圖形(Specialized 2－D graphs)
+area 面域圖
+bar 直方圖
+barh 水準直方圖
+comet 彗星狀軌跡圖
+compass 從原點出發的複數向量圖
+errorbar 誤差棒棒圖
+ezplot 畫二維曲線
+ezpolar 畫極座標曲線
+feather 從X 軸出發的複數向量圖
+fill 多邊填色圖
+fplot 函數曲線圖
+hist 統計頻數直方圖
+pareto Pareto 圖
+pie 餅形統計圖
+plotmatrix 散點圖陣列
+scatter 散點圖
+stairs 階梯形曲線圖
+stem 火柴杆圖
+
+14.2 等高線及二維半圖形(Contour and 2－1/2D graphs)
+clabel 給等高線加標注
+contour 等高線圖
+contourf 等高線圖
+contour3 三維等高線
+ezcontour 畫等位線
+ezcontourf 畫填色等位線
+pcolor 用顏色反映資料的偽色圖
+voronoi Voronoi 圖
+
+14.3 特殊三維圖形（Specialized 3－D graphs）
+bar3 三維直方圖
+bar3h 三維水準直方圖
+comet3 三維彗星動態軌跡線圖
+ezgraph3 通用指令
+ezmesh 畫網線圖
+ezmeshc 畫等位線的網線圖
+ezplot3 畫三維曲線
+ezsurf 畫曲面圖
+ezsurfc 畫帶等位線的曲面圖
+meshc 帶等高線的三維網線圖
+meshz 帶零基準面的三維網線圖
+pie3 立體圓形圖
+ribbon 以三維形式繪製二維曲線
+scatter3 三維散點圖
+stem3 三維離散杆圖
+surfc 帶等高線的三維表面圖
+trimesh 三角剖分網線圖
+trisurf 三角剖分曲面圖
+waterfall 瀑布水線圖
+
+14.4 內剖及向量視圖(Volume and vector visualization)
+coneplot 錐體圖
+contourslice 切片等位線圖
+quiver 向量場圖
+quiver3 三維方向箭頭圖
+slice 切片圖
+
+14.5 圖像顯示及檔處理(Image display and file I/O)
+brighten 控制色彩的明暗
+colorbar 色彩條狀圖
+colormap 設置色圖
+contrast 提高圖像對比度的灰色圖
+gray 線性灰度
+image 顯示圖像
+imagesc 顯示亮度圖像
+imfinfo 獲取圖像檔的特徵資料
+imread 從檔讀取圖像的資料陣（和伴隨色圖））
+imwrite 把強度圖像或真彩圖像寫入檔
+
+14.6 影片和動畫(Movies and animation)
+capture 當前圖的屏捕捉
+frame2im 將影片動畫轉換為編址圖像
+getframe 獲得影片動畫圖像的幀
+im2frame 將編址圖像轉換為影片動畫
+movie 播放影片動畫
+moviein 影片動畫記憶體初始化
+rotate 旋轉指令
+
+14.7 顏色相關函數(Color related function)
+spinmap 顏色週期性變化操縱
+
+14.8 三維模型函數(Solid modeling)
+cylinder 圓柱面
+patch 創建塊
+sphere 球面
+Surf2patch 將曲面資料轉換為塊資料
+
+
+15 控制碼圖形(Handle Graphics)
+
+15.1 圖形窗的產生和控制(Figure window creation and control)
+clf 清除當前圖
+close 關閉圖形
+figure 打開或創建圖形視窗
+gcf 獲得當前圖的柄
+openfig 打開圖形
+refresh 刷新圖形
+shg 顯示圖形窗
+
+15.2 軸的產生和控制(Axis creation and control)
+axes 在任意位置創建軸
+axis 軸的控制
+box 座標形式在封閉式和開啟式之間切換
+caxis 控制色軸的刻度
+cla 清除當前軸
+gca 獲得當前軸的柄
+hold 圖形的保持
+ishold 若圖形處保持狀態則為真
+subplot 創建子圖
+
+15.3 控制碼圖形物件(Handle Graphics objects)
+axex 在任意位置創建軸
+figure 創建圖形視窗
+image 創建圖像
+light 創建光
+line 創建線
+patch 創建塊
+rectangle 創建方
+surface 創建面
+text 創建圖形中文本
+uicontextmenu 創建現場功能表物件
+uicontrol 用戶使用介面控制
+uimenu 用戶使用功能表控制
+
+15.4 控制碼圖形處理(Handle Graphics operations)
+copyobj 拷貝圖形物件及其子物件
+delete 刪除物件及檔
+drawnow 螢幕刷新
+findobj 用規定的特性找尋對象
+gcbf “正執行回調操作”的圖形的柄
+gcbo “正執行回調操作”的控制項圖柄指令
+gco 獲得當前對象的柄
+get 獲得物件特性
+getappdat 獲得應用程式定義資料
+isappdata 檢驗是否應用程式定義資料
+reset 重設物件特性
+rmappdata 刪除應用程式定義資料
+set 建立物件特性
+setappdata 建立應用程式定義資料
+
+15.5 工具函數(Utilities)
+closereq 關閉圖形窗請求函數
+ishandle 若是圖柄代號側為真
+newplot 下一個新圖
+
+
+16 圖形用戶介面工具(Graphical user interface tools)
+align 對齊用戶控制項和軸
+cbedit 編輯回調函數
+ginput 從滑鼠得到圖形點座標
+guide 設計GUI
+menu 創建菜單
+menuedit 功能表編輯
+propedit 屬性編輯
+uicontrol 創建用戶介面控制
+uimenu 創建用戶介面功能表
+
+
+17 字串(Character string)
+
+17.1 通用字串函數(General)
+blanks 空白字元號
+cellstr 通過字串陣列構建字串的元胞陣列
+char 創建字元傳輸組或者將其他類型變數轉化為字串陣列
+deblank 刪除最後的空格
+double 把字串變成ASCII 碼值
+eval 執行串形式的MATLAB 運算式
+
+17.2 字串查詢(String tests)
+iscellstr 若是字串組成的元胞陣列則為真
+ischar 若是字串則為真
+isletter 串中是字母則為真
+isspace 串中是空格則為真
+isstr 若是字串則為真
+
+17.3 字串操作(String operations)
+base2dec X－進制串轉換為十進位整數
+bin2dec 二進位串轉換為十進位整數
+dec2base 十進位整數轉換為X 進制串
+dec2bin 十進位整數轉換為二進位串
+dec2hex 十進位整數轉換為16 進制串
+findstr 在一個串中尋找一個子串
+hex2dec 16－進制串轉換為十進位整數
+hex2num 16－進制串轉換為浮點數
+int2str 將整數轉換為字串
+lower 把字串變成小寫
+mat2str 將陣列轉換為字串
+num2str 把數值轉換為字串
+strcat 把多個串連接成長串
+strcmp 比較字串
+strcmpi 比較字串（忽略大小寫）
+strings MATLAB 中的字串
+strjust 字串的對齊方式
+strmatch 逐行搜索串
+strnomp 比較字串的前N 個字元
+strncmpi 比較字串的前N 個字元（忽略大小寫）
+strrep 用另一個串代替一個串中的子串
+strtok 刪除串中的指定子串
+strvcat 創建字串陣列
+str2mat 將字串轉換為含有空格的陣列
+str2num 將字串轉換為數值
+upper 把字串變成大寫
+
+
+18 檔輸入/輸出(File input/output)
+clc 清除指令視窗
+disp 顯示矩陣和文字內容
+fprintf 把格式化資料寫到檔或螢幕
+home 游標返回行首
+input 提示鍵盤輸入
+load 從磁片中調入資料變數
+pause 暫停
+sprintf 寫格式資料到串
+sscanf 在格式控制下讀串
+
+
+19 時間和日期(Time and dates)
+clock 時鐘
+cputme MATLAB 佔用CPU 時間
+date 日期
+etime 用CLOCK 計算的時間
+now 當前時鐘和日期
+pause 暫停
+tic 碼錶啟動
+toc 碼錶終止和顯示
+
+
+20 資料類型(Data types and structures)
+
+20.1 資料類型(Data types)
+cell 創建元胞變數
+char 創建字元傳輸組或者將其他類型變數轉化為
+字串陣列
+double 轉化為16 位相對精度的浮點數值物件
+function handle 函數控制碼
+inline 創建內聯函數
+JavaArray 構建Java 陣列
+JavaMethod 調用某個Java 方法
+JavaObject 調用Java 物件的構造函數
+single 轉變為單精確度數值
+sparse 創建稀疏矩陣
+struct 創建構架變數
+uint8(unit16、unit32) 轉換為8(16、32)位元無符號整型數
+int8(nit16、nit32) 轉換為8(16、32)位元符號整型數
+
+20.2 多維陣列函數(Multi－dimensional array functions)
+cat 把若干陣列串接成高維陣列
+ndims 陣列A 的維數
+ndgrid 為N－D 函數和插補創建陣列
+ipermute 廣義反轉置
+permute 廣義非共軛轉置
+shiftdim 維數轉換
+squeeze 使陣列降維
+
+20.3 元胞陣列函數(Cell array functions)
+cell 創建元胞變數
+celldisp 顯示元胞陣列內容
+cellfun 元胞陣列函數
+cellplot 圖示元胞陣列的內容
+cell2struct 把元胞陣列轉換為構架陣列
+deal 把輸入分配給輸出
+is cell 若是元胞則為真
+num2 cell 把數值陣列轉換為元胞陣列
+struct2 cell 把構架陣列轉換為元胞陣列
+
+20.4 構架函數(Structure functions)
+fieldnames 獲取構架的功能變數名稱
+getfield 獲取域的內容
+isfield 若為給定構架的功能變數名稱則為真
+isstruct 若是構架則為真
+rmfield 刪除構架的域
+setfield 指定構架域的內容
+struct 創建構架變數
+
+20.5 函數控制碼函數(Function handle functions)
+@ 創建函數控制碼
+functions 列舉函數控制碼對應的函數
+func2str 將函數控制碼陣列轉換為字串
+str2func 將字串轉換為函數控制碼
+
+20.6 面向物件編程(Object oriented programming functions)
+dlass 查明變數的類型
+isa 若是指定的資料類型則為真
+inferiorto 級別較低
+isjava 若是java 對象則為真
+isobject 若是對象則為真
+methods 顯示類的方法名
+substruct 創建構架總量
+superiorto 級別較高
+
+
+21 示例(E xamples and demonstrations)
+demo 演示程式
+flow 無限大水體中水下射流速度資料
+intro 幻燈演示指令
+peaks 產生peaks 圖形資料
+
+
+22 符號工具包(Symbolic Math Toolbox)
+
+22.1 微積分(Calculus)
+diff 求導數
+limit 求極限
+int 計算積分
+jacobian Jacobian 矩陣
+symsum 符號序列的求和
+trylor Trylor 級數
+
+22.2 線性代數(Linear Algebra)
+det 行列式的值
+diag 創建對角陣，抽取對角向量
+eig 矩陣特徵值和特徵向量
+expm 矩陣指數
+inv 矩陣的逆
+jordan Jordan 分解
+null 零空間
+poly 特徵多項式
+rank 秩
+rref 轉換為行階梯形
+svd 奇異值分解
+tril 抽取下三角陣
+triu 抽取上三角陣
+
+22.3 化簡(Simplification)
+collect 合併同類項
+expand 對指定項展開
+factor 進行因式或因數分解
+horner 轉換成嵌套形式
+numden 提取公因式
+simple 運用各種指令化簡符號運算式
+simplify 恒等式簡化
+subexpr 運用符號變數置換子運算式
+subs 通用置換指令
+
+22.4 方程求解(Solution of Equation)
+compose 求復函數
+dsolve 求解符號常微分方程
+finverse 求反函數
+fminunc 擬牛頓法求多元函數極值點
+fsolve 解非線性方程組
+lsqnonlin 解非線性最小二乘問題
+solve 求解方程組
+
+22.5 變數精度(Variable Precision Arithmetic)
+digits 設置今後數值計算以n 位相對精度進行
+vpa 給出數值型符號結果
+
+22.6 積分變換(Integral Transforms)
+fourier Fourier 變換
+ifourier Fourier 反變換
+ilaplace Ilaplace 反變換
+iztrans Z 反變換
+laplace Ilaplace 變換
+ztrans Z 變換
+
+22.7 轉換(Conversions)
+char 把符號物件轉化為字串陣列
+double 把符號常數轉化為16 位相對精度的浮點數值
+對象
+poly2sym 將多項式轉換為符號多項式
+sym2poly 將符號多項式轉換為係數向量
+
+22.8 基本操作(Basic Operation)
+ccode 符號運算式的C 碼運算式
+findsym 確認運算式中符號“變數”
+fortran 符號運算式的fortran 運算式
+latex 符號運算式的LaTex 表示
+pretty 習慣方式顯示
+sym 定義基本符號物件
+syms 定義基本符號物件
+
+22.9 串處理函數(String handling utilities)
+isvarname 檢查是否為有效的變數名
+vectorize 將字串運算式或內聯函數物件向量化
+
+22.10 圖形應用(Pedagogical and Graphical Applications)
+ezcontour 畫等位線
+ezcontourf 畫填色等位線
+ezmesh 畫網線圖
+ezmeshc 帶等位線的網線圖
+ezplot 繪製符號運算式的圖形
+ezplot2 畫三維曲線
+ezpolar 畫極座標曲線
+ezsurf 畫曲面圖
+ezsurfc 畫帶等位的曲面圖
+funtool 函數計數器
+rsums Riemann 求和
+taylortool Taylor 級數計數器
+
+22.11 Maple 介面(Access to Maple)
+maple 進入MAPLE 工作空間計算
+mfun 對MAPLE 中若干經典特殊函數實施數值計算
+mfunlist 能被mfun 計算的MAPLE 經典特殊函數列表
+mhelp 查閱MAPLE 中的庫函數及其調用方法
+procread 把按MAPLE 格式寫的根源程式讀入MAPLE 工作空
+間
+
+23 其他
+bode 波特圖
+butter Butter Worth 低通道濾波器
+gplot 拓撲圖
+hosted MAPLAB 服務中心識別號
+impulse 沖激回應
+isparse 若是稀疏矩陣則為真
+lsim 任意輸入下的回應
+ltiview 回應分析的圖形用戶介面
+matlabrc MAPLAB 的主啟動檔
+mbuild 獨立可執行檔編譯器預配置及創建
+mcc 編譯巨集指令
+mex 把C 碼檔編譯成MEX 檔
+mineral 消去傳遞函數分子、分母公因數
+nyquist Nyquist 圖
+rlocus 跟軌跡
+setstr 把ASCII 碼翻譯成串
+sim 運行SIMULINK 模型
+ss 利用狀態方程四對組生成LTI 物件
+simulink 打開SIMULINK 集成視窗
+ssdata 從LTI 物件獲取狀態方程四對組
+startup 啟動MATLAB 時的自動執行M 檔
+step 單位階躍回應
+tf 利用傳遞函數二對組生成LTI 物件
+tfdata 從LTI 物件獲取傳遞函數二對組
+zpk 利用零極點增益三對組生成LTI 物件
+zpkdata 從LTI 對象獲取零極點增益三對組
+loodfor 關鍵字檢索
+notebood 創建或打開M－book 文件
+
+對照表結束

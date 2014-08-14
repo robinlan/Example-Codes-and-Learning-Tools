@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>  
+<html><head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+window.onload = function() {
+	alert("整個畫面用於顯示以及編輯筆記。儲存以及讀檔都利用選單(Menu)來進行操作。");
+	// 設定選單項目
+	droid.setMenuItem(0, true, "Save", "", menuSave);
+	droid.setMenuItem(1, true, "Load", "", menuLoad);
+	droid.setMenuItem(2, true, "Clear", "", menuClear);
+	// 程式結束時自動儲存資料
+	droid.addEventListener("pause", function(){
+		droid.saveText("autosave", $("body").value);
+	});
+	// 讀入自動儲存的資料
+	if (droid.fileExists("autosave")) {
+		$("body").value = droid.loadText("autosave");
+	}
+};
+function menuClear() { // 畫面的初始化
+	$("body").value = "";
+}
+function menuSave() { // 觸碰選單上的「Save」選項時的處理
+	var text = $("body").value;
+	// 第一行為標題
+	var head = text.split("\n")[0];
+	// 儲存文字檔
+	droid.saveText(head, text);
+	alert("儲存成功!");
+}
+function menuLoad() {　// 觸碰選單上的「Load」時的處理
+	var files = droid.fileList();
+	if (!files) return; // 若沒有檔案的話則不做任何處理
+	var f = droid.dialogList("要讀入那個筆記檔呢？", files);
+	if (!f) return; // 若按取消鍵則不做任何處理
+	$("body").value = droid.loadText(f); // 讀入檔案
+	alert("讀檔成功");
+}
+</script>	
+<style>
+    *         { margin:0px; padding: 0px; font-size:12px; }
+    textarea  { font-size:18px; width:100%; height:100%; position:absolute; }
+</style>
+</head><body bgcolor="#eee">
+<textarea id="body">這邊是筆記內容</textarea>
+</body></html>

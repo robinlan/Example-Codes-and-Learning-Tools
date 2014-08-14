@@ -1,0 +1,6 @@
+¶i¦æ½sÄ¶...
+ 
+  C:\PROGRA~1\MATLAB\R2011A\BIN\MEX.PL: Error: Could not find specified options file 
+    'C:\Program Files\MATLAB\R2011a\bin\win32\mexopts\msvc60engmatopts.bat'. 
+ 
+Error in running matlabEngine03! (Logged to error.log)

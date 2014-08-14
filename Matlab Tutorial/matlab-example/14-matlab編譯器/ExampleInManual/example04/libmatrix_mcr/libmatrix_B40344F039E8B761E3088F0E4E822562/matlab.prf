@@ -1,0 +1,27 @@
+#MATLAB Preferences
+#Sun Feb 03 01:36:43 CST 2008
+EditorRegEditorOptionsPanel=S
+EditorBuiltinEditor=Bfalse
+FileBrowserFiveColumnWidths=S[150 100 75 150 400]
+EditorRegisteredEditor=Bfalse
+EditorAutoTerminateLastLine=Bfalse
+EditorRegEditorComboboxEntry=S
+GeneralEightyColumns=Bfalse
+MatlabExitConfirm=Bfalse
+RLOrderB2_Wb_B2=S0:1:2:
+GeneralNumFormat2=Sshort
+GeneralNumDisplay=Sloose
+EditorOtherEditorTextFieldEntry=SC:\\Program Files\\UltraEdit\\Uedit32.exe
+RLWidthB2_Wb_B2_2=I125
+EditorAutoReloadFiles=Btrue
+EditorRegEditorImplementingClass=S
+RLWidthB2_Wb_B2_1=I125
+RLWidthB2_Wb_B2_0=I125
+EditorMRUSize=I4
+RLPrevInitB2_Wb_B2=Btrue
+MatlabErrorLogReportTime=J4694547318305752448
+CommandWindowClearConfirmation=Btrue
+RLHiddenB2_Wb_B2=I24
+FileBrowserFiveColumnOrder=S[0 1 2 3 4]
+EditorReloadFiles=Btrue
+EditorOtherEditor=SC:\\Program Files\\UltraEdit\\Uedit32.exe

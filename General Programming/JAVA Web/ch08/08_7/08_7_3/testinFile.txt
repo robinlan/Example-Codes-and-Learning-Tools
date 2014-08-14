@@ -1,0 +1,3 @@
+I am the contents of the testFile
+I am the contents of the testFile
+我是testFile之中文內容

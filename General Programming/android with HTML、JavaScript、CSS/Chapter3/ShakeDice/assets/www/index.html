@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="jsWaffle.js"></script>
+    <script>
+    	// 隨機顯示1～6的數字
+    	function dice() {
+            var r = Math.floor(Math.random() * 6) + 1;
+            alert(r);
+		}
+        droid.watchShake(dice);  // 註冊晃動事件
+		document.onclick = dice; // 註冊觸控畫面的事件
+    </script>
+</head>
+<body>
+    <h1>晃動擲骰</h1>
+</body>
+</html>

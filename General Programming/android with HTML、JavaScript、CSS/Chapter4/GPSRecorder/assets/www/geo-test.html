@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+	var s = "";
+	droid.watchPosition(
+		function (position){
+			// 從位置中取出資訊
+			var lat = position.coords.latitude;  // 緯度
+			var lon = position.coords.longitude; // 經度
+			var acc = position.coords.accuracy;  // 精確度(m)
+			var alt = position.coords.altitude;  // 標高
+			// 在畫面上顯示資訊
+			var url = "geo:" + lat + "," + lon + "," + acc;
+			s += "<a href='" + url + "'>" + url + "</a><br/>";
+			$("info").innerHTML = s;
+		},
+		function(err){
+			alert("失敗:" + err);
+		});
+</script>
+</head>
+<body>
+	<h1>GPS LOG:</h1>
+	<div id="info"></div>
+</body>
+</html>

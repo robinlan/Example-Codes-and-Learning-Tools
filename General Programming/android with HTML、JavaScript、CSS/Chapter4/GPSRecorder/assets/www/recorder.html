@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+window.onload = function() {
+	var save_dir = "/sdcard/GPSRecorder/"; // 儲存資料的目錄
+	var last_save_hour = -1;               // 最後儲存資料的時間
+	var last_recv_time = 0;                // 上一次取得資料的時間
+	var record_interval = 1000 * 30;       // 每30秒記錄一次
+	var geos = [];                         // GPS的資料
+	droid.mkdir(save_dir);
+	loadLogFromFile();
+	// 開始監測位置資訊
+	droid.watchPosition(locationHandler);
+	// 收到GPS資訊時的處理
+	function locationHandler(position){
+		// 不要頻繁的進行記錄
+		var now = new Date(); // 現在時間
+		if (now.getTime() - last_recv_time < record_interval) return;
+		last_recv_time = now.getTime();
+		// 將位置資訊由物件中取出
+		var lat = position.coords.latitude;  // 緯度
+		var lon = position.coords.longitude; // 經度
+		var acc = position.coords.accuracy;  // 精確度(m)
+		// 每小時將資訊存到檔案中
+		if (last_save_hour < 0) last_save_hour = now.getHours();
+		if (now.getHours() != last_save_hour) {
+			saveLogToFile(); // 儲存
+			geos = [];    //初始化
+			last_save_hour = now.getHours();
+		}
+		// 將位置資訊存放在geos陣列變數中
+		geos.push([now.getTime(), lat, lon, acc]);
+		showLog(); // 更新畫面
+	}
+	// 更新畫面
+	function showLog() {
+		var s = "";
+		for (var i in geos) {
+			var a = geos[i];
+			var time_i = a[0], lat = a[1], lon = a[2], acc = a[3];
+			var t = new Date(); t.setTime(time_i);
+			var url = "geo:" + lat + "," + lon + "," + acc;
+			var time_s = keta(t.getHours()) + ":" + keta(t.getMinutes()) +
+				":" + keta(t.getSeconds());
+			s += "[" + time_s + "] <a href='" + url + "'>" + url + "</a>";
+		}
+		$("info").innerHTML = s;
+	}
+	// 將數字整理為兩位數
+	function keta(num) {
+		var s = "00" + num;
+		return s.substr(s.length - 2, 2);
+	}
+	// 依照時間來產生日誌檔(Log)的檔名
+	function getLogFileName(time_i) {
+		var t = new Date();
+		t.setTime(time_i); // 取得儲存時的時間
+		return save_dir + keta(t.getMonth()) + "-" + 
+			keta(t.getDate()) + "_" + keta(t.getHours()) + ".json";
+	}
+	// 將現在的資料儲存到檔案中
+	function saveLogToFile() {
+		var json = droid.stringify(geos); // 轉換為JSON格式
+		droid.saveText(getLogFileName(geos[0][0]), json); // 儲存到檔案
+		droid.log("save:" + getLogFileName());
+	}
+	// 若是先前的日誌檔存在則將資料附加在後面
+	function loadLogFromFile() {
+		var fname = getLogFileName(new Date().getTime());
+		if (droid.fileExists(fname)) {
+			var json = droid.loadText(fname);
+			geos = eval("(" + json + ")");
+			showLog();
+		}
+	}
+	// 程式結束(或休眠)前將資料存放到檔案中
+	droid.addEventListener("pause", saveLogToFile);
+	// 程式起動時(或從休眠返回時)將檔案資料讀入
+	droid.addEventListener("resume", loadLogFromFile);
+};
+</script>
+</head>
+<body>
+	<h1>GPS LOG:</h1>
+	<div id="info"></div>
+</body>
+</html>

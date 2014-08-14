@@ -1,0 +1,7 @@
+{Warning: Function failed to evaluate on array inputs; vectorizing the function may
+speed up its evaluation and avoid the need to loop over array elements.} 
+{> In <a href="matlab: opentoline('C:\Program Files\MATLAB\R2012a\toolbox\matlab\specgraph\ezplot.m',483,1)">ezplot>ezplot1 at 483</a>
+  In <a href="matlab: opentoline('C:\Program Files\MATLAB\R2012a\toolbox\matlab\specgraph\ezplot.m',145,1)">ezplot at 145</a>
+  In <a href="matlab: opentoline('D:\users\jang\books\matlabProgramming4guru\example\08-一般數學函數的處理與分析\ezplot01.m',1,1)">ezplot01 at 1</a>
+  In <a href="matlab: opentoline('D:\users\jang\books\goWriteOutputFile.m',75,1)">goWriteOutputFile>dummyFunction at 75</a>
+  In <a href="matlab: opentoline('D:\users\jang\books\goWriteOutputFile.m',52,1)">goWriteOutputFile at 52</a>} 

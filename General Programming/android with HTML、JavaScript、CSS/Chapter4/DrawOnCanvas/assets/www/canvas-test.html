@@ -1,0 +1,21 @@
+﻿<!-- (*1) 宣告canvas 標籤 -->
+<canvas id="a_canvas" width="300" height="300"></canvas>
+<script>
+	// (*2) 取得畫布(Canvas)物件
+	var a_canvas = document.getElementById("a_canvas");
+	// (*3) 取得繪圖用的本文物件(Context)
+	var context = a_canvas.getContext("2d");
+	// (*4) 指定路徑
+	context.beginPath();
+	context.moveTo(20, 20);
+	context.lineTo(280,280);
+	context.lineTo(250,50);
+	context.closePath();
+	// (*5) 依照路徑來繪製出線段
+	context.strokeStyle = "red";
+	context.lineWidth = 5;
+	context.stroke();
+	// 依照線段來進行塗滿
+	context.fillStyle = "yellow";
+	context.fill();
+</script>

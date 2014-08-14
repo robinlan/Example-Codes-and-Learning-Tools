@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<cars>
+<car id="1001" country="日本">
+<name>汽車</name>
+<price>150</price>
+<description>最多可以坐五個人。是<em>家用</em>車。</description>
+<img file="car1.jpg"/>
+</car>
+<car id="2001" country="日本">
+<name>卡車</name>
+<price>500</price>
+<description>可以用來<em>搬運貨物</em>。是<em>工作用</em>車。</description>
+<img file="car2.jpg"/>
+</car>
+<car id="1005" country="USA">
+<name>跑車</name>
+<price>200</price>
+<description>晴天時可以打開天窗。是<em>休閒用</em>車。</description>
+<img file="car3.jpg"/>
+</car>
+</cars>
+

@@ -1,0 +1,6 @@
+friend[0].name = 張永森
+friend[0].phone = 2796.000000
+friend[1].name = 陳永承
+friend[1].phone = 3425.000000
+friend[2].name = 黃光立
+friend[2].phone = 3213.000000

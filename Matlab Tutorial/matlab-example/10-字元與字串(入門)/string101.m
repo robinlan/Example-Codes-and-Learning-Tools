@@ -1,0 +1,1 @@
+sentence = 'Draft beer, not people'	% 建立字串變數 sentence

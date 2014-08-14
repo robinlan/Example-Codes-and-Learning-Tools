@@ -1,0 +1,7 @@
+matLibInitialize
+matLibInitializeWithHandlers
+matLibTerminate
+mlxMyMatInv
+mlfMyMatInv
+mlxMyMatMultiply
+mlfMyMatMultiply

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><body>
+  <!-- 定義id為a_div的DIV標籤 -->
+  <div id="a_div"> *** </div>
+  <!-- (*1) 執行切換畫面的按鍵 -->
+  <button onclick="showMessage()">執行畫面內容更換</button>
+  <script type="text/javascript">
+    // (*2) 按下按鍵時執行的函式
+    function showMessage() {
+      var a_div = document.getElementById("a_div");
+      a_div.innerHTML = "<h1>利用JavaScript更換畫面內容</h1>" +
+                        "<p>更換畫面以及HTML中的各元素" +
+                        "相當<strong>簡單</strong></p>";
+    }
+  </script>
+</body></html>

@@ -1,0 +1,11 @@
+There are 2 matched substrings:
+	1: Matched substring="bet there is a bat"
+		3 matched substrings in the parentheses:
+			"e"
+			" there is a "
+			"a"
+	2: Matched substring="boat for bait"
+		3 matched substrings in the parentheses:
+			"oa"
+			" for "
+			"ai"

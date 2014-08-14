@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>  
+<html><head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+	var a_canvas = $("a_canvas");
+	var context = a_canvas.getContext("2d");
+	var old_x, old_y, last_x, last_y, width;
+	var drawing = false;
+	a_canvas.width = document.width;
+	a_canvas.height = document.height;
+	// 若相同的位置有筆畫過，則將筆觸設為較粗
+	setInterval(function(){
+		if (!drawing) return;
+		if (getDistance(last_x, last_y, old_x, old_y) < 6) {
+			width += 2;
+			if (width > 13) width = 13;
+		}
+		last_x = old_x; last_y = old_y;
+	}, 150);
+	// 觸控事件
+	a_canvas.ontouchstart = function(event) {
+		old_x = event.touches[0].pageX; // 設定開始點
+		old_y = event.touches[0].pageY;
+		event.preventDefault(); // 取消原先的事件
+		width = 2; drawing = true;
+	};
+	a_canvas.ontouchend = function(){ drawing = false; };
+	a_canvas.ontouchmove = function(event) {
+		var x = event.touches[0].pageX; // 參照描繪點
+		var y = event.touches[0].pageY;
+		// 依照描繪的距離將筆觸設為較細
+		width = width - (getDistance(x,y,old_x,old_y)*0.08);
+		if (width < 2) width = 2;
+		context.lineWidth =  width;
+		// 將先前的描繪點以及現在的描繪點以直線連線
+		context.strokeStyle = "black";
+		context.lineCap = "round";
+		context.beginPath();
+		context.moveTo(old_x, old_y);
+		context.lineTo(x, y);
+		context.stroke();
+		context.closePath();
+		old_x = x;
+		old_y = y; // 為了下次的描繪將目前的描繪點儲存起來
+		event.preventDefault();
+	};
+	function getDistance(x1, y1, x2, y2) { // 計算兩點間的距離
+		return Math.abs(x2-x1) + Math.abs(y2-y1);
+	}
+};
+// 若是畫面的尺寸有變化則畫布的尺寸也要變更
+window.onresize = function () {
+	a_canvas.width = document.width;
+	a_canvas.height = document.height;
+};
+// 為了起動時沒有發生onresize的裝置所加的設定
+setTimeout(function(){
+	a_canvas.width = document.width;
+	a_canvas.height = document.height;
+}, 1000);
+</script>
+<style> * { margin:0; padding:0; } </style>
+</head><body>
+	<canvas id="a_canvas"></canvas>
+</body></html>

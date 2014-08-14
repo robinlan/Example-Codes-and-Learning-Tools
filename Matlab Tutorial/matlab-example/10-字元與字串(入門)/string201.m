@@ -1,0 +1,1 @@
+departments = ['ee  '; 'cs  '; 'econ']	% 注意「[]」、「;」及空白字元的使用

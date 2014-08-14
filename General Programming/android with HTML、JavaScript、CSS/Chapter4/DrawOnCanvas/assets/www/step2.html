@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>  
+<html><head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+	var savepath = "file:/sdcard/DrawOnCanvas.png";
+	var a_canvas = $("a_canvas");
+	var context = a_canvas.getContext("2d");
+	var old_x = 0, old_y = 0;
+	a_canvas.width = document.width;
+	a_canvas.height = document.height;
+	// 觸控事件開始時
+	a_canvas.ontouchstart = function(event) {
+		old_x = event.touches[0].pageX; // 設定開始點
+		old_y = event.touches[0].pageY;
+		event.preventDefault(); // 取消原先的事件
+	};
+	// 正在觸碰時
+	a_canvas.ontouchmove = function(event) {
+		var x = event.touches[0].pageX; // 取得描繪點的位置
+		var y = event.touches[0].pageY;
+		// 將先前的描繪點以及現在的描繪點以直線連線
+		context.strokeStyle = "red";
+		context.lineWidth = 3;
+		context.beginPath();
+		context.moveTo(old_x, old_y);
+		context.lineTo(x, y);
+		context.stroke();
+		context.closePath();
+		old_x = x;　// 為了下次的描繪將目前的描繪點儲存起來
+		old_y = y;
+		event.preventDefault();
+	};
+	// 初始化選單加上儲存以及載入選項
+	droid.setMenuItem(0, true, "Clear", "ic_menu_delete", function(){
+		context.clearRect(0,0,a_canvas.width, a_canvas.height);
+	});
+	droid.setMenuItem(1, true, "Save", "ic_menu_save", function(){
+		droid.snapshotToFile(savepath);
+		alert("儲存成功。");
+	});
+	droid.setMenuItem(2, true, "Load", "ic_menu_view", function(){
+		var img = new Image();
+		img.onload = function() { context.drawImage(img, 0, 0); };
+		img.src = savepath;
+	});
+};
+</script>
+<style> * { margin:0; padding:0; } </style>
+</head><body>
+	<canvas id="a_canvas"></canvas>
+</body></html>

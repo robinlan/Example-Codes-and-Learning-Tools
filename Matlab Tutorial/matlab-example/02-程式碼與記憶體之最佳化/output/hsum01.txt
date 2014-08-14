@@ -1,0 +1,2 @@
+MATLAB version = 8.1.0.604 (R2013a)
+time1 = 0.842769, time2 = 0.612797, speedup factor = 1.37528

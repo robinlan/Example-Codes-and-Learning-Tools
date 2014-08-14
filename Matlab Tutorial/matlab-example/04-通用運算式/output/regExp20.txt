@@ -1,0 +1,4 @@
+There are 3 matched substrings:
+	1: matched="bet", token="e"
+	2: matched="bat", token="a"
+	3: matched="boat", token="oa"

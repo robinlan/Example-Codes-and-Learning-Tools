@@ -1,0 +1,13 @@
+/** jsWaffle demo CSS */
+*  { padding:0; margin:0; }
+h1 { background-color: #990000; color: white; padding:8px; text-align: center; }
+h2 { background-color: #990000; color: white; padding:4px; }
+body { background-color: black; color: white; font-size:12px; }
+.pageHeader { clear:both; }
+.header_btn { position:absolute; left:4px; top:9px; padding:6px; background-color: #944; -webkit-border-radius:6px; }
+.header_btn > a { color:white; text-decoration:none; }
+#func button { width: 150px; margin: 3px; padding:3px; }
+#disp div { height: 16px; padding: 1px; }
+div.buttons { margin-left:auto; margin-right:auto; padding:9px; text-align:center; font-size:18px; }
+div.buttons > button { padding:6px; margin:6px; width: 90%; }
+div.disp { background-color:#FFCCCC; color:#009; font-size:16px; padding: 16px; margin: 16px;}

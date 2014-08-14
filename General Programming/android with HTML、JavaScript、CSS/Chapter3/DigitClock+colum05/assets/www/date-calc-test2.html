@@ -1,0 +1,9 @@
+<meta charset="UTF-8" />
+<script>
+var yotei = new Date(2022, 11-1, 22);
+var today = new Date();
+var diff = yotei.getTime() - today.getTime();
+var SERIAL_1DAY = (24 * 60 * 60 * 1000);
+var diff_date = Math.ceil(diff / SERIAL_1DAY);
+alert("還有、" + diff_date + " 天!!");
+</script>

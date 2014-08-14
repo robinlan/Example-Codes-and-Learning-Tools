@@ -1,0 +1,148 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+}
+td {
+	padding: 4px;
+}
+input.txt, textarea {
+	width: 100%;
+	border: 1px dotted #c8c8ff;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-size: 16px;
+	color: #993366;
+}
+input:focus {
+	border: 1px solid #0070a6;
+}
+textarea:focus {
+	border: 1px solid #0070a6;
+}
+.center_block {
+	width: 640px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid gray;
+	background-color: #ffffff;
+}
+.logo {
+	border-bottom: 1px solid gray;
+}
+.toolbar {
+	width: 100%;
+	height: auto;
+	margin-bottom: 16px;
+	background-color: #cfcfcf;
+	font-size: 12px;
+}
+.toolbar a {
+	background-color: rgb(240,240,240);
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border: 1px solid gray;
+}
+.func{
+	text-align: center;
+}
+.func a{
+	padding:4px;
+	color:rgb(136,196,255);
+}
+.func a:hover{
+	color:rgb(0,94,187);
+	background-color: #ffffff;
+}
+.toolbar a:hover {
+	border: 1px solid red;
+	color:rgb(0,0,255);
+	background-color: #ffffff;
+}
+.input_table {
+	line-height: 1.5;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	border: 1px dotted #c8c8ff;
+	background-color: #f7f7f7;
+	-moz-border-radius: 15px;
+}
+.col_head_title {
+	text-align: center;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	font-size: 12px;
+	color: #ffffff;
+	background-color: #0099cc;
+	-moz-border-radius: 15px;
+}
+.col_title {
+	text-align: right;
+	font-weight: bold;
+}
+.col_title2 {
+	text-align: center;
+	font-weight: bold;
+}
+.col {
+	width: 180px;
+}
+.input_btn {
+	width: 80px;
+	padding: 1px;
+	font-size: 16px;
+	border: 1px outset #c8c8ff;
+	background-color: #ffff95;
+}
+.copyright {
+	width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border: 1px solid gray;
+	border-top: 0px solid gray;
+	font-size: 10px;
+	color: rgb(0,0,0);
+	font-family: Verdana, Arial;
+	text-align: center;
+	background-color: #cfcfcf
+}
+.list {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+.list td {
+	color: rgb(80,80,80);
+	padding: 2px;
+	border: 1px solid rgb(240,240,240);
+}
+.list td:hover {
+	background-color: rgb(255,255,153);
+	color: #000000;
+}
+.list th {
+	padding: 2px;
+	border: 1px solid rgb(240,240,240);
+	color: #ffffff;
+	background-color: #0099cc;
+}
+.eng {
+	font-family: Verdana, Arial;
+	font-size: 11px;
+}
+tr.view {
+	border-bottom: 1px solid #0070a6;
+}
+.nav {
+	font-family: Verdana, Arial;
+	font-size: 12px;
+}

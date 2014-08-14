@@ -1,0 +1,11 @@
+﻿<meta charset="UTF-8" />
+<script>
+var date = new Date(2012, 0, 1);     // 建立表示2012年1月1日的Data物件
+var t = date.getTime();              // 取得表示時間的毫秒值
+t = t - (3 * 24 * 60 * 60 * 1000);   // 將取得的值減去三天的時間
+date.setTime(t);                     // 設定新的時間值
+alert(
+	date.getFullYear() + "年" + 
+	(date.getMonth() + 1) + "月" + 
+	date.getDate() + "日");
+</script>

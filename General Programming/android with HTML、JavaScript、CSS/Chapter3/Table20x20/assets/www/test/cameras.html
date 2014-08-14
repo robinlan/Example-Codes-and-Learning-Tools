@@ -1,0 +1,106 @@
+<!DOCTYPE html>  
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../res/demo.css" />
+	<script type="text/javascript" src="../jsWaffle.js"></script>
+	<script type="text/javascript" src="../res/demo-common.js"></script>
+	<script type="text/javascript">
+		function init() {
+			$("ver").innerHTML = droid.getWaffleVersion();
+			setMyMenuItem();
+		}
+	</script>
+</head>
+<body onload="init()">
+	<!-- title -->
+	<div class="pageHeader">
+		<div class="header_btn"><a href="../index.html">&lt; Back</a></div>
+		<h1>jsWaffle DEMO</h1>
+	</div>
+	<!-- logo -->
+	<div id="logo">
+		<div style="text-align:center;">
+			<a href="../index.html">
+				<img src="../res/logo150.png">
+			</a>
+		</div>
+		<div style="text-align:center;margin-bottom:8px;">jsWaffle ver.<span id="ver" ></span></div>
+	</div>
+	
+	<!-- *** sample *** -->
+	<h2>Camera/Video</h2>
+	<div class="buttons">
+		<button onclick="TestCamera()">Camera</button>
+		<button onclick="TestCameraMail()">Camera+Mail</button>
+		<button onclick="TestVideo()">Video</button>
+	</div>
+	<script>
+		function TestCamera() {
+			droid.startIntentForResult(
+				"camera:/sdcard/hoge.jpg",
+				function(code){
+					if (code == 0) {
+						alert("canceled"); return;
+					}
+					droid.startIntent("file:///sdcard/hoge.jpg");
+				});
+		}
+		function TestCameraMail() {
+			droid.startIntentForResult(
+				"camera:/sdcard/hoge.jpg",
+				function(code){
+					if (code == 0) {
+						alert("canceled"); return;
+					}
+					var subject = encodeURI("[画像]");
+					droid.startIntent("mailto:test@example.com?subject="+subject+"&attach=/sdcard/hoge.jpg");
+				});
+		}
+		function TestVideo() {
+			//TODO:not supported
+			droid.startIntentForResult(
+				"video:/sdcard/hoge.mpg",
+				function(code){
+					if (code == 0) {
+						alert("canceled"); return;
+					}
+					droid.startIntent("file:/sdcard/hoge.mpg");
+				});
+		}
+		function TestRecorder() {
+			droid.startIntentForResult(
+				"record:/sdcard/audio.3gp",
+				function(code){
+					if (code == 0) {
+						alert("canceled"); return;
+					}
+					droid.startIntent("file:/sdcard/audio.3gp");
+				});
+		}
+	</script>
+	
+	<h2>Barcode(QR/1D)</h2>
+	<div class="buttons">
+		<button onclick="TestBarcode2d()">Scan QRCode</button>
+		<button onclick="TestBarcodeAuto()">Scan Barcode(Auto)</button>
+	</div>
+	<script>
+		function TestBarcode2d() {
+			droid.scanQRCode(function(str){
+				alert(str);
+			}, true);
+		}
+		function TestBarcodeAuto() {
+			droid.scanBarcode(function(str){
+				alert(str);
+			}, true);
+		}
+	</script>	
+	
+	<h2>Other Sample</h2>
+	<div class="buttons">
+		<button onclick="location.href='../index.html'">Back</button>
+	</div>
+</body>
+</html>

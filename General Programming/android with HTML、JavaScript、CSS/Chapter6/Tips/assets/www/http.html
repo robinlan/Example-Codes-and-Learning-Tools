@@ -1,0 +1,30 @@
+<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript">
+function updateInfo() {
+	$("info").innerHTML = "讀取資料中。請稍候。";
+	droid.httpGet(
+		"http://api.aoikujira.com/kawase/json/usd", 
+		onSuccess, onError);
+	function onSuccess(txt) {
+		var obj = eval("(" + txt + ")");
+		var twd = obj["TWD"];
+		var aud = 1 / obj["AUD"] * twd;
+		var cny = 1 / obj["CNY"] * twd;
+		$("info").innerHTML = 
+			"<p>一美元=" + twd + "元<p>" +
+			"<p>一澳幣=" + aud + "元</p>" +
+			"<p>一人民幣=" + cny + "元<p>";  
+	}
+	function onError() {
+		$("info").innerHTML = "讀取資料失敗";
+	}
+}
+// 設定可以由選單進行更新
+droid.setMenuItem(0,true,"更新","",updateInfo);
+</script>
+</head><body onload="updateInfo()">
+	<h1>匯率資訊</h1>
+	<div id="info"></div>
+</body></html>

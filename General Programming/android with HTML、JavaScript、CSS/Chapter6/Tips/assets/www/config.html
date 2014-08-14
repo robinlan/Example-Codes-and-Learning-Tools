@@ -1,0 +1,56 @@
+<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<style>
+	* { margin:0px; padding: 0px; font-size:16px; font-weight:normal; }
+	body { background-color:black; color:white; }
+	h1 { background-color:#181818; color: #b0b0b0; padding:4px; }
+	.item { border-bottom: solid 2px #303030; padding: 8px 8px 8px 25px; }
+	.item > h2  { font-size:24px; padding: 6px 0 6px 0; }
+	.item > p   { color: #b0b0b0; padding:0 0 0 3px; }
+	.item > img { width: 46px; height: 46px; float:right; border:none; }
+</style>
+<script type="text/javascript">
+window.onload = function () {
+	setCBox("item1", pref_getBool("item1", true));  // 設定初始值
+	setCBox("item2", pref_getBool("item2", false));
+};
+// 核選方塊的操作
+function setCBox(id, value) {
+	$(id).src = value ? "chk-on.png" : "chk-off.png"; // 設定圖片
+	droid.pref_set(id, value);                        // 儲存設定
+}
+function tapCBox(id) { // 反轉核選方塊的值
+	setCBox(id, !pref_getBool(id));
+}
+function pref_getBool(id, defaultValue) { // 取得設定的布林值(true/false)
+	var str = droid.pref_get(id, defaultValue);
+	return (str == "true");
+}
+// 音量的選擇
+function selectVolume() {
+	var cur_value = parseInt(droid.pref_get("vol", "50")); // 讀取設定值
+	var v = droid.dialogSeekbar("音量的設定", 0, 100, cur_value);
+	if (isNaN(v)) return;
+	droid.pref_set("vol", v);　// 儲存設定
+}
+</script>
+</head><body>
+	<h1>圖片的設定</h1>
+	<div class="item" onclick="tapCBox('item1')">
+		<img id="item1" />
+		<h2>顯示圖片</h2>
+		<p>是否要顯示圖片</p>
+	</div>
+	<h1>設定音效</h1>
+	<div class="item" onclick="tapCBox('item2')">
+		<img id="item2" />
+		<h2>播放音效</h2>
+		<p>是否要播放音效</p>
+	</div>
+	<div class="item" onclick="selectVolume()">
+		<img src="more.png" />
+		<h2>音量</h2>
+		<p>設定音效的音量大小</p>
+	</div>
+</body></html>

@@ -1,0 +1,2 @@
+MATLAB version = 8.1.0.604 (R2013a)
+isequal(c1, c2) = 1

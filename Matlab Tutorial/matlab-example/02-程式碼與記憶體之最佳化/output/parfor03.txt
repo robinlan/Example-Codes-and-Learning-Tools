@@ -1,0 +1,4 @@
+MATLAB version = 8.1.0.604 (R2013a)
+Starting matlabpool using the 'local' profile ... connected to 4 workers.
+time1 = 7.30268, time2 = 6.50074, speedup factor = 1.12336
+Sending a stop signal to all the workers ... stopped.

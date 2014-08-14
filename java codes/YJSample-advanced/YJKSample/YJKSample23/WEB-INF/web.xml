@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+    <display-name>YasaJava</display-name>
+    <description>YasaJava</description>
+
+    <servlet>
+        <servlet-name>Sample5</servlet-name>
+        <servlet-class>Sample5</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample5</servlet-name>
+        <url-pattern>/servlet/Sample5</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sample6</servlet-name>
+        <servlet-class>Sample6</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Sample6</servlet-name>
+        <url-pattern>/servlet/Sample6</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SampleP3</servlet-name>
+        <servlet-class>SampleP3</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SampleP3</servlet-name>
+        <url-pattern>/servlet/SampleP3</url-pattern>
+    </servlet-mapping>
+
+<jsp-config>
+    <jsp-property-group>  
+        <description>     
+            Special property group for JSP Configuration JSP example.  
+        </description>  
+        <display-name>JSPConfiguration</display-name>  
+        <url-pattern>*.jsp</url-pattern>  
+        <el-ignored>true</el-ignored>  
+        <page-encoding>UTF-8</page-encoding>  
+        <scripting-invalid>false</scripting-invalid>  
+        <include-divlude></include-divlude>  
+        <include-coda></include-coda>  
+       
+  <description>     
+            Special property group for JSP Configuration JSP example.  
+        </description>  
+        <display-name>JSPConfiguration</display-name>  
+        <url-pattern>*.html</url-pattern>  
+        <el-ignored>true</el-ignored>  
+        <page-encoding>UTF-8</page-encoding>  
+        <scripting-invalid>false</scripting-invalid>  
+        <include-divlude></include-divlude>  
+        <include-coda></include-coda>
+    </jsp-property-group>
+</jsp-config>
+
+</web-app>

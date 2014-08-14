@@ -1,0 +1,185 @@
+<!DOCTYPE html>  
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../res/demo.css" />
+	<script type="text/javascript" src="../jsWaffle.js"></script>
+	<script type="text/javascript" src="../res/demo-common.js"></script>
+	<script type="text/javascript">
+		function init() {
+			$("ver").innerHTML = droid.getWaffleVersion();
+			setMyMenuItem();
+		}
+	</script>
+</head>
+<body onload="init()">
+	<!-- title -->
+	<div class="pageHeader">
+		<div class="header_btn"><a href="../index.html">&lt; Back</a></div>
+		<h1>jsWaffle DEMO</h1>
+	</div>
+	<!-- logo -->
+	<div id="logo">
+		<div style="text-align:center;">
+			<a href="../index.html">
+				<img src="../res/logo150.png">
+			</a>
+		</div>
+		<div style="text-align:center;margin-bottom:8px;">jsWaffle ver.<span id="ver" ></span></div>
+	</div>
+	
+	<!-- *** sample *** -->
+
+	<h2>Geolocation</h2>
+	<div class="buttons">
+		<button  id="bntLocation" onclick="getLoc()">Get Location</button>
+		<button  id="bntLocation2" onclick="getLoc2()">Get Location&Show Map</button>
+		<button  id="bntLocation3" onclick="watchLoc()">Watch Location</button>
+		<button  onclick="cancelLoc()">Stop Location</button>
+		<script>
+			var watchid = 0;
+			var pos_options = {
+				enableHighAccuracy : true,
+				timeout            : 10 * 1000,
+				maximumAge         : 3 * 1000
+			};
+			var pos_options2 = {
+				enableHighAccuracy: false,
+				timeout: 10 * 1000,
+				maximumAge: 1000
+			};
+			
+			function getLoc() {
+				$("bntLocation").disabled = true;
+				// jsWaffle original method
+				watchid = droid.getCurrentPosition(
+					showLocation,
+					errorLocation,
+					pos_options);
+				/*
+				// HTML5 geolocation method
+				navigator.geolocation.getCurrentPosition(
+					showLocation,
+					errorLocation,
+					pos_options);
+				*/
+			}
+			// Show Position Info
+			function showLocation(position) {
+				$("bntLocation").disabled = false;
+				var lat = position.coords.latitude;
+				var lon = position.coords.longitude;
+				var acc = position.coords.accuracy ;
+			 	droid.vibrate(500);
+				alert("geo:" + lat + "," + lon + "," + acc);
+			}
+			function errorLocation (errorObj) {
+				var message = errorObj.message;
+				var code = errorObj.code;
+				$("dispLocation").innerHTML = "location error : " + code + " : " + message;
+				$("bntLocation").disabled = false;
+				$("bntLocation2").disabled = false;
+			}
+			function cancelLoc() {
+				// droid.clearWatchPosition(watchid);
+				navigator.geolocation.clearWatch(watchid);
+				$("bntLocation").disabled = false;
+				$("bntLocation2").disabled = false;
+				$("bntLocation3").disabled = false;
+			}
+			function getLoc2() {
+				$("bntLocation2").disabled = true;
+				watchid = droid.getCurrentPosition(
+					showLocation2,
+					errorLocation,
+					pos_options2);
+			}
+			function showLocation2(position){
+				$("bntLocation").disabled = false;
+				var lat = position.coords.latitude;
+				var lon = position.coords.longitude;
+				var acc = position.coords.accuracy ;
+			 	droid.vibrate(500);
+				droid.startIntent("geo:" + lat + "," + lon + "," + acc);
+				$("bntLocation2").disabled = false;
+			}
+			function watchLoc() {
+				$("bntLocation3").disabled = true;
+				watchid = droid.watchPosition(
+					showLocation3,
+					errorLocation,
+					pos_options);
+			}
+			function showLocation3(position){
+				var lat = position.coords.latitude;
+				var lon = position.coords.longitude;
+				var acc = position.coords.accuracy ;
+				$("dispLocation").innerHTML = "lat:" + lat + "<br/>lon:" + lon + "<br/>acc:" + acc;
+				droid.vibrate();
+			}
+		</script>
+	</div>
+	<div class="disp" id="dispLocation"></div>
+	
+	<h2>Acceleration Sensor</h2>
+	<div class="buttons">
+		<button  onclick="startAccel()">Start</button>
+		<button  onclick="stopAccel()">Stop</button>
+	</div>
+	<div class="disp">
+		<div id="acX">x:0</div>
+		<div id="acY">y:0</div>
+		<div id="acZ">z:0</div>
+	</div>
+	<script>
+		function startAccel() {
+			droid.watchAccel(function(x,y,z) {
+				$("acX").innerHTML = "x:" + x;
+				$("acY").innerHTML = "y:" + y;
+				$("acZ").innerHTML = "z:" + z;
+			});
+		}
+		function stopAccel() {
+			droid.clearAccel();
+		}
+	</script>
+	
+	<h2>Shake !!</h2>
+	<div class="buttons">
+		<button id="btnShake" onclick="TestWatchShake()">Watch Shake</button>
+		<button onclick="TestClearShake()">Stop</button>
+	</div>
+	<div class="disp">
+		<div id="shake">shake : 0 times</div>
+	</div>
+	<script>
+		var shake_count = 0;
+		function TestWatchShake() {
+			$("btnShake").disabled = true;
+			droid.watchShake(function(){
+				// shake begin
+				droid.vibrate();
+				$("shake").innerHTML = "(* shaking *)";
+			}, function(){
+				// shake end
+				droid.beep();
+				shake_count++;
+				$("shake").innerHTML = "shake : " + shake_count + " times";
+			});
+		}
+		function TestClearShake(){
+			shake_count = 0;
+			droid.clearAccel();
+			droid.beep();
+			$("btnShake").disabled = false;
+		}
+	</script>
+
+
+	
+	<h2>Other Sample</h2>
+	<div class="buttons">
+		<button onclick="location.href='../index.html'">Back</button>
+	</div>
+</body>
+</html>

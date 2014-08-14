@@ -1,0 +1,10 @@
+﻿<div id="info"></div>
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+	droid.watchAccel(function (x, y, z) {
+		$("info").innerHTML = 
+			"x:" + x + "<br/>" +
+			"y:" + y + "<br/>" +
+			"z:" + z;
+	});
+</script>

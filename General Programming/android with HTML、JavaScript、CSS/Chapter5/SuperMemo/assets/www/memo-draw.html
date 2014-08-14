@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript" src="SuperMemo.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+	// 將畫布(canvas)設定與畫面大小相同
+	var c = $("canvasMain");
+	var ctx = c.getContext("2d");
+	var disp = droid.getDisplayInfo();
+	c.width = disp.width;
+	c.height = disp.height;	
+	// 解析URL參數
+	var p = parseUrlParams();
+	var fname = p["fname"];
+	if (!fname.match(/png$/)) fname += ".png"; 
+	// 若有檔案的話將檔案讀入
+	if (droid.fileExists(savedir + fname)) {
+		var img = new Image();
+		img.onload = function () {
+			ctx.drawImage(img, 0, 0);
+		};
+		img.src = "file://" + savedir + fname;
+	}
+	// 加上存檔的選單
+	droid.setMenuItem(0, true, "存檔", "ic_menu_save", menuSave);
+	function menuSave() {
+		droid.snapshotToFile(savedir + fname, "png");
+		alert("儲存成功。\n" + fname);
+		location.replace("index.html");
+	}
+	// 處理手寫筆記功能的副程式
+	var oldx, oldy;
+	c.ontouchstart = function(e) {
+		oldx = e.touches[0].pageX;
+		oldy = e.touches[0].pageY;
+		e.preventDefault();
+	};
+	c.ontouchmove = function (e) {
+		var newx = e.touches[0].pageX;
+		var newy = e.touches[0].pageY;
+		e.preventDefault();
+		ctx.beginPath();
+		ctx.moveTo(oldx, oldy);
+		ctx.lineTo(newx, newy);
+		ctx.lineWidth = 4;
+		ctx.strokeStyle = "#000";
+		ctx.stroke();
+		oldx = newx; oldy = newy;
+	};
+};
+</script>
+<style>
+	* { margin:0; padding:0; }
+</style>
+</head><body>
+	<canvas id="canvasMain"></canvas>
+</body></html>

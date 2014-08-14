@@ -1,0 +1,4 @@
+x = 
+1x3 struct array with fields:
+    name
+    phone

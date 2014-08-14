@@ -1,0 +1,9 @@
+score = 
+      studentID: {10x1 cell}
+    studentName: {10x1 cell}
+      homework1: [10x1 double]
+      homework2: [10x1 double]
+      homework3: [10x1 double]
+        midterm: [10x1 double]
+          final: [10x1 double]
+        overall: [10x1 double]

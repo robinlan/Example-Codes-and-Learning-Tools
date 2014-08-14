@@ -1,0 +1,11 @@
+﻿<div id="disp" style="font-size:72px;"></div>
+<script>
+	var counter = 0; 
+	// 設定計時器於每1000毫秒執行countUp
+	setInterval(showCounter, 1000);
+	// 顯示計數的函式
+	function showCounter() {
+		var disp = document.getElementById("disp");
+		disp.innerHTML = counter++;
+	}
+</script>

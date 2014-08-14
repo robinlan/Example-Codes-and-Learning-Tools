@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script>
+window.onload = function() {
+    var a_canvas = document.getElementById("a_canvas");
+    var context = a_canvas.getContext("2d");
+    var canvasW = a_canvas.width;
+    var canvasH = a_canvas.height;
+    var ballX = 150, ballY = 150;　// 設定球的初始位置
+    var dirX = 0, dirY = 0;       // 球於XY方向的移動量
+    setInterval(drawBall, 100);   // 定期的繪製球的移動
+    function drawBall() {
+		// 繪製球
+        context.beginPath();
+		context.arc(ballX, ballY, 16, 0, 2*Math.PI, true);
+		context.fillStyle="rgb("+Math.floor(Math.random()*256)+",0,0)";
+		var r = Math.floor(Math.random()*256);
+		//context.fillStyle="rgba("+r+",0,0,0.1)";
+        context.fill();
+		// 移動球
+        var tx = ballX + dirX;
+        var ty = ballY + dirY;
+        if (0 < tx && tx < canvasW) { ballX = tx; }
+        if (0 < ty && ty < canvasH) { ballY = ty; }
+    }
+	// 檢測Android的傾斜感應器以取得傾斜的數值
+	droid.watchAccel(function(x,y,z){
+		dirX = x * -1;
+		dirY = y;
+		$("x").innerHTML = "x:" + x;
+		$("y").innerHTML = "y:" + y;
+		$("z").innerHTML = "z:" + z;
+	});
+};
+</script></head><body>
+    <canvas id="a_canvas" width="300" height="300"></canvas>
+	<div id="x"></div>
+	<div id="y"></div>
+	<div id="z"></div>
+</body></html>

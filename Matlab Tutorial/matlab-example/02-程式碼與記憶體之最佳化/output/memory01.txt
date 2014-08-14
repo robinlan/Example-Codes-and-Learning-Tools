@@ -1,0 +1,6 @@
+Maximum possible array:      9471 MB (9.931e+09 bytes) *
+Memory available for all arrays:      9471 MB (9.931e+09 bytes) *
+Memory used by MATLAB:      1000 MB (1.049e+09 bytes)
+Physical Memory (RAM):      8030 MB (8.420e+09 bytes)
+
+*  Limited by System Memory (physical + swap file) available.

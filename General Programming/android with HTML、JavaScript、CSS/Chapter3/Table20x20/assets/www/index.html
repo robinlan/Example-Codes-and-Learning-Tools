@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="jsWaffle.js"></script>
+	</head>
+<body>
+  <!-- (*1)產生要顯示那一段的索引 -->
+  <h1>九九乘法表</h1>
+  <div id="index_div"> *** </div>
+  <!-- (*2)顯示一覽表的部份 -->
+  <div id="list_div"></div>
+  <script type="text/javascript">
+    // (*3)取得DIV物件
+    var index_div = $("index_div");//document.getElementById("index_div");
+    // (*4)建立選擇要顯示那一段九九乘法的索引值
+    var html = "";
+    for (var i = 1; i <= 20; i++) {
+      html += "<button onclick='showList(" + i + ")'>" +
+              "" + i + "</button>";
+      if ((i-1) % 5 == 4) { html += "<br/>"; }
+    }
+    index_div.innerHTML = html;　// (*5) 在DIV中設值
+    // (*6)顯示一覽表的函式
+    function showList(no) {
+      // (*7)取得DIV物件
+      var list_div = document.getElementById("list_div");
+      // (*8)建立九九乘法表
+      var html = "<ul>";
+      for (var i = 1; i <= 20; i++) {
+        html += "<li>" + no + " × " + i + " ＝ ";
+        html += (no * i) + "</li>";
+      }
+      html += "</ul>";
+      list_div.innerHTML = html; // (*9)在DIV中設值
+    }
+  </script>
+  <!-- (*10)編寫設計畫面的CSS -->
+  <style type="text/css">
+    h1 { background-color:red; color:white; font-size:16px; }
+    button { width: 40px; }
+  </style>
+</body>
+</html>

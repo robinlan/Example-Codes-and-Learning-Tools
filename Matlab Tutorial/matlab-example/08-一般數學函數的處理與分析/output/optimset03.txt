@@ -1,0 +1,7 @@
+No. of fields = 65
+options.Display=notify
+options.MaxFunEvals=200*numberofvariables
+options.MaxIter=200*numberofvariables
+options.TolFun=0.0001
+options.TolX=0.0001
+options.FunValCheck=off

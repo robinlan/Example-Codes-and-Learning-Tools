@@ -1,0 +1,81 @@
+<!DOCTYPE html>  
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../res/demo.css" />
+	<script type="text/javascript" src="../jsWaffle.js"></script>
+	<script type="text/javascript" src="../res/demo-common.js"></script>
+	<script type="text/javascript">
+		function init() {
+			$("ver").innerHTML = droid.getWaffleVersion();
+			setMyMenuItem();
+		}
+	</script>
+</head>
+<body onload="init()">
+	<!-- title -->
+	<div class="pageHeader">
+		<div class="header_btn"><a href="../index.html">&lt; Back</a></div>
+		<h1>jsWaffle DEMO</h1>
+	</div>
+	<!-- logo -->
+	<div id="logo">
+		<div style="text-align:center;">
+			<a href="../index.html">
+				<img src="../res/logo150.png">
+			</a>
+		</div>
+		<div style="text-align:center;margin-bottom:8px;">jsWaffle ver.<span id="ver" ></span></div>
+	</div>
+	
+	<!-- *** sample *** -->
+	<h2>Dialog Sample</h2>
+	<div class="buttons">
+		<button onclick="TestYesNoDialog()">dialogYesNo</button>
+		<button onclick="TestSelectDialog()">dialogList</button>
+		<button onclick="TestDialogCheckboxList()">dialogCheckboxList</button>
+		<button onclick="TestDatePickerDialog()">dialogDatePicker</button>
+		<button onclick="TestTimePickerDialog()">dialogTimePicker</button>
+		<button onclick="TestSeekbarDialog()">dialogSeekbar</button>
+		<button onclick="alert('Hello!')">alert</button>
+		<button onclick="alert(confirm('Do you like susi?'))">confirm</button>
+		<button onclick="alert(prompt('What do you like japanese food?'))">prompt</button>
+	</div>
+	<script>
+		function TestYesNoDialog() {
+			var answer = droid.dialogYesNo("Question", "Do you like sushi?");
+			if (answer) {
+				alert("You like Sushi!");
+			} else {
+				alert("You do not like Sushi!");
+			}
+		}
+		function TestSelectDialog() {
+			var selectedItem = droid.dialogList("Select Color", ["red","blue","green","white"]);
+			alert("color:" + selectedItem);
+		}
+		function TestDialogCheckboxList() {
+			var selectedItems = droid.dialogCheckboxList("Select Color", 
+					["black","white","red","green","blue"]);
+			alert("color:" + selectedItems.join(","));
+		}
+		function TestDatePickerDialog() {
+			var result = droid.dialogDatePicker(new Date());
+			alert(result.toString());
+		}
+		function TestTimePickerDialog() {
+			var result = droid.dialogTimePicker(0,0);
+			alert(result);
+		}
+		function TestSeekbarDialog() {
+			var value = droid.dialogSeekbar("Select value", 0, 100, 50);
+			alert("value="+ value);
+		}
+	</script>
+	
+	<h2>Other Sample</h2>
+	<div class="buttons">
+		<button onclick="location.href='../index.html'">Back</button>
+	</div>
+</body>
+</html>

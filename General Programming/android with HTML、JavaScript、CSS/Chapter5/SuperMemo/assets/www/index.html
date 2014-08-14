@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript" src="SuperMemo.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+	// 建立存檔的目錄
+	droid.mkdir(savedir);
+	// 加上選單
+	droid.setMenuItem(0, true, "筆記清單", "ic_menu_agenda", refleshItems);
+	refleshItems();
+	// 顯示筆記清單
+	function refleshItems() {
+		$("memo_div").innerHTML = "";
+		addItem("add", "新增筆記", newMemo);
+		var files = droid.fileList(savedir);
+		for (var i = 0; i < files.length; i++) {
+			var f = files[i];
+			if (f == "") continue;
+			var type = MEMOTYPE_TEXT;
+			if (f.match(/txt$/)) type = MEMOTYPE_TEXT;
+			if (f.match(/png$/)) type = MEMOTYPE_DRAW;
+			if (f.match(/jpg$/)) type = MEMOTYPE_PHOTO;
+			addItem(type, f, loadMemo);
+		}
+	}
+	// 在畫面上建立按鍵
+	function addItem(type, label, clickHandler) {
+		// 建立畫面配置所需要的元素
+		var div     = document.createElement("div");
+		var button  = document.createElement("button");
+		var icon    = document.createElement("img");
+		var span    = document.createElement("span");
+		// 圖示(Icon)以及標籤(Label)的初始化
+		icon.src = iconFiles[type];
+		span.innerHTML = label;
+		// 配置元素--在<div>上加入按鍵、在按鍵上加入圖示以及標籤
+		div.appendChild(button);
+		button.appendChild(icon);
+		button.appendChild(span);
+		$("memo_div").appendChild(div);
+		// 在按鍵上設定中介資料(MetaData)
+		button._value = label;
+		button._type  = type;
+		button.onclick = clickHandler; // 設定按鍵被點選時所要進行的處理
+	}
+	// 點選新增筆記鍵時的處理
+	function newMemo() {
+		var memoItems = [];
+		for (var key in memoTypes) { memoItems.push(key); }
+		var type = droid.dialogList("要建立那一種筆記呢？", memoItems);
+		var fname = prompt("請輸入檔案名稱。");
+		if (!fname) return;
+		executeMemo(memoTypes[type], fname);
+	}
+	// 點選已經存在的筆記鍵時的處理
+	function loadMemo(e) {
+		var value = e.target._value;
+		var type  = e.target._type;
+		droid.log("value=" + value + "&type=" + type);
+		executeMemo(type, value);
+	}
+	// 依照筆記的種類來進行畫面的切換
+	function executeMemo(type, fname) {
+		var param = "?fname=" + encodeURI(fname) + "&type=" + type;
+		droid.log("executeMemo=" + param);
+		switch (type) {
+			case MEMOTYPE_TEXT:
+				location.href = "memo-text.html" + param;
+				break;
+			case MEMOTYPE_DRAW:
+				location.href = "memo-draw.html" + param;
+				break;
+			case MEMOTYPE_PHOTO:
+				if (!fname.match(/jpg$/)) fname += ".jpg";
+				if (droid.fileExists(savedir + fname)) {
+					droid.startIntent("file://" + savedir + fname);
+					return;
+				}
+				droid.startIntentForResult(
+					"camera:" + savedir + fname, 
+					function(){ refleshItems(); }
+				);
+				break;
+		}
+	}
+};
+</script>
+<style>
+	*    { margin:0; padding:0; }
+	h1   { text-align:center; }
+	body { background-color:black; color:white; }
+	button { width: 100%; text-align:left; padding:8px; }
+</style>
+</head><body>
+	<h1>SuperMemo</h1><div id="memo_div"></div>
+</body></html>

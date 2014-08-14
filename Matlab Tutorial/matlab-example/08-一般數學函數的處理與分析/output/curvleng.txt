@@ -1,0 +1,1 @@
+Error in running curvleng! (Logged to error.log)

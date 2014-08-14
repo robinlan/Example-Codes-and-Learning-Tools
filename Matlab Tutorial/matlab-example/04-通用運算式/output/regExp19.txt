@@ -1,0 +1,2 @@
+	Greedy match: food is under the bar in the bar
+	Minimal match: food is under the bar

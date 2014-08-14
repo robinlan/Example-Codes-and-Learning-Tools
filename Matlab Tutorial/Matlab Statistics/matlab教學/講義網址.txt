@@ -1,0 +1,59 @@
+資料處理 - 歡迎光臨，國立臺北大學
+http://web.ntpu.edu.tw/~ccw/statmath/book.htm
+
+剩下的課程之後在自己上網看
+
+索引
+
+PART I
+編號	檔案	內容簡述
+0.1	序言	課程目標
+0.2	再序	不可變與不可不變：我的程式寫作觀
+1	從繪製函式圖認識MATLAB	MATLAB的基本原理與繪圖技巧
+2	MATLAB的數學運算	MATLAB的數學運算原理與操作  資料（TXT檔） 1  2 3  EXCEL檔 1 wav file
+3	MATLAB的機率分配	MATLAB 關於機率部分的指令與操作
+4	MATLAB的程式：以微分為例	以微分的的計算來練習MATLAB的程式設計
+5	MATLAB 程式的迴圈技巧	MATLAB程式中關於迴圈的觀念與各種技巧。
+6	 MATLAB 的積分計算與程式設計觀念	介紹 MATLAB 程式中關於積分計算的技巧及程式設計的觀念。
+7	中央極限定理的形象	練習將中央極限定理以圖示的方式展現出來
+8	MATLAB的副程式	說明及練習MATLAB副程式的寫法
+9	區間估計與信賴水準	利用MATLAB程式來了解區間估計  資料：  4
+10	樣本數的決定	計算民調的樣本數
+11	求方程式的解	利用MATLAB程式來計算方程式的根
+12	函數的最大值與最小值	計算函數的極值與MATLAB偵錯/除錯的工具與方法。
+13	MATLAB圖形化使用者介面設計	GUI 環境建構的觀念與技術。
+
+PART II
+編號	檔案	內容簡述
+1.	隨機與機率的初體驗	對隨機變數與機率做進一步的模擬
+2.	基本的迴歸分析計算	利用MATLAB程式來計算簡單迴歸分析的統計量及參數  資料：regress_data  1  2
+3.	多項式迴歸分析計算	多項式迴歸分析計算的參數估計 資料：regress_data  3
+4.	MATLAB線性預測：關於最小平方法	線性預測的估計問題：關於時間序列 sunspot資料 測試資料：lp_data  1  2 3
+5.	MATLAB線性預測：Near Null Space Method	線性預測的估計問題：從Null Space的角度切入，做出不同於最小平方法的解。並與最小平方法比較。
+6.	主成分分析的原理與應用	利用幾個典型的例子，以繪圖的方式來說明主成分分析的原理。 Data: son.txt  FOTBALL
+7.	多變量函數的最小值	介紹非線性多變量函數的繪圖與最小值的計算方法。包括MATLAB的指令與steepest descent direction及Newton-Raphson method等演算法。 作業資料 UV.txt
+8.	Logistic Regression and Maximum likelihood Estimation	以logistic regression為模式，Maximum likelihood為手段，steepest descent為方法，估計多變量非線性函數的參數。 練習資料作業資料
+9.	Discriminant Analysis:Fisher & Mahalanobis's Method	利用『Fisher的最佳組合係數』及『Mahalanobis的等距觀念』分析兩個群組的類別資料。 資料：BOOKS_1.txt
+10.	Discriminant Analysis:Fisher & Mahalanobis's Method(2)	討論鑑別函數函數的配適性(Goodness of Fit)及如何應用該函數作為群組的預測(Prediction)。 資料：BOOKS_2.txt
+11.	Classification with Two Groups(I)	利用迴歸分析與最小平方法分析兩個群組的類別資料。  資料：la_1.txt  mix.mat
+12.	Classification with Two Groups(II)	利用Nearest Neighbor Method分析兩個群組的類別資料
+13.	Classification with Two Groups(III)	利用Linear Discriminant Analysis 分析兩個群組的類別資料
+14.	Classification with Two Groups(IV)	利用quadratic discriminant analysis分析兩個群組的類別資料。  資料：la_2.txt
+15.	Multiclass Discrimination	多個群組的類別資料分析：以三個群組為例  資料：3g_1.mat
+16.	Canonical Correlation Analysis	關於Canonical Correlation的初步分析與計算。  資料：canonical_data1 canonical_data2
+17.	主成分分析在影像處理上的應用	  資料：3.mat(1.3MB)  Lena(66KB)
+18.	Classfication with Normal Mixtures:the E-M Algorithm	介紹Normal Mixtures的問題及著名的E-M Algorithm  資料： bird.txt  score.txt  score_3.txt  score_4.txt  em_2d.txt
+19.	Markov Chain Monte Carlo Simulations	介紹MCMC的概念與演算法（Metropolis,Metropolis-Hastings, Data Augmentation algorithms）
+20.	一個簡單的假設檢定應用	 Neyman-Pearson 定理是假設檢定上重要的觀念，本單元以一個簡單的防空警報系統介紹它最原始的應用。
+21.	非線性多變量方程式的根	介紹 LMFsolve 指令的使用方式，用以計算非線性多變量方程式的根。
+
+PART III 專題系列
+編號	檔案	內容簡述
+1.	問題集錦（持續增訂中）	這裡提出一些問題，是研究與教學過程中碰到的一些小問題，透過釐清這些問題，統計的觀念更清晰。
+2.	MATLAB 程式技巧集錦（持續增訂中）	MATLAB程式寫作有一些獨特的技巧，是一般程式語言所沒有，或是比較不擅長的，這裡蒐集了一些，做為茶餘飯後的消遣。
+3.	迴歸參數的解	從簡單的迴歸模式出發，利用線性代數的技巧，從不同的角度估計模型的參數，做為以MATLAB寫作程式的第一個實際案例。data
+4.	線性轉換	透過簡單的問題「透視（Visualize）」線性代數中非常的重要的「線性轉換（Linear Transformation）」觀念。
+5.	模擬練習（一）	利用基礎統計學中簡單的「兩母體平均數差異」的檢定問題， 練習統計研究中最常運用的模擬技術，做為統計研究領域的初探。
+6.	機率應用	以常見的分數分佈的問題，說明機率觀念在解決問題上的能力。透過直覺的想法，佐以機率的理論與電腦程式的寫作， 可以從學生分數的表現中分離出不同的程度的群組。data:real scores  simulated scores
+7.	模擬練習（二）	本專題以常態檢定為題，作為程式寫作的進階，因此選擇幾個較複雜的檢定統計式，配合 Monte Carlo Method， 練習程式寫作的技巧、細心與耐心。
+8.	卡方適合度檢定	卡方適合度檢定的原理很簡單，但是很好用。親自根據課本的原理寫一支程式，以函數 function 的方式，盡量涵蓋各種可能性。

@@ -1,0 +1,13 @@
+A = LOAD 'input/pig/tuples/A'
+  AS (t0:tuple(f0:int, f2:chararray));
+DUMP A;
+DESCRIBE A;
+one = LOAD 'input/pig/types/one';
+B = FOREACH one GENERATE (1,'pomegranate')
+  AS t0:tuple(f0:int, f2:chararray);
+DUMP B;
+DESCRIBE B;
+C = FOREACH one GENERATE ['a'#'pomegranate']
+  AS t0:map[];
+DUMP C;
+DESCRIBE C;

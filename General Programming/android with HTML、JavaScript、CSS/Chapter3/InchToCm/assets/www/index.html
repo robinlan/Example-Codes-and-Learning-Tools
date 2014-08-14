@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"/>
+<script type="text/javascript">
+	// 尋問是否由英寸轉為公分
+	var isInchToCm = confirm(
+		"按下「OK」鍵則是英寸轉公分" +
+		",按下「Cancel」鍵則是公分轉英寸");
+	var cm, inch;
+	if (isInchToCm) {
+		// 英寸轉為公分
+		inch = prompt("英寸轉為公分。請輸入英寸值。");
+		cm   = inch * 2.54; // 計算
+	} else {
+		// 公分轉為英寸
+		cm = prompt("公分轉為英寸。請輸入公分值");
+		inch = cm / 2.54; // 計算
+	}
+	alert("[答案是] " + inch + "英寸=" + cm + "公分");
+</script>

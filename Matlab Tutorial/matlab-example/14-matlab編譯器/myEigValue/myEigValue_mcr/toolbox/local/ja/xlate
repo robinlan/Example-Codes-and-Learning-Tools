@@ -1,0 +1,10 @@
+% Needed by initprefs.m, although these messages exist in toolbox/simulink/simulink/prefspanel.m
+% "Simlink" for the first level of the preferences tree
+% "Fonts" and "Simulation" for the second level of the preferences tree
+<(prefspanel)Simulink.Fonts
+>(prefspanel)Simulink.フォント
+<(prefspanel)Simulink.Simulation
+>(prefspanel)Simulink.シミュレーション
+
+% Copyright 2001 The MathWorks, Inc.
+% $Revision: 1.2.4.1 $ $Date: 2004/07/08 01:19:22 $

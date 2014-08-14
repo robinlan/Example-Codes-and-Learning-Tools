@@ -1,0 +1,22 @@
+﻿<canvas id="a_canvas" width="300" height="300"></canvas>
+<script>
+	var canvas = document.getElementById("a_canvas");
+	var context = canvas.getContext("2d");
+	// 描繪表示0-11時針的圖示
+	for (var h = 0; h <= 11; h++) {
+		var angle = h / 12 * 360;
+		drawLine(angle, 150);
+	}
+    function drawLine(angele_deg, length) {
+        angele_deg = angele_deg - 90; // 12時的方向為0度
+        // 將單位轉換為弧度(radian)
+        var angle_rad = (angele_deg * Math.PI / 180);
+        var pointX = 150 + Math.cos(angle_rad) * length;
+        var pointY = 150 + Math.sin(angle_rad) * length;
+        // 描繪針的圖示
+        context.beginPath();
+        context.moveTo(150, 150);
+        context.lineTo(pointX, pointY);
+        context.stroke();
+    }
+</script>

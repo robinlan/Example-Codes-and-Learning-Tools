@@ -1,0 +1,123 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+}
+.center_block {
+	width: 640px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid gray;
+	background-color: #ffffff;
+}
+.logo {
+	border-bottom: 1px solid gray;
+}
+.toolbar {
+	width: 100%;
+	height: auto;
+	margin-bottom: 16px;
+	background-color: #cfcfcf;
+	font-size: 12px;
+}
+.toolbar a {
+	background-color: rgb(240,240,240);
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border: 1px solid gray;
+}
+.toolbar a:hover {
+	border: 1px solid red;
+	color: rgb(0,0,255);
+	background-color: #ffffff;
+}
+.copyright {
+	width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border: 1px solid gray;
+	border-top: 0px solid gray;
+	font-size: 10px;
+	color: rgb(0,0,0);
+	font-family: Verdana, Arial;
+	text-align: center;
+	background-color: #cfcfcf
+}
+textarea {
+	width: 90%;
+	border: 0px dotted #c8c8ff;
+	padding-left: 2px;
+	padding-right: 2px;
+	line-height: 150%;
+	font-size: 16px;
+	color: rgb(128,0,0);
+	background-image: url('images/content_bg.gif');
+}
+textarea:focus {
+	border: 0px solid #0070a6;
+}
+.input_btn {
+	width: 80px;
+	padding: 1px;
+	font-size: 16px;
+	border: 1px outset #c8c8ff;
+	background-color: #ffff95;
+}
+.date {
+  font-family: Verdana,Arial;
+	font-size: 20px;
+	background-color: #f7f7f7;
+  color:rgb(0,153,255);
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.diary_content {
+	width: 90%;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	border: 0px dotted #c8c8ff;
+	background-color: #f7f7f7;
+	line-height: 150%;
+	background-image: url('images/diary_bg.gif');
+}
+.admin_tool{
+  text-align: right;
+  font-size:12px;
+  margin: 10px;
+}
+.cal{
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+.day{
+  font-family: Verdana,Arial;
+  text-align: right;
+  vertical-align: top;
+	border: 1px outset #c8c8ff;
+  width: 60px;
+  height:50px;
+}
+.day_w{
+  text-align: center;
+  background-color: #f0f0f0;
+	border: 1px outset #c8c8ff;
+  width: 60px;
+  height:20px;
+}
+.day_pic{
+  text-align: center;
+  vertical-align: middle;
+}

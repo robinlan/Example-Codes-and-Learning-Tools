@@ -1,0 +1,15 @@
+x = [0 2 4 3 1 2 1];
+y = [4 1 2 4 5 2 0];
+index = 1:length(x);
+index2 = linspace(1, length(x), 101);
+x2 = interp1(index, x, index2, 'nearest');
+y2 = interp1(index, y, index2, 'nearest');
+x3 = interp1(index, x, index2, 'linear');
+y3 = interp1(index, y, index2, 'linear');
+x4 = interp1(index, x, index2, 'pchip');
+y4 = interp1(index, y, index2, 'pchip');
+x5 = interp1(index, x, index2, 'spline');
+y5 = interp1(index, y, index2, 'spline');
+plot(x, y, 'o', x2, y2, '-');
+plot(x, y , 'o', x2 ,y2, x3 ,y3 ,x4 ,y4, x5, y5); 
+legend('Original', 'Nearest', 'Linear', 'Pchip', 'Spline');

@@ -1,0 +1,32 @@
+<!DOCTYPE html>  
+<html><head><meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript">
+function searchZip() {
+	// 顯示GIF動畫
+	$("info").innerHTML = "<img src='load.gif'>";
+	$("go_btn").disabled = true;
+	// 從網站上讀取資料
+	var zipurl = "http://api.aoikujira.com/zip/json/";
+	zipurl += $("zip").value;
+	droid.httpGet(zipurl, onSuccess, onError);
+	// 成功時的處理
+	function onSuccess(txt) {
+		var a = eval("(" + txt + ")");
+		$("info").innerHTML = a["state"] + a["city"] + a["address"];
+		$("go_btn").disabled = false;
+	}
+	// 失敗時的處理
+	function onError() {
+		$("info").innerHTML = "查詢失敗";
+		$("go_btn").disabled = false;
+	}
+}
+</script></head><body>
+	<h1>查詢郵遞區號</h1>
+	<div>
+		<input id="zip" type="text" size="8" value="150-0042" />
+		<button id="go_btn" onclick="searchZip()">查詢</button>
+	</div>
+	<div id="info"></div>
+</body></html>

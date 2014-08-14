@@ -1,0 +1,15 @@
+資料筆數 = 10
+欄位個數 = 4
+欄位名稱 = '序號','歌曲名稱','主唱者','年份'
+欄位寬度 = 255
+attributes = 
+      fieldName: '主唱者'
+       typeName: 'VARCHAR'
+      typeValue: 12
+    columnWidth: 255
+      precision: []
+          scale: []
+       currency: 'false'
+       readOnly: 'false'
+       nullable: 'true'
+        Message: []

@@ -1,0 +1,1 @@
+sentence = 'I''ve got a date!'	% 重覆「'」的使用   

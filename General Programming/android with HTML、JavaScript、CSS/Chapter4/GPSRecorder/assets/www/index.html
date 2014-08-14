@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>  
+<html><head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jsWaffle.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=tw"></script>
+<script type="text/javascript">
+window.onload = function () {
+    // 以全瑩幕顯示Map(map_canvas)
+    var disp = droid.getDisplayInfo();
+    $("map_canvas").style.width  = disp["width"] + "px";
+    $("map_canvas").style.height = disp["height"] + "px";
+    // 定期檢查位置資訊
+    var latlng = new google.maps.LatLng(25.028873, 121.536475);
+    var mapOptions = {
+        zoom:12, 
+        center:latlng, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var gmap = new google.maps.Map($("map_canvas"), mapOptions);
+    // 在地圖上顯示用來標示的線段(Line Marker)
+    var linepath = [];
+    var line = new google.maps.Polyline({
+        map: gmap, path: linepath, strokeColor: "#ff0000",  
+        strokeWeight: 3, strokeOpacity: 0.7
+    });
+    // 定期檢查位置資訊
+    var posOptions = {
+        enableHighAccuracy: true,
+        timeout: 1000 * 10,
+        maximumAge: 1000 * 3
+    };
+    droid.watchPosition(positionHandler, errorHandler, posOptions);
+    function positionHandler(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        var acc = position.coords.accuracy;
+        // 將線畫到現在位置處
+        var latlng = new google.maps.LatLng(lat, lon);
+        gmap.panTo(latlng);
+        linepath.push(latlng);
+        line.setPath(linepath);
+    }
+    function errorHandler(errorObj) {
+        droid.log(errorObj.message);
+    }
+};
+</script>
+<style>
+    * { margin:0; padding:0; }
+</style>
+</head><body>
+    <div id="map_canvas"></div>
+</body></html>

@@ -1,0 +1,1 @@
+mcc -W lib:libPkg -T link:exe mrank printmatrix mrankp.c main_for_lib.c

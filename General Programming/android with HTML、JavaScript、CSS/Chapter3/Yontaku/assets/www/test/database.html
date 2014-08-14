@@ -1,0 +1,49 @@
+<!DOCTYPE html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="../jsWaffle.js"></script>
+		<script>
+			function err(n) { alert("ng:" + n); }
+			function init() {
+				var db = droid.openDatabase("db-test.sqlite3");
+				droid.executeSql(db,
+					"create table if not exists test (name, point)", 
+					function(r){ }, err);
+				droid.executeSql(db,
+					"delete from test", 
+					function(r){ }, err);
+				droid.executeSql(db,
+					"insert into test (name,point)values('mike',80)", 
+					function(r){ }, err);
+				droid.executeSql(db,
+					"insert into test (name,point)values('taro',58)", 
+					function(r){ }, err);
+				droid.executeSql(db,
+					"insert into test (name,point)values('saku',52)", 
+					function(r){ }, err);
+				droid.executeSql(db,
+					"select * from test", 
+					function(rows){
+						var s = "";
+						for (var index in rows) {
+							var row = rows[index];
+							for (var key in row) {
+								var v = row[key];
+								s += key + ":" + v + "<br/>";
+							}
+							s += "---<br/>\n";
+						}
+						$("result").innerHTML = s;
+					},
+					err
+				);
+			}
+			
+		</script>
+	<head>
+	<body onload="init()">
+		<h1>データベーステスト</h1>
+		<div id="result" style="background-color:#E0E0FF; padding:10px;"></div>
+	</body>
+</html>
