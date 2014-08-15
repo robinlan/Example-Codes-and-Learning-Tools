@@ -1,0 +1,9 @@
+Server-->Client  <#ACCEPT#>num
+Server-->Client  <#FULL#>
+Server-->Client  <#START#>
+
+Server-->Client  <#PERMISIION#>
+
+Client-->Server <#MOVE#>n,n,n,n
+
+Client-->Server  <#FINISH#>n

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+    android:background="@drawable/dialog"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+   	
+    <LinearLayout
+   		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dip"
+		android:orientation="horizontal"
+		android:gravity="left">
+		<ImageView
+			android:background="@drawable/exclamation"
+			android:layout_width="40dip"
+			android:layout_height="40dip"
+		/>	
+	    <TextView
+	    	android:text="確認刪除該日程嗎？"
+	   		android:textSize="17dip"
+	   		android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dip"
+			android:layout_marginTop="5dip"
+	    />    
+    </LinearLayout>
+    <LinearLayout
+   		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dip"
+		android:orientation="horizontal"
+		android:gravity="center_horizontal">
+		<Button
+			android:id="@+id/bdialogschdelconfirmOk"
+			android:text="確定"
+			android:textSize="17dip"
+			android:gravity="center"
+			android:layout_width="75dip"
+			android:layout_height="40dip"
+		/>
+		<Button
+			android:id="@+id/bdialogschdelconfirmCancel"
+			android:text="取消"
+			android:textSize="17dip"
+			android:gravity="center"
+			android:layout_width="75dip"
+			android:layout_height="40dip"
+		/>	
+	</LinearLayout>
+</LinearLayout>

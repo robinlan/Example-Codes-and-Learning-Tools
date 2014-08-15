@@ -1,0 +1,60 @@
+2011-3-31 13:50:06 org.apache.catalina.core.AprLifecycleListener init
+信息: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.6.0_20\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Common Files\Thunder Network\KanKan\Codecs;C:\Program Files\Java\jdk1.6.0_20\bin
+2011-3-31 13:50:06 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8080
+2011-3-31 13:50:06 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 331 ms
+2011-3-31 13:50:06 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2011-3-31 13:50:06 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/6.0.14
+2011-3-31 13:50:07 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8080
+2011-3-31 13:50:07 org.apache.jk.common.ChannelSocket init
+信息: JK: ajp13 listening on /0.0.0.0:8009
+2011-3-31 13:50:07 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/16  config=null
+2011-3-31 13:50:07 org.apache.catalina.startup.Catalina start
+信息: Server startup in 521 ms
+2011-3-31 13:50:49 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8080
+2011-3-31 13:59:22 org.apache.catalina.core.AprLifecycleListener init
+信息: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.6.0_20\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Common Files\Thunder Network\KanKan\Codecs;C:\Program Files\Java\jdk1.6.0_20\bin
+2011-3-31 13:59:23 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8080
+2011-3-31 13:59:23 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 342 ms
+2011-3-31 13:59:23 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2011-3-31 13:59:23 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/6.0.14
+2011-3-31 13:59:23 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8080
+2011-3-31 13:59:23 org.apache.jk.common.ChannelSocket init
+信息: JK: ajp13 listening on /0.0.0.0:8009
+2011-3-31 13:59:23 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/16  config=null
+2011-3-31 13:59:23 org.apache.catalina.startup.Catalina start
+信息: Server startup in 542 ms
+2011-3-31 14:03:39 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8080
+2011-3-31 16:30:54 org.apache.catalina.core.AprLifecycleListener init
+信息: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.6.0_20\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Common Files\Thunder Network\KanKan\Codecs;C:\Program Files\Java\jdk1.6.0_20\bin
+2011-3-31 16:30:54 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8080
+2011-3-31 16:30:54 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 378 ms
+2011-3-31 16:30:54 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2011-3-31 16:30:54 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/6.0.14
+2011-3-31 16:30:55 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8080
+2011-3-31 16:30:55 org.apache.jk.common.ChannelSocket init
+信息: JK: ajp13 listening on /0.0.0.0:8009
+2011-3-31 16:30:55 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/31  config=null
+2011-3-31 16:30:55 org.apache.catalina.startup.Catalina start
+信息: Server startup in 730 ms
+2011-3-31 17:16:55 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8080

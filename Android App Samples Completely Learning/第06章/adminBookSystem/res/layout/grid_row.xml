@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/gridLinearLayout01"   
+    >
+<LinearLayout
+      android:id="@+id/gridLinearLayout02"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="center"
+    >
+	<TextView 
+	    android:id="@+id/booknumberTextView02" 
+	    android:layout_width="100dip" 
+	    android:layout_height="wrap_content"
+        android:textSize="14dip"      
+        android:textColor="#000000"
+        android:paddingLeft="5dip"
+	>
+    </TextView>	
+	<TextView 
+	    android:id="@+id/jieyueTextView" 
+	    android:layout_width="100dip"
+	    android:layout_height="wrap_content"
+        android:textSize="14dip"    
+        android:paddingLeft="3dip"  
+        android:textColor="#000000"        
+	></TextView>  
+	<TextView 
+	    android:id="@+id/yuyueTextView10" 
+	    android:layout_width="100dip"
+	    android:layout_height="wrap_content"
+        android:textSize="14dip"
+        android:paddingLeft="5dip"
+        android:textColor="#000000"
+	></TextView>      
+   </LinearLayout>
+    <TextView 	    
+	    android:layout_width="fill_parent"
+	    android:layout_height="3dip"        
+        android:textColor="#ffffcc" 
+	></TextView>      
+</LinearLayout>
+

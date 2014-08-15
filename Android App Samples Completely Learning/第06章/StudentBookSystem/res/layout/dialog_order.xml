@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/dialog_order_layout" 
+   android:layout_width="fill_parent" 
+   android:layout_height="fill_parent"
+   android:background="#ffffcc"
+   
+   >   
+	<LinearLayout 
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:paddingLeft="10dip"
+		android:paddingRight="10dip"
+		android:paddingTop="10dip"
+		android:paddingBottom="10dip"
+		android:gravity="center"		   
+	    >
+	    <LinearLayout
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	>
+	    	<TextView   
+			    android:layout_width="fill_parent" 
+			    android:layout_height="wrap_content" 
+			    android:id="@+id/mctitle" 
+			    android:textSize="18dip"
+			    android:textColor="#000000"
+			    android:paddingLeft="10dip"
+			    android:text="確定要預約嗎？"
+		   		 />
+	    </LinearLayout> 	    
+	    <LinearLayout 
+		    android:orientation="horizontal"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:gravity="center"
+		    android:layout_marginTop="5dip"
+		  	>  
+		  	<Button   
+				android:text="確定" 
+				android:id="@+id/dialog_order_Ok" 
+				android:layout_width="75dip" 
+				android:layout_height="40dip"
+				android:textSize="16dip"
+				android:gravity="center"
+				 android:background="#ffffcc"
+				
+				>
+				</Button>  
+			<Button   
+				android:text="取消" 
+				android:id="@+id/dialog_order_Cancle" 
+				android:layout_width="75dip" 
+				android:layout_height="40dip"
+				android:textSize="16dip"
+				android:gravity="center"
+				 android:background="#ffffcc"
+				>
+				</Button>
+		</LinearLayout> 	
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFCCC"
+    >
+	<TextView 
+		android:textSize="17dip"
+		android:textColor="#FFFFFF"
+		android:textStyle="bold"
+  		android:text="百納理財專家" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:background="@drawable/title"
+		android:gravity="center"
+		>
+	</TextView>
+	<LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_marginLeft="15dip"
+    	android:layout_marginRight="15dip"
+    	android:layout_marginTop="4dip"
+    	android:layout_marginBottom="4dip"
+    	android:gravity="center"
+    	android:background="@drawable/navigator"
+	    >
+	    <TextView
+			android:text="理財選單"
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="100dip"
+			android:textSize="18dip"
+			android:layout_marginRight="10dip"
+			android:textColor="#FFFFFF"
+			android:textStyle="bold">
+		</TextView>
+	    <TextView
+	    	android:text="計算器" 
+	    	android:gravity="center"
+	    	android:textSize="18dip"
+	    	android:layout_width="100dip" 
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dip"
+			android:textColor="#FFFFFF"
+			android:textStyle="bold"
+			android:background="@drawable/hilight"
+		>
+		</TextView>
+    </LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:background="#ffcc66"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<RadioGroup android:id="@+id/RadioGroup01"
+		    android:orientation="horizontal" 
+			android:gravity="center"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		<RadioButton android:text="活期存款" 
+			android:id="@+id/RadioButton01"
+			android:checked="true" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</RadioButton>
+		<RadioButton android:text="定期存款" 
+			android:id="@+id/RadioButton02"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</RadioButton>
+		</RadioGroup>
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="horizontal" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+	    android:layout_marginTop="3dip"
+		android:background="#ffcc66"
+		>
+		<TextView android:text="本金:          ￥"
+			android:layout_marginLeft="13dip"
+			android:textSize="16dip"
+			android:textColor="#FFFFFF"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="1000000" 
+			android:id="@+id/EditText01" 
+			android:numeric="integer"
+			android:layout_marginTop="3dip"
+			android:layout_width="207dip" 
+			android:layout_height="40dip">
+		</EditText>
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="horizontal" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:background="#ffcc66"
+		>
+		<TextView android:text="利率:"
+			android:layout_marginLeft="13dip"
+			android:textSize="16dip"
+			android:textColor="#FFFFFF"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="0.40" 
+			android:id="@+id/EditText02" 
+			android:editable="false"
+			android:cursorVisible="false"
+			android:layout_marginTop="3dip"
+			android:layout_marginLeft="55dip"
+			android:layout_width="190dip" 
+			android:layout_height="40dip">
+		</EditText>
+		<TextView android:text="年"
+		    android:textColor="#FFFFFF"
+		    android:numeric="integer"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="horizontal" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:background="#ffcc66"
+		>
+		<TextView android:text="期限:"
+			android:layout_marginLeft="13dip"
+			android:textSize="16dip"
+			android:textColor="#FFFFFF"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="15" 
+			android:id="@+id/EditText03" 
+			android:layout_marginTop="3dip"
+			android:layout_marginLeft="55dip"
+			android:layout_width="190dip" 
+			android:layout_height="40dip">
+		</EditText>
+		<TextView android:text="年"
+			android:textSize="16dip"
+			android:textColor="#FFFFFF"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="horizontal" 
+	    android:layout_marginTop="3dip"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:background="#ffcc66"
+		>
+		<TextView android:text="結果:         ￥"
+			android:layout_marginLeft="13dip"
+			android:textSize="16dip"
+			android:textColor="#FFFFFF"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="" 
+			android:id="@+id/EditText04" 
+			android:editable="false"
+			android:cursorVisible="false"
+			android:layout_marginTop="3dip"
+			android:layout_width="210dip" 
+			android:layout_height="40dip">
+		</EditText>
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="horizontal" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:background="#ffcc66"
+		>
+		<TextView android:text="增加金額: ￥"
+			android:layout_marginLeft="13dip"
+			android:textSize="16dip"
+			android:textColor="#FFFFFF"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="" 
+			android:id="@+id/EditText05" 
+			android:editable="false"
+			android:cursorVisible="false"
+			android:layout_marginTop="3dip"
+			android:layout_width="210dip" 
+			android:layout_height="40dip">
+		</EditText>
+	</LinearLayout>
+	<LinearLayout 
+	    android:orientation="horizontal"
+	    android:background="#ffcc66"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<Button android:text="確定" 
+			android:id="@+id/Button01"
+			android:textSize="16dip"
+			android:layout_marginLeft="30dip"
+			android:layout_width="80dip" 
+			android:layout_height="40dip">
+		</Button>
+		<Button android:text="返回" 
+			android:id="@+id/Button02" 
+			android:textSize="16dip"
+			android:layout_marginLeft="100dip"
+			android:layout_width="80dip" 
+			android:layout_height="40dip">
+		</Button>
+	</LinearLayout>
+</LinearLayout>

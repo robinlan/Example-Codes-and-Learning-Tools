@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="white">#FFFFFF</color>
+	<color name="black">#000000</color>
+	<color name="main">#ffffcc</color><!--界面主色调-->
+	<color name="darker">#ffd580</color><!--比界面主色调深一些的配色-->
+	<color name="helptext">#000000</color><!--帮助界面文字颜色-->
+	<color name="passedschbg">#818175</color><!--日程列表中过期的日程背景颜色-->
+	<color name="passedschtext">#292929</color><!--日程列表中过期的日程时间颜色-->
+	<color name="selectedsch">#ffc4c4</color><!--日程列表中选中的日程背景颜色-->
+</resources>

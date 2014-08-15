@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffcc"
+   >
+    <FrameLayout
+    android:layout_width="fill_parent"
+    android:layout_height="40dip"
+    android:background="@drawable/title"
+   >
+    <TextView
+    	android:text="深南大學圖書管理系統"
+    	android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_marginTop="0dip"
+		android:layout_marginBottom="0dip"
+		android:layout_marginLeft="0dip"
+		android:textSize="20dip"
+		android:textColor="#FFFFFF"
+		android:textStyle="bold"
+		android:gravity="center"
+    >
+    </TextView> 
+    <LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent" 	
+    	android:gravity="center_vertical|right"   	
+    >    
+	    <ImageButton 
+			android:id="@+id/ImageButtonquery_qrid01" 
+			android:background="@drawable/next_button"
+			android:layout_width="40dip" 
+			android:layout_height="30dip"
+			android:layout_marginTop="0dip"
+			android:layout_marginRight="15dip"
+		>
+		</ImageButton>
+    </LinearLayout>
+   </FrameLayout>
+   <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:layout_marginLeft="7dip"
+      android:layout_marginRight="7dip"
+      android:layout_marginTop="4dip"
+      android:layout_marginBottom="4dip"
+      android:background="@drawable/navigator"
+    >      
+      <TextView
+         android:text="查詢結果"
+         android:layout_height="wrap_content"
+         android:layout_width="100dip"          
+         android:textSize="18dip"
+		 android:layout_marginLeft="10dip"
+		 android:textColor="#FFFFFF"
+		 android:gravity="center"
+		 android:background="@drawable/hilight"
+       />
+       <TextView
+         android:text="詳細資訊"
+         android:layout_width="100dip"
+         android:layout_height="wrap_content"         
+         android:textSize="18dip"
+         android:gravity="center"
+         android:textColor="#FFFFFF"
+        />       
+    </LinearLayout>
+    <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:background="#ffcc66"
+       android:layout_marginLeft="7dip"
+       android:layout_marginRight="7dip"
+            
+       >
+                              
+          <GridView 
+              android:id="@+id/GridView01" 
+              android:layout_width="fill_parent" 
+              android:layout_height="fill_parent"
+              android:verticalSpacing="7dip"
+              android:horizontalSpacing="7dip"
+              android:stretchMode="columnWidth"
+                             
+          ></GridView>
+          
+       </LinearLayout>
+    
+    
+</LinearLayout>

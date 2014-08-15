@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yyrc">已有日程</string>
+    <string name="app_name">日程管理專家</string>
+    <string name="xjrc">新建日程</string>
+    
+    
+    <string name="xzlx">新增類型</string>
+    <string name="ok">確定</string>
+    <string name="exit">退出</string>
+    
+    <string name="type">類型</string>
+    <string name="beiwang">備忘</string>
+    <string name="huiyi">會議</string>
+    <string name="daiban">待辦</string>
+</resources>

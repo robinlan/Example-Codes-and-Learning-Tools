@@ -1,0 +1,46 @@
+1. 在Tomcat安裝目錄下conf目錄下server.xml中最後的「</Host>」標記之前添加
+如下配置：
+	<Context path="/jiudian" docBase="jiudian"
+	         debug="5" reloadable="true" crossContext="true"   workDir="">
+	   <Resource   name="jdbc/jiudian"
+	              auth="Container"
+	     type="javax.sql.DataSource"
+	              maxActive="100" maxIdle="30" maxWait="10000"
+	              username="root" password=""
+	     driverClassName="org.gjt.mm.mysql.Driver"
+	     url="jdbc:mysql://localhost/test"/>
+	</Context>
+2. 在本應用的WEB-INF目錄下web.xml文件中添加如下配置
+<resource-ref>
+       <description>DB Connection</description>
+       <res-ref-name>jdbc/jiudian</res-ref-name>
+       <res-type>javax.sql.DataSource</res-type>
+       <res-auth>Container</res-auth>
+   </resource-ref>
+3. 在本應用的WEB-INF目錄下web.xml文件中添加如下配置 servlet的配置
+    <servlet>
+        <servlet-name>RegAndLoginServlet</servlet-name>
+        <servlet-class>wyf.wyy.RegAndLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegAndLoginServlet</servlet-name>
+        <url-pattern>/RegAndLoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>ListServlet</servlet-name>
+    <servlet-class>wyf.wyy.ListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListServlet</servlet-name>
+        <url-pattern>/ListServlet</url-pattern>
+    </servlet-mapping>   
+    
+    <servlet>
+      <servlet-name>OrderServlet</servlet-name>
+      <servlet-class>wyf.wyy.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/OrderServlet</url-pattern>
+    </servlet-mapping>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#FFFCCC"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+	<TextView 
+	    android:id="@+id/TextView01" 
+		android:text="百納理財專家" 
+		android:textColor="#FFFFFF"
+		 android:textSize="17dip"
+		android:background="@drawable/title"
+		android:gravity="center"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	</TextView>
+	<LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_marginLeft="15dip"
+    	android:layout_marginRight="15dip"
+    	android:layout_marginTop="4dip"
+    	android:layout_marginBottom="4dip"
+    	android:gravity="center"
+    	android:background="@drawable/navigator"
+	    >
+	    <TextView
+			android:text="理財選單"
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="100dip"
+			android:textSize="18dip"
+			android:layout_marginRight="10dip"
+			android:textColor="#FFFFFF"
+			android:textStyle="bold">
+		</TextView>
+	    <TextView
+	    	android:text="日常支出" 
+	    	android:gravity="center"
+	    	android:textSize="18dip"
+	    	android:layout_width="100dip" 
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dip"
+			android:textColor="#FFFFFF"
+			android:textStyle="bold"
+			android:background="@drawable/hilight"
+		>
+		</TextView>
+    </LinearLayout>
+	<LinearLayout 
+	        android:id="@+id/LinearLayout01"
+		    android:orientation="horizontal"
+		    android:background="#ffcc66"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content">
+		<ImageView 
+	        android:id="@+id/ImageView01" 
+		    android:background="@drawable/image1"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</ImageView>
+		<LinearLayout 
+		    android:id="@+id/LinearLayout02"
+			android:orientation="vertical" 
+			android:layout_width="190dip" 
+			android:layout_height="wrap_content">
+		<LinearLayout 
+		    android:id="@+id/LinearLayout03" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<TextView android:text="支出日期" 
+				android:id="@+id/TextView02"
+				android:textSize="16dip" 
+				android:textColor="#FFFFFF"
+				android:layout_marginTop="3dip"
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content">
+			</TextView>
+			<TextView android:text="點擊插入日期" 
+				android:id="@+id/EditText01" 
+				android:textColor="#000000"
+				android:layout_marginLeft="2dip"
+				android:gravity="center"
+				android:textSize="16dip" 
+				android:background="@drawable/income0"
+				android:layout_marginTop="3dip"
+				android:layout_width="115dip" 
+				android:layout_height="34dip">
+			</TextView>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout04" 
+		    android:layout_marginTop="-3dip"
+			android:layout_width="190dip"
+			android:layout_height="50dip">
+			<TextView android:text="支出類別" 
+				android:id="@+id/TextView03"  
+				android:textSize="16dip"
+				android:layout_marginTop="19dip"
+				android:textColor="#FFFFFF"
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content">
+			</TextView>
+			<Spinner android:id="@+id/Spinner01" 
+				android:layout_width="120dip" 
+				android:layout_height="40dip">
+			</Spinner>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout05" 
+				android:layout_width="190dip"
+				android:layout_height="wrap_content">
+			<TextView android:text="支出金額" 
+				android:id="@+id/TextView04"  
+				android:textSize="16dip" 
+				android:textColor="#FFFFFF"
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content">
+			</TextView>
+			<EditText android:text="" 
+				android:id="@+id/EditText02" 
+				android:numeric="integer"
+				android:layout_marginTop="3dip"
+				android:layout_width="120dip" 
+				android:layout_height="40dip">
+			</EditText>
+		</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout06"
+	    android:orientation="horizontal" 
+	    android:background="#ffcc66"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<TextView android:text="備註信息" 
+			android:id="@+id/TextView05"
+			android:textSize="16dip"
+			android:textColor="#FFFFFF"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="" 
+			android:id="@+id/EditText03" 
+			android:textSize="16dip" 
+			android:layout_width="250dip" 
+			android:layout_height="40dip">
+		</EditText>	
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout07" 
+	    android:orientation="horizontal"
+	    android:background="#ffcc66"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<Button android:text="添加" 
+			android:id="@+id/Button01"
+			android:textSize="16dip"
+			android:layout_marginLeft="60dip"
+			android:layout_width="80dip" 
+			android:layout_height="40dip">
+		</Button>
+		<Button android:text="返回" 
+			android:id="@+id/Button03" 
+			android:textSize="16dip"
+			android:layout_marginLeft="40dip"
+			android:layout_width="80dip" 
+			android:layout_height="40dip">
+		</Button>
+	</LinearLayout>
+    <com.bn.lc.GGViewa
+       android:layout_width="320dip" 
+       android:layout_height="200dip" 
+    />
+</LinearLayout>

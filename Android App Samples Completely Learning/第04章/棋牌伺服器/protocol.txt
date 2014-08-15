@@ -1,0 +1,16 @@
+Server-->Client  <#ACCEPT#>num  //服务器到客户端  客户端成功连接上服务器
+Server-->Client  <#FULL#>   //服务器到客户端  服务器端口所能接纳的客户端已满
+Server-->Client  <#START#>  //服务器到客户端  游戏开始 客户端获得17张牌 
+Server-->Client  <#YOU#>    //服务器到客户端  客户端获得牌权 告诉客户端开始发牌
+Server-->Client  <#CURR#>   //服务器到客户端  记录要出牌的玩家的上家
+Server-->Client  <#CARDS#>  //服务器到客户端  记录上一次玩家出的牌 
+Server-->Client  <#SCORE#>  //服务器端到客户端 发送各个分数 
+
+Client-->Server  <#PLAY#>d,d,d,d  //客户端到服务器 客户端点击出牌按钮发的牌
+Client-->Server  <#COUNT#>d,d  //客户端到服务器   记录客户端和对应的剩余的牌的数量
+Client-->Server  <#I_WIN#> //客户端到服务器   客户端已经出完所有的牌  已经赢了
+Client-->Server  <#NO_PLAY#> //客户端到服务器  客户端放弃发牌
+Client-->Server  <#EXIT#> //客户端到服务器 客户端退出游戏
+Client-->Server  <#SCORE#>//客户端到服务器 发送上一局的每家的得分
+
+Server-->Client   <#FINISH#>n  //服务器到客户端  游戏结束

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, RootActivity!</string>
+    <string name="app_name">StudentBookSystem</string>
+    <string name="selectlose">你需要掛失的是:</string>
+    <string name="selectreturn">你需要歸還的是:</string>
+    <string name="help">幫助</string>
+	<string name="about">關於</string>
+    <string name="information">      凡丟失圖書的讀者，在掛失成功後請速與圖書管理員聯繫，解決圖書遺失事宜！</string>
+</resources>

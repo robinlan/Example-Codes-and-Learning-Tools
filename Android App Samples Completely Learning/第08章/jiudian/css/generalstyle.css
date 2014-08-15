@@ -1,0 +1,27 @@
+a:link 
+{
+	font-size: 15px;
+	color: #67A61A;
+	text-decoration: none;
+}
+a:visited 
+{
+	font-size: 15px;
+	font-weight: bold;
+	color: #5C7D8F;
+	text-decoration: none;
+}
+a:hover
+{
+	font-size: 15px;
+	font-weight: bold;
+	color: #009900;
+	text-decoration: none;
+}
+a:active 
+{
+	font-size: 15px;
+	font-weight: bolder;
+	color: #FF7F00;
+	text-decoration: none;
+}

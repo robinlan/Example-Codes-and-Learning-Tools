@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">夏日酒店管理系統</string>
+    <string name="yc">一層</string>
+    <string name="ec">二層</string>
+    <string name="drbj">單人標間</string>
+    <string name="srbj">雙人標間</string>
+    <string name="drgbj">單人貴賓間</string>
+    <string name="srgbj">雙人貴賓間</string>
+    <string name="sr">10人</string>
+    <string name="swr">15人</string>
+    <string name="eswr">25人</string>
+    <string name="ss">40人</string>
+    <string name="bs">80人</string>
+    <string name="yb">100人</string>
+    <string name="ybes">120人</string>
+    <string name="help">幫助</string>
+    <string name="gy">關於</string>
+</resources>

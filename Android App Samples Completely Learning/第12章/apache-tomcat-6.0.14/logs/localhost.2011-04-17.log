@@ -1,0 +1,16 @@
+2011-4-17 0:55:58 org.apache.catalina.core.ApplicationContext log
+信息: ContextListener: contextInitialized()
+2011-4-17 0:55:58 org.apache.catalina.core.ApplicationContext log
+信息: SessionListener: contextInitialized()
+2011-4-17 1:11:33 org.apache.catalina.core.ApplicationContext log
+信息: ContextListener: contextInitialized()
+2011-4-17 1:11:33 org.apache.catalina.core.ApplicationContext log
+信息: SessionListener: contextInitialized()
+2011-4-17 1:51:38 org.apache.catalina.core.ApplicationContext log
+信息: ContextListener: contextInitialized()
+2011-4-17 1:51:38 org.apache.catalina.core.ApplicationContext log
+信息: SessionListener: contextInitialized()
+2011-4-17 11:43:57 org.apache.catalina.core.ApplicationContext log
+信息: ContextListener: contextInitialized()
+2011-4-17 11:43:57 org.apache.catalina.core.ApplicationContext log
+信息: SessionListener: contextInitialized()

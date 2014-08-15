@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="searchbook">
+     <item>SDCARD</item>
+     <item>網絡</item>
+  </string-array>
+  
+    <string-array name="turnpage">
+     <item>30Second</item>
+     <item>40Second</item>
+     <item>50Second</item>
+     <item>停止自動翻頁</item>
+  </string-array>
+  
+    <string-array name="setup">
+     <item>背景音樂</item>
+     <item>背景圖片</item>
+     <item>字體顏色</item>
+     <item>字體大小</item>
+     
+  </string-array>
+  
+    <string-array name="bookmark">
+     <item>添加書籤</item>
+     <item>選擇書籤</item>
+     <item>清空書籤</item>
+     
+  </string-array>
+  
+  
+  
+</resources>

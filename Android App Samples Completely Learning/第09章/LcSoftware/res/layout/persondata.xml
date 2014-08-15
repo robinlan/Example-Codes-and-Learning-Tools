@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#FFFCCC"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<TextView 
+        android:textSize="17dip"
+		android:textColor="#FFFFFF"
+		android:textStyle="bold"
+  		android:text="百納理財專家" 
+		android:id="@+id/TextView01" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:background="@drawable/title"
+		android:gravity="center"
+		>
+	</TextView>
+	<LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_marginLeft="15dip"
+    	android:layout_marginRight="15dip"
+    	android:layout_marginTop="4dip"
+    	android:layout_marginBottom="4dip"
+    	android:gravity="center"
+    	android:background="@drawable/navigator"
+	    >
+	    <TextView
+			android:text="理財選單"
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:layout_width="100dip"
+			android:textSize="18dip"
+			android:layout_marginRight="10dip"
+			android:textColor="#FFFFFF"
+			android:textStyle="bold">
+		</TextView>
+	    <TextView
+	    	android:text="個人信息" 
+	    	android:gravity="center"
+	    	android:textSize="18dip"
+	    	android:layout_width="100dip" 
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dip"
+			android:textColor="#FFFFFF"
+			android:textStyle="bold"
+			android:background="@drawable/hilight"
+		>
+		</TextView>
+    </LinearLayout>
+	<LinearLayout android:background="#ffcc66"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:text="性別:" 
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginLeft="10dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<Spinner android:id="@+id/Spinner01" 
+			android:layout_marginLeft="10dip" 
+			android:layout_marginTop="-17dip"
+			android:layout_width="100dip" 
+			android:layout_height="40dip">
+		</Spinner>
+		<TextView android:text="生日:"
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginLeft="2dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<TextView android:text="點擊插入生日" 
+			android:id="@+id/EditText01" 
+			android:textSize="16dip"
+			android:gravity="center"
+			android:background="@drawable/pd"
+			android:textColor="#000000"
+			android:layout_marginLeft="10dip"
+			android:layout_marginTop="3dip"
+			android:layout_width="110dip" 
+			android:layout_height="34dip">
+		</TextView>
+	</LinearLayout>
+	<LinearLayout android:background="#ffcc66"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:text="年齡:" 
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginLeft="10dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="" 
+			android:id="@+id/EditText02"
+			android:numeric="integer"
+			android:layout_marginLeft="10dip" 
+			android:layout_marginTop="3dip"
+			android:layout_width="100dip" 
+			android:layout_height="40dip">
+		</EditText>
+		<TextView android:text="血型:"
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginLeft="5dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<Spinner android:id="@+id/Spinner02"
+			android:layout_marginLeft="5dip" 
+			android:layout_marginTop="-18dip"
+			android:layout_width="112dip" 
+			android:layout_height="40dip">
+		</Spinner>
+	</LinearLayout>
+	<LinearLayout android:background="#ffcc66"
+		android:layout_width="fill_parent"
+		android:layout_height="38dip">
+		<TextView android:text="省份:" 
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginTop="8dip"
+		    android:layout_marginLeft="10dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<Spinner android:id="@+id/Spinner03"
+			android:layout_marginLeft="10dip"  
+			android:layout_marginTop="-10dip"
+			android:layout_width="100dip" 
+			android:layout_height="40dip">
+		</Spinner>
+		<TextView android:text="城市:"
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginTop="8dip"
+		    android:layout_marginLeft="5dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<Spinner android:id="@+id/Spinner04" 
+			android:layout_marginLeft="5dip" 
+			android:layout_marginTop="-10dip"
+			android:layout_width="112dip" 
+			android:layout_height="40dip">
+		</Spinner>
+	</LinearLayout>
+	<LinearLayout android:background="#ffcc66"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:text="電子郵箱:" 
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+	   		android:layout_marginTop="13dip"
+		    android:layout_marginLeft="10dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="" 
+			android:id="@+id/EditText03"
+	   		android:layout_marginTop="16dip"
+			android:layout_marginLeft="10dip" 
+			android:layout_width="225dip" 
+			android:layout_height="40dip">
+		</EditText>
+	</LinearLayout>
+	<LinearLayout android:background="#ffcc66"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:text="原始密碼:"
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginLeft="10dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="" 
+			android:id="@+id/EditText04" 
+			android:password="true"
+			android:layout_marginTop="3dip"
+			android:layout_marginLeft="10dip" 
+			android:layout_width="225dip" 
+			android:layout_height="40dip">
+		</EditText>
+	</LinearLayout>
+	<LinearLayout android:background="#ffcc66"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		<TextView android:text="新的密碼:"
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginLeft="10dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="" 
+			android:id="@+id/EditText05" 
+			android:password="true"
+			android:layout_marginTop="3dip"
+			android:layout_marginLeft="10dip" 
+			android:layout_width="225dip" 
+			android:layout_height="40dip">
+		</EditText>
+	</LinearLayout>
+	<LinearLayout android:background="#ffcc66"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		<TextView android:text="確認密碼:"
+		    android:textColor="#FFFFFF"
+		    android:textSize="16dip"
+		    android:layout_marginLeft="10dip"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</TextView>
+		<EditText android:text="" 
+			android:id="@+id/EditText06"
+			android:password="true" 
+			android:layout_marginTop="3dip"
+			android:layout_marginLeft="10dip" 
+			android:layout_width="225dip" 
+			android:layout_height="40dip">
+		</EditText>
+	</LinearLayout>
+	<LinearLayout android:background="#ffcc66"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<Button android:text="確認" 
+			android:id="@+id/Button01" 
+			android:textSize="16dip"
+			android:layout_marginLeft="60dip"
+			android:layout_width="80dip"
+			android:layout_height="40dip"
+			>
+		</Button>
+		<Button android:text="返回" 
+			android:id="@+id/Button02" 
+			android:textSize="16dip"
+			android:layout_marginLeft="40dip"
+			android:layout_width="80dip" 
+			android:layout_height="40dip"
+			>
+		</Button>
+	</LinearLayout>
+</LinearLayout>

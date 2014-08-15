@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="oblood">O型血</string>
+    
+    <string name="female">女</string>
+    <string name="male">男</string>
+	<string name="ablood">A型血</string>
+	<string name="bblood">B型血</string>
+	<string name="abblood">AB型血</string>
+	<string name="app_name">百納理財專家</string>
+	<string name="help">說明</string>
+	<string name="about">關於</string>
+</resources>

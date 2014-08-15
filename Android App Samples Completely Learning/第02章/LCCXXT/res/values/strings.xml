@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">您選擇了</string>
+    <string name="app_name">列車查詢系統</string>
+    <string name="andy">Andy Rubin \nAndroid的創造者</string>
+    <string name="bill">Bill Joy </string>
+    <string name="edgar">Edgar F. Codd \n關係數據庫之父</string>
+    <string name="torvalds">Linus Torvalds \nLinux之父</string>
+    <string name="turing">Turing Alan    \nIT的祖師爺</string>
+    <string name="ys">您選擇了</string>
+</resources>

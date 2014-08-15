@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, RootActivity!</string>
+    <string name="app_name">深南學生端圖書管理</string>
+    <string name="andy">Andy Rubin \nAndroid的創造者</string>
+    <string name="bill">Bill Joy \nJava創造者之一</string>
+    <string name="edgar">Edgar F. Codd \n關係數據庫之父</string>
+    <string name="torvalds">Linus Torvalds \nLinux之父</string>
+    <string name="turing">Turing Alan    \nIT的祖師爺</string>
+    <string name="selectlose">你需要掛失的是:</string>
+    <string name="information">      凡丟失圖書的讀者，在掛失成功後請速與圖書管理員聯繫，解決圖書遺失事宜！</string>
+</resources>
