@@ -1,0 +1,139 @@
+http://mirlab.org/jang/books/audioSignalProcessing/
+
+Audio Signal Processing and Recognition (音訊處理與辨識)
+
+Roger Jang (張智星)
+
+Table of Contents
+Chapter 1: Introduction
+
+1-1：About This Book (有關本書)
+1-2：Example Programs (如何取得程式碼)
+1-3：Web Resources (網路資源)
+Chapter 2: MATLAB Basics
+
+2-1：MATLAB Introduction (MATLAB入門簡介)
+2-2：Structure Arrays
+Chapter 2: Exercises
+Chapter 3: Introduction to Audio Signals (音訊的簡介)
+
+3-1：Introduction to Audio Signals (音訊基本介紹)
+3-2：Basic Acoustic Features (基本聲學特徵)
+3-3：Human Voice Production (人聲的產生)
+Chapter 4: MATLAB for Audio Signal Processing
+
+4-1：Introduction
+4-2：Reading Wave Files
+4-3：Playback of Audio Signals
+4-4：Recording from Microphone
+4-5：Writing Audio Files
+Chapter 4: Exercises
+Chapter 5: Basic Acoustic Features of Audio Signals (音訊的基本聲學特徵)
+
+5-1：Introduction (簡介)
+5-2：Volume (音量)
+5-3：Zero Crossing Rate (過零率)
+5-4：Pitch (音高)
+5-5：Timbre (音色)
+Chapter 5: Exercises
+Chapter 6: End-Point Detection (EPD)
+
+6-1：Introduction to End-Point Detection (端點偵測介紹)
+6-2：EPD in Time Domain (端點偵測：時域的方法)
+6-3：EPD in Frequency Domain (端點偵測：頻域的方法)
+Chapter 6: Exercises
+Chapter 7: Pitch Tracking
+
+7-1：Introduction to Pitch Tracking (音高追蹤簡介)
+7-2：Time-domain: PDF: ACF
+7-3：Time-domain: PDF: NSDF
+7-4：Time-domain: PDF: AMDF
+7-5：Frequency-domain: HPS
+7-6：Frequency-domain: Cepstrum
+7-7：Preprocessing: Clipping & SIFT
+7-8：Postprocessing: Smoothing & Interpolation
+7-9：How to Increase Pitch Resolution (音高解析度的提升)
+7-10：Software for Pitch Tracking (音高抓取的軟體)
+Chapter 7: Exercises
+Chapter 8: 音高追蹤的應用
+
+8-1：哼唱選歌
+8-2：音調評分
+8-3：語音評分
+8-4：音腔評分
+8-5：國語音調辨識
+Chapter 8: Exercises
+Chapter 9: Digital Signals and Systems (數位訊號與系統)
+
+9-1：Discrete-Time Signals (離散時間訊號)
+9-2：Linear Time-Invariant Systems (線性非時變系統)
+9-3：Convolution (旋積)
+9-4：Eigen Functions (固有函數)
+Chapter 10: Fourier Transform (傅立葉轉換)
+
+10-1：Discrete-Time Fourier Transform (離散時間傅立葉轉換)
+10-2：Discrete Fourier Transform (離散傅立葉轉換)
+Chapter 10: Exercises
+Chapter 11: Digital Filters
+
+11-1：Filter Applications (濾波器應用)
+11-2：Filter Design (濾波器設計)
+Chapter 11: Exercises
+Chapter 12: Speech Features
+
+12-1：共振峰
+12-2：MFCC
+Chapter 12: Exercises
+Chapter 13: Speaker Recognition (語者辨識)
+
+13-1：Speaker Recognition
+Chapter 13: Exercises
+Chapter 14: Query by Singing/Humming
+
+14-1：Introduction (簡介)
+14-2：Key Transposition (音調移位)
+14-3：Linear Scaling (線性伸縮)
+14-4：DTW of Type-1 and 2
+14-5：DTW of Type-3
+14-6：LCS and Edit Distance
+14-7：哼唱選歌的效能改進
+Chapter 14: Exercises
+Chapter 15: Query by Tapping
+
+15-1：Introduction
+15-2：Feature Extraction
+15-3：Comparison Methods
+Chapter 15: Exercises
+Chapter 16: Audio Fingerprinting
+
+16-1：Landmark Extraction
+Chapter 17: HTK
+
+17-1：HTK Introduction (HTK 簡介)
+17-2：HTK Example: Digit Recognition (HTK 基本範例一：數字辨識)
+17-3：Digit Recognition: Varying MFCC Dimensions (數字辨識：改變MFCC維度)
+17-4：Digit Recognition: Changing Acoustic Models (數字辨識：改變Model單位)
+17-5：Digit Recognition: Changing MFCC Dimensions and Gaussian Component Numbers (數字辨識：改變MFCC維度和Gaussian個數)
+Chapter 17: Exercises
+Chapter 18: 語音辨識前處理
+
+18-1：簡介
+18-2：文字標音
+18-3：辨識網路
+18-4：聲學模型
+Chapter 19: Speech/Audio Applications in Android
+
+19-1：Introduction
+Chapter 20: ASRA Library for Speech Recognition & Assessment
+
+20-1：Introduction
+20-2：ASRA for English
+20-3：ASRA for Chinese
+20-4：Use ASRA within ASR Toolbox
+20-5：Format of output.xml
+Chapter 21: Application Case Study (應用案例說明)
+
+21-1：Coin Type Recognition
+21-2：Singing Type Classification
+[搜尋] [設為我的首頁] [加入我的最愛]
+您是來自 49.159.135.213 的貴賓，您已點閱本站網頁 100 次。 (從 0 至今的點閱次數：1000)
