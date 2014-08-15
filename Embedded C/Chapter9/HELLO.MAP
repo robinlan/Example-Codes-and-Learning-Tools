@@ -1,0 +1,353 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 00892H 00893H _TEXT              CODE
+ 00893H 008F0H 0005EH I8018XEB_TEXT      CODE
+ 008F2H 0099BH 000AAH BSP                CODE
+ 0099CH 00BCAH 0022FH TASK_TEXT          CODE
+ 00BCBH 00D2EH 00164H SCHED_TEXT         CODE
+ 00D2FH 00E63H 00135H MUTEX_TEXT         CODE
+ 00E64H 00E9EH 0003BH LED_TEXT           CODE
+ 00E9FH 012E7H 00449H TIMER_TEXT         CODE
+ 012E8H 01629H 00342H SERIAL_TEXT        CODE
+ 0162AH 017BCH 00193H CIRCBUF_TEXT       CODE
+ 017BDH 01B78H 003BCH SCC_TEXT           CODE
+ 01B79H 01C57H 000DFH HELLO_TEXT         CODE
+ 01C58H 01C7BH 00024H _INIT_             INITDATA
+ 01C7CH 01C7CH 00000H _INITEND_          INITDATA
+ 01C7CH 01C7CH 00000H _EXIT_             EXITDATA
+ 01C7CH 01C8BH 00010H _EXITEND_          EXITDATA
+ 01C90H 01D73H 000E4H _DATA              DATA
+ 01D74H 01DABH 00038H _BSS               BSS
+ 01DACH 01DADH 00002H _BSSEND            BSSEND
+ 01DB0H 021B1H 00402H _STACK             STACK
+ 021C0H 021CFH 00010H _FARHEAP           FARHEAP
+
+
+Detailed map of segments
+
+ 0000:0000 00CB C=CODE   S=_TEXT          G=(none)  M=CHAPTER3\STARTUP.ASM ACBP=68
+ 0000:00CB 0012 C=CODE   S=_TEXT          G=(none)  M=DEL        ACBP=28
+ 0000:00DD 00AE C=CODE   S=_TEXT          G=(none)  M=H_LDIV     ACBP=28
+ 0000:018B 0021 C=CODE   S=_TEXT          G=(none)  M=H_LLSH     ACBP=28
+ 0000:01AC 0021 C=CODE   S=_TEXT          G=(none)  M=H_LURSH    ACBP=28
+ 0000:01CD 0060 C=CODE   S=_TEXT          G=(none)  M=H_PADD     ACBP=28
+ 0000:022D 004B C=CODE   S=_TEXT          G=(none)  M=IOERROR    ACBP=28
+ 0000:0278 006C C=CODE   S=_TEXT          G=(none)  M=NEW        ACBP=28
+ 0000:02E4 0021 C=CODE   S=_TEXT          G=(none)  M=N_PCMP     ACBP=28
+ 0000:0305 0432 C=CODE   S=_TEXT          G=(none)  M=FARHEAP    ACBP=28
+ 0000:0737 0140 C=CODE   S=_TEXT          G=(none)  M=FBRK       ACBP=28
+ 0000:0877 001C C=CODE   S=_TEXT          G=(none)  M=SETBLOCK   ACBP=28
+ 0089:0003 005E C=CODE   S=I8018XEB_TEXT  G=(none)  M=CHAPTER5\I8018XEB.CPP ACBP=28
+ 008F:0002 00AA C=CODE   S=BSP            G=(none)  M=CHAPTER8\BSP.ASM ACBP=48
+ 0099:000C 022F C=CODE   S=TASK_TEXT      G=(none)  M=CHAPTER8\TASK.CPP ACBP=28
+ 00BC:000B 0164 C=CODE   S=SCHED_TEXT     G=(none)  M=CHAPTER8\SCHED.CPP ACBP=28
+ 00D2:000F 0135 C=CODE   S=MUTEX_TEXT     G=(none)  M=CHAPTER8\MUTEX.CPP ACBP=28
+ 00E6:0004 003B C=CODE   S=LED_TEXT       G=(none)  M=CHAPTER9\LED.CPP ACBP=28
+ 00E9:000F 0449 C=CODE   S=TIMER_TEXT     G=(none)  M=CHAPTER9\TIMER.CPP ACBP=28
+ 012E:0008 0342 C=CODE   S=SERIAL_TEXT    G=(none)  M=CHAPTER9\SERIAL.CPP ACBP=28
+ 0162:000A 0193 C=CODE   S=CIRCBUF_TEXT   G=(none)  M=CHAPTER9\CIRCBUF.CPP ACBP=28
+ 017B:000D 03BC C=CODE   S=SCC_TEXT       G=(none)  M=CHAPTER9\SCC.CPP ACBP=28
+ 01B7:0009 00DF C=CODE   S=HELLO_TEXT     G=(none)  M=CHAPTER9\HELLO.CPP ACBP=28
+ 01C5:0008 0000 C=INITDATA S=_INIT_         G=IGROUP  M=CHAPTER3\STARTUP.ASM ACBP=68
+ 01C5:0008 0006 C=INITDATA S=_INIT_         G=IGROUP  M=CHAPTER5\I8018XEB.CPP ACBP=48
+ 01C5:000E 0006 C=INITDATA S=_INIT_         G=IGROUP  M=CHAPTER8\SCHED.CPP ACBP=48
+ 01C5:0014 0006 C=INITDATA S=_INIT_         G=IGROUP  M=CHAPTER9\LED.CPP ACBP=48
+ 01C5:001A 0006 C=INITDATA S=_INIT_         G=IGROUP  M=CHAPTER9\TIMER.CPP ACBP=48
+ 01C5:0020 0006 C=INITDATA S=_INIT_         G=IGROUP  M=CHAPTER9\SERIAL.CPP ACBP=48
+ 01C5:0026 0006 C=INITDATA S=_INIT_         G=IGROUP  M=CHAPTER9\HELLO.CPP ACBP=48
+ 01C5:002C 0000 C=INITDATA S=_INITEND_      G=IGROUP  M=CHAPTER3\STARTUP.ASM ACBP=28
+ 01C5:002C 0000 C=EXITDATA S=_EXIT_         G=IGROUP  M=CHAPTER3\STARTUP.ASM ACBP=A8
+ 01C5:002C 0010 C=EXITDATA S=_EXITEND_      G=IGROUP  M=CHAPTER3\STARTUP.ASM ACBP=28
+ 01C9:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER3\STARTUP.ASM ACBP=68
+ 01C9:0000 0008 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER5\I8018XEB.CPP ACBP=48
+ 01C9:0008 0001 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER8\TASK.CPP ACBP=48
+ 01C9:000A 0028 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER8\SCHED.CPP ACBP=48
+ 01C9:0032 0000 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER8\MUTEX.CPP ACBP=48
+ 01C9:0032 0000 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER9\LED.CPP ACBP=48
+ 01C9:0032 0002 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER9\TIMER.CPP ACBP=48
+ 01C9:0034 0000 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER9\SERIAL.CPP ACBP=48
+ 01C9:0034 0000 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER9\CIRCBUF.CPP ACBP=48
+ 01C9:0034 0008 C=DATA   S=_DATA          G=DGROUP  M=CHAPTER9\SCC.CPP ACBP=48
+ 01C9:003C 004A C=DATA   S=_DATA          G=DGROUP  M=CHAPTER9\HELLO.CPP ACBP=48
+ 01C9:0086 0000 C=DATA   S=_DATA          G=DGROUP  M=DEL        ACBP=48
+ 01C9:0086 0000 C=DATA   S=_DATA          G=DGROUP  M=H_LDIV     ACBP=48
+ 01C9:0086 0000 C=DATA   S=_DATA          G=DGROUP  M=H_LLSH     ACBP=48
+ 01C9:0086 0000 C=DATA   S=_DATA          G=DGROUP  M=H_LURSH    ACBP=48
+ 01C9:0086 0000 C=DATA   S=_DATA          G=DGROUP  M=H_PADD     ACBP=48
+ 01C9:0086 005B C=DATA   S=_DATA          G=DGROUP  M=IOERROR    ACBP=48
+ 01C9:00E2 0000 C=DATA   S=_DATA          G=DGROUP  M=NEW        ACBP=48
+ 01C9:00E2 0000 C=DATA   S=_DATA          G=DGROUP  M=N_PCMP     ACBP=48
+ 01C9:00E2 0000 C=DATA   S=_DATA          G=DGROUP  M=FARHEAP    ACBP=48
+ 01C9:00E2 0002 C=DATA   S=_DATA          G=DGROUP  M=FBRK       ACBP=48
+ 01C9:00E4 0000 C=DATA   S=_DATA          G=DGROUP  M=SETBLOCK   ACBP=48
+ 01C9:00E4 0010 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER3\STARTUP.ASM ACBP=48
+ 01C9:00F4 0001 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER5\I8018XEB.CPP ACBP=48
+ 01C9:00F6 0000 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER8\TASK.CPP ACBP=48
+ 01C9:00F6 0005 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER8\SCHED.CPP ACBP=48
+ 01C9:00FC 0000 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER8\MUTEX.CPP ACBP=48
+ 01C9:00FC 0006 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER9\LED.CPP ACBP=48
+ 01C9:0102 0004 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER9\TIMER.CPP ACBP=48
+ 01C9:0106 0001 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER9\SERIAL.CPP ACBP=48
+ 01C9:0108 0000 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER9\CIRCBUF.CPP ACBP=48
+ 01C9:0108 0010 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER9\SCC.CPP ACBP=48
+ 01C9:0118 0000 C=BSS    S=_BSS           G=DGROUP  M=CHAPTER9\HELLO.CPP ACBP=48
+ 01C9:0118 0000 C=BSS    S=_BSS           G=DGROUP  M=IOERROR    ACBP=48
+ 01C9:0118 0004 C=BSS    S=_BSS           G=DGROUP  M=NEW        ACBP=48
+ 01C9:011C 0000 C=BSS    S=_BSS           G=DGROUP  M=SETBLOCK   ACBP=48
+ 01C9:011C 0002 C=BSSEND S=_BSSEND        G=DGROUP  M=CHAPTER3\STARTUP.ASM ACBP=48
+ 01DB:0000 0402 C=STACK  S=_STACK         G=(none)  M=CHAPTER3\STARTUP.ASM ACBP=74
+ 021C:0000 0010 C=FARHEAP S=_FARHEAP       G=(none)  M=CHAPTER3\STARTUP.ASM ACBP=68
+
+  Address         Publics by Name
+
+ 0000:00CB       operator delete(void far*)
+ 0000:02A2       operator new(unsigned int)
+ 0162:000A       circbuf::circbuf(int)
+ 0162:007F       circbuf::~circbuf()
+ 0162:00B7       circbuf::add(unsigned char)
+ 012E:0332       circbuf::isempty()
+ 012E:0314       circbuf::isfull()
+ 0162:0127       circbuf::remove()
+ 01B7:0009 idle  flashred()
+ 01B7:0045 idle  helloworld()
+ 0089:0003 idle  i8018xeb::i8018xeb()
+ 0089:0031       i8018xeb::installhandler(unsigned char,void(far*)())
+ 01C9:0004 idle  i8018xeb::intvectortable
+ 01C9:0000       i8018xeb::ppcb
+ 00D2:000F       mutex::mutex()
+ 00D2:00D2       mutex::release()
+ 00D2:005E       mutex::take()
+ 017B:03AA       readdata(int)
+ 017B:0327       readregister(int,unsigned char)
+ 0099:0116 idle  run(task far*)
+ 017B:00FD       scc::scc()
+ 017B:0174       scc::init(int,unsigned long,circbuf far*,circbuf far*)
+ 017B:000D idle  scc::interrupt()
+ 017B:0153       scc::reset(int)
+ 017B:02E9       scc::rxstart(int)
+ 017B:0293       scc::txstart(int)
+ 00BC:000B idle  sched::sched()
+ 01C9:000E idle  sched::bschedule
+ 00BC:0103       sched::enterisr()
+ 00BC:010F       sched::exitisr()
+ 01C9:0014       sched::idletask
+ 01C9:000C idle  sched::interruptlevel
+ 01C9:0010       sched::prunningtask
+ 01C9:00F6       sched::readylist
+ 00BC:0063       sched::schedule()
+ 00BC:0041       sched::start()
+ 01C9:000A idle  sched::state
+ 012E:0008       serialport::serialport(int,unsigned long,unsigned int,unsigned int)
+ 012E:00D2 idle  serialport::~serialport()
+ 012E:024C idle  serialport::getchar()
+ 012E:02B9 idle  serialport::gets(unsigned char far*)
+ 012E:0134 idle  serialport::putchar(int)
+ 012E:0183       serialport::puts(const unsigned char far*)
+ 0000:0278 idle  set_new_handler(void(far*)())
+ 0099:0160       task::task(void(far*)(),unsigned char,int)
+ 01C9:0008 idle  task::nextid
+ 0099:000C       tasklist::tasklist()
+ 0099:0041       tasklist::insert(task far*)
+ 0099:00A6       tasklist::remove(task far*)
+ 00E9:0244       timer::timer()
+ 00E9:02FF idle  timer::~timer()
+ 00E9:040E idle  timer::cancel()
+ 00E9:01F4 idle  timer::interrupt()
+ 00E9:0346       timer::start(unsigned int,timertype)
+ 00E9:03A4       timer::waitfor()
+ 00E9:000F idle  timerlist::timerlist()
+ 00E9:0044 idle  timerlist::insert(timer far*)
+ 00E9:00F0 idle  timerlist::remove(timer far*)
+ 00E9:0178 idle  timerlist::tick()
+ 00E6:0004       toggleled(unsigned char)
+ 017B:0359       writedata(int,unsigned char)
+ 017B:0379       writeregister(int,unsigned char,unsigned char)
+ 0000:00E0 idle  F_LDIV@
+ 0000:00EF idle  F_LMOD@
+ 0000:00E7       F_LUDIV@
+ 0000:00F7 idle  F_LUMOD@
+ 0000:018E       F_LXLSH@
+ 0000:01AF       F_LXURSH@
+ 0000:01D0 idle  F_PADD@
+ 0000:01FF idle  F_PSUB@
+ 0000:00E0 idle  LDIV@
+ 0000:00EF idle  LMOD@
+ 0000:00E7 idle  LUDIV@
+ 0000:00F7 idle  LUMOD@
+ 0000:018E idle  LXLSH@
+ 0000:01AF idle  LXURSH@
+ 0000:00DD idle  N_LDIV@
+ 0000:00EC idle  N_LMOD@
+ 0000:00E4 idle  N_LUDIV@
+ 0000:00F4 idle  N_LUMOD@
+ 0000:018B       N_LXLSH@
+ 0000:01AC idle  N_LXURSH@
+ 0000:01CD       N_PADD@
+ 0000:02E4       N_PCMP@
+ 0000:01FC idle  N_PSUB@
+ 0000:01D0 idle  PADD@
+ 0000:01FF idle  PSUB@
+ 008F:0002       _CONTEXTINIT
+ 008F:004E       _CONTEXTSWITCH
+ 01C9:00E4       _ERRNO
+ 0000:0445 idle  _FARFREE
+ 0000:0559 idle  _FARMALLOC
+ 0000:06BD idle  _FARREALLOC
+ 0000:0445       _FREE
+ 01C9:00F4       _GPROCESSOR
+ 008F:00AA       _IDLE
+ 01B7:00A2       _MAIN
+ 0000:054F       _MALLOC
+ 01C9:00FA       _OS
+ 01C9:0038 idle  _PACKNOWLEDGE
+ 01C9:0034 idle  _PSCC
+ 0000:06B6 idle  _REALLOC
+ 01C9:0110 idle  _RXQUEUE
+ 0000:0877       _SETBLOCK
+ 01C9:003C idle  _TASKA
+ 01C9:005A idle  _TASKB
+ 01C9:0102 idle  _TIMERLIST
+ 01C9:0108 idle  _TXQUEUE
+ 0000:07AD       __BRK
+ 01C9:00E8       __BRKLVL
+ 01C9:0086 idle  __DOSERRNO
+ 0000:0266 idle  __DOSERROR
+ 01C9:0088 idle  __DOSERRORTOSV
+ 01C9:00EC       __HEAPBASE
+ 01C9:00F0       __HEAPTOP
+ 0000:022D       __IOERROR
+ 01C9:0118 idle  __NEW_HANDLER
+ 01C9:00E6       __PSP
+ 0000:07EC       __SBRK
+ 0000:0305 idle  ___FIRST
+ 0000:0307 idle  ___LAST
+ 0000:0309 idle  ___ROVER
+
+  Address         Publics by Value
+
+ 0000:00CB       operator delete(void far*)
+ 0000:00DD idle  N_LDIV@
+ 0000:00E0 idle  LDIV@
+ 0000:00E0 idle  F_LDIV@
+ 0000:00E4 idle  N_LUDIV@
+ 0000:00E7       F_LUDIV@
+ 0000:00E7 idle  LUDIV@
+ 0000:00EC idle  N_LMOD@
+ 0000:00EF idle  F_LMOD@
+ 0000:00EF idle  LMOD@
+ 0000:00F4 idle  N_LUMOD@
+ 0000:00F7 idle  LUMOD@
+ 0000:00F7 idle  F_LUMOD@
+ 0000:018B       N_LXLSH@
+ 0000:018E       F_LXLSH@
+ 0000:018E idle  LXLSH@
+ 0000:01AC idle  N_LXURSH@
+ 0000:01AF       F_LXURSH@
+ 0000:01AF idle  LXURSH@
+ 0000:01CD       N_PADD@
+ 0000:01D0 idle  F_PADD@
+ 0000:01D0 idle  PADD@
+ 0000:01FC idle  N_PSUB@
+ 0000:01FF idle  F_PSUB@
+ 0000:01FF idle  PSUB@
+ 0000:022D       __IOERROR
+ 0000:0266 idle  __DOSERROR
+ 0000:0278 idle  set_new_handler(void(far*)())
+ 0000:02A2       operator new(unsigned int)
+ 0000:02E4       N_PCMP@
+ 0000:0305 idle  ___FIRST
+ 0000:0307 idle  ___LAST
+ 0000:0309 idle  ___ROVER
+ 0000:0445       _FREE
+ 0000:0445 idle  _FARFREE
+ 0000:054F       _MALLOC
+ 0000:0559 idle  _FARMALLOC
+ 0000:06B6 idle  _REALLOC
+ 0000:06BD idle  _FARREALLOC
+ 0000:07AD       __BRK
+ 0000:07EC       __SBRK
+ 0000:0877       _SETBLOCK
+ 0089:0003 idle  i8018xeb::i8018xeb()
+ 0089:0031       i8018xeb::installhandler(unsigned char,void(far*)())
+ 008F:0002       _CONTEXTINIT
+ 008F:004E       _CONTEXTSWITCH
+ 008F:00AA       _IDLE
+ 0099:000C       tasklist::tasklist()
+ 0099:0041       tasklist::insert(task far*)
+ 0099:00A6       tasklist::remove(task far*)
+ 0099:0116 idle  run(task far*)
+ 0099:0160       task::task(void(far*)(),unsigned char,int)
+ 00BC:000B idle  sched::sched()
+ 00BC:0041       sched::start()
+ 00BC:0063       sched::schedule()
+ 00BC:0103       sched::enterisr()
+ 00BC:010F       sched::exitisr()
+ 00D2:000F       mutex::mutex()
+ 00D2:005E       mutex::take()
+ 00D2:00D2       mutex::release()
+ 00E6:0004       toggleled(unsigned char)
+ 00E9:000F idle  timerlist::timerlist()
+ 00E9:0044 idle  timerlist::insert(timer far*)
+ 00E9:00F0 idle  timerlist::remove(timer far*)
+ 00E9:0178 idle  timerlist::tick()
+ 00E9:01F4 idle  timer::interrupt()
+ 00E9:0244       timer::timer()
+ 00E9:02FF idle  timer::~timer()
+ 00E9:0346       timer::start(unsigned int,timertype)
+ 00E9:03A4       timer::waitfor()
+ 00E9:040E idle  timer::cancel()
+ 012E:0008       serialport::serialport(int,unsigned long,unsigned int,unsigned int)
+ 012E:00D2 idle  serialport::~serialport()
+ 012E:0134 idle  serialport::putchar(int)
+ 012E:0183       serialport::puts(const unsigned char far*)
+ 012E:024C idle  serialport::getchar()
+ 012E:02B9 idle  serialport::gets(unsigned char far*)
+ 012E:0314       circbuf::isfull()
+ 012E:0332       circbuf::isempty()
+ 0162:000A       circbuf::circbuf(int)
+ 0162:007F       circbuf::~circbuf()
+ 0162:00B7       circbuf::add(unsigned char)
+ 0162:0127       circbuf::remove()
+ 017B:000D idle  scc::interrupt()
+ 017B:00FD       scc::scc()
+ 017B:0153       scc::reset(int)
+ 017B:0174       scc::init(int,unsigned long,circbuf far*,circbuf far*)
+ 017B:0293       scc::txstart(int)
+ 017B:02E9       scc::rxstart(int)
+ 017B:0327       readregister(int,unsigned char)
+ 017B:0359       writedata(int,unsigned char)
+ 017B:0379       writeregister(int,unsigned char,unsigned char)
+ 017B:03AA       readdata(int)
+ 01B7:0009 idle  flashred()
+ 01B7:0045 idle  helloworld()
+ 01B7:00A2       _MAIN
+ 01C9:0000       i8018xeb::ppcb
+ 01C9:0004 idle  i8018xeb::intvectortable
+ 01C9:0008 idle  task::nextid
+ 01C9:000A idle  sched::state
+ 01C9:000C idle  sched::interruptlevel
+ 01C9:000E idle  sched::bschedule
+ 01C9:0010       sched::prunningtask
+ 01C9:0014       sched::idletask
+ 01C9:0034 idle  _PSCC
+ 01C9:0038 idle  _PACKNOWLEDGE
+ 01C9:003C idle  _TASKA
+ 01C9:005A idle  _TASKB
+ 01C9:0086 idle  __DOSERRNO
+ 01C9:0088 idle  __DOSERRORTOSV
+ 01C9:00E4       _ERRNO
+ 01C9:00E6       __PSP
+ 01C9:00E8       __BRKLVL
+ 01C9:00EC       __HEAPBASE
+ 01C9:00F0       __HEAPTOP
+ 01C9:00F4       _GPROCESSOR
+ 01C9:00F6       sched::readylist
+ 01C9:00FA       _OS
+ 01C9:0102 idle  _TIMERLIST
+ 01C9:0108 idle  _TXQUEUE
+ 01C9:0110 idle  _RXQUEUE
+ 01C9:0118 idle  __NEW_HANDLER
+
+Program entry point at 0000:0000
+
