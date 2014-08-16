@@ -1,0 +1,34 @@
+20 1E  // 00    	JMP   RESET
+20 06  // 02    	JMP   ERROR
+20 08  // 04    	JMP   IRQ
+20 06  // 06    ERROR:  JMP   ERROR
+90 00  // 08    IRQ:    PUSH  A
+90 01  // 0A            PUSH  LR
+90 02  // 0C            PUSH  SW
+00 3C  // 0E            LD    TIMER
+10 38  // 10            ADD   K1
+60 01  // 12            SWI   1
+30 3C  // 14            ST    TIMER
+A0 02  // 16            POP   SW
+A0 01  // 18            POP   LR
+A0 00  // 1A            POP   A
+70 00  // 1C            IRET
+80 4E  // 1E    RESET:  LDS   StackEnd
+00 36  // 20    LOOP:   LD    I    
+40 3A  // 22            CMP   N    
+50 32  // 24            JEQ   EXIT
+10 38  // 26            ADD   K1
+30 36  // 28            ST    I
+00 34  // 2A            LD    SUM
+10 36  // 2C            ADD   I
+30 34  // 2E            ST    SUM
+20 20  // 30            JMP   LOOP
+20 32  // 32    EXIT:   JMP   EXIT
+00 00  // 34    SUM:    WORD  0
+00 00  // 36    I:      WORD  0
+00 01  // 38    K1:     WORD  1
+00 0A  // 3A    N:      WORD  10
+00 00  // 3C    TIMER:  WORD  0
+00 00  // 3E    STACK:  RESB  16
+00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 4E  // 4E    StackEnd: RESW &StackEnd

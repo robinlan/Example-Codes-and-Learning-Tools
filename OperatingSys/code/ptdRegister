@@ -1,0 +1,80 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0067AC58 .scope module, "main" "main" 2 14;
+ .timescale 0 0;
+v0067DF58_0 .var "clk", 0 0;
+v0067DFB0_0 .var "d", 31 0;
+v0067D840_0 .net "en", 0 0, L_0067D960; 1 drivers
+v0067D898_0 .net "r", 31 0, v00673270_0; 1 drivers
+S_0067ADF0 .scope module, "ptd1" "ptd" 2 20, 2 8, S_0067AC58;
+ .timescale 0 0;
+L_00673D90/d .functor NOT 1, v0067DF58_0, C4<0>, C4<0>, C4<0>;
+L_00673D90 .delay (2,2,2) L_00673D90/d;
+L_0067D8F0/d .functor NAND 1, L_00673D90, v0067DF58_0, C4<1>, C4<1>;
+L_0067D8F0 .delay (2,2,2) L_0067D8F0/d;
+L_0067D960/d .functor NOT 1, L_0067D8F0, C4<0>, C4<0>, C4<0>;
+L_0067D960 .delay (2,2,2) L_0067D960/d;
+v00673C88_0 .net "clk", 0 0, v0067DF58_0; 1 drivers
+v00673CE0_0 .net "nclkd", 0 0, L_00673D90; 1 drivers
+v00673D38_0 .net "npulse", 0 0, L_0067D8F0; 1 drivers
+v0067DF00_0 .alias "ppulse", 0 0, v0067D840_0;
+S_0067AD68 .scope module, "register1" "register" 2 21, 2 1, S_0067AC58;
+ .timescale 0 0;
+v006731C0_0 .net "d", 31 0, v0067DFB0_0; 1 drivers
+v00673218_0 .alias "en", 0 0, v0067D840_0;
+v00673270_0 .var "r", 31 0;
+E_00679468 .event edge, v00673218_0;
+    .scope S_0067AD68;
+T_0 ;
+    %wait E_00679468;
+    %load/v 8, v00673218_0, 1;
+    %jmp/0xz  T_0.0, 8;
+    %load/v 8, v006731C0_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v00673270_0, 0, 8;
+T_0.0 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0067AC58;
+T_1 ;
+    %set/v v0067DF58_0, 0, 1;
+    %movi 8, 3, 32;
+    %set/v v0067DFB0_0, 8, 32;
+    %vpi_call 2 26 "$monitor", "%4dns monitor: clk=%d en=%d d=%d r=%d", $stime, v0067DF58_0, v0067D840_0, v0067DFB0_0, v0067D898_0;
+    %vpi_call 2 27 "$dumpfile", "ptdRegister.vcd";
+    %vpi_call 2 28 "$dumpvars";
+    %end;
+    .thread T_1;
+    .scope S_0067AC58;
+T_2 ;
+    %delay 10, 0;
+    %load/v 8, v0067DF58_0, 1;
+    %mov 9, 0, 31;
+    %addi 8, 1, 32;
+    %set/v v0067DF58_0, 8, 1;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0067AC58;
+T_3 ;
+    %delay 20, 0;
+    %load/v 8, v0067DFB0_0, 32;
+    %mov 40, 0, 1;
+    %addi 8, 1, 33;
+    %set/v v0067DFB0_0, 8, 32;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_0067AC58;
+T_4 ;
+    %delay 300, 0;
+    %vpi_call 2 39 "$finish";
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "ptdRegister.v";

@@ -1,0 +1,30 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_006C3480 .scope module, "main" "main" 2 1;
+ .timescale 0 0;
+v006C5010_0 .var "clock", 0 0;
+    .scope S_006C3480;
+T_0 ;
+    %vpi_call 2 5 "$monitor", "%4dns clock=%x", $stime, v006C5010_0;
+    %set/v v006C5010_0, 0, 1;
+    %delay 300, 0;
+    %vpi_call 2 7 "$finish";
+    %end;
+    .thread T_0;
+    .scope S_006C3480;
+T_1 ;
+    %delay 5, 0;
+    %load/v 8, v006C5010_0, 1;
+    %inv 8, 1;
+    %set/v v006C5010_0, 8, 1;
+    %jmp T_1;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "clock.v";

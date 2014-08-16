@@ -1,0 +1,158 @@
+$date
+	Mon Nov 25 16:40:23 2013
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module main $end
+$var wire 1 ! en $end
+$var wire 32 " r [31:0] $end
+$var wire 32 # ro [31:0] $end
+$var reg 1 $ clk $end
+$scope module ptd1 $end
+$var wire 1 % clk $end
+$var wire 1 & nclkd $end
+$var wire 1 ' npulse $end
+$var wire 1 ! ppulse $end
+$upscope $end
+$scope module r1 $end
+$var wire 32 ( d [31:0] $end
+$var wire 1 ! en $end
+$var reg 32 ) r [31:0] $end
+$upscope $end
+$scope module i1 $end
+$var wire 32 * i [31:0] $end
+$var wire 32 + o [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b100 +
+b0 *
+b0 )
+b100 (
+z'
+z&
+0%
+0$
+b100 #
+b0 "
+z!
+$end
+#2
+1'
+1&
+#4
+0!
+#10
+1$
+1%
+#12
+0&
+0'
+#14
+b1000 #
+b1000 (
+b1000 +
+b100 )
+b100 "
+b100 *
+1'
+1!
+#16
+0!
+#20
+0$
+0%
+#22
+1&
+#30
+1$
+1%
+#32
+0&
+0'
+#34
+b1100 #
+b1100 (
+b1100 +
+b1000 )
+b1000 "
+b1000 *
+1'
+1!
+#36
+0!
+#40
+0$
+0%
+#42
+1&
+#50
+1$
+1%
+#52
+0&
+0'
+#54
+b10000 #
+b10000 (
+b10000 +
+b1100 )
+b1100 "
+b1100 *
+1'
+1!
+#56
+0!
+#60
+0$
+0%
+#62
+1&
+#70
+1$
+1%
+#72
+0&
+0'
+#74
+b10100 #
+b10100 (
+b10100 +
+b10000 )
+b10000 "
+b10000 *
+1'
+1!
+#76
+0!
+#80
+0$
+0%
+#82
+1&
+#90
+1$
+1%
+#92
+0&
+0'
+#94
+b11000 #
+b11000 (
+b11000 +
+b10100 )
+b10100 "
+b10100 *
+1'
+1!
+#96
+0!
+#100
+0$
+0%
