@@ -1,0 +1,56 @@
+#!/bin/bash
+#-------------------------------------------------------------------------
+# Desc: msp430-stdlst - generate standard asm listings, mixed c++/asm and
+#       instruction cycle counts. This code assumes nake430util is in
+#       your PATH.
+#
+# Created: June 12, 2012
+#  Author: rick@kimballsoftware.com
+#    Date: 03-03-2012
+# Version: 1.0.1
+#
+# uses: msp430-gcc toolchain for mixed c++/asm listing
+# uses: naken430util to produce asm instruction cycle counts
+#       see: http://www.mikekohn.net/micro/naken430asm_msp430_assembler.php
+#-------------------------------------------------------------------------
+cmd=$(basename "$0")
+set -e
+
+OBJDUMP=msp430-objdump
+OBJCOPY=msp430-objcopy
+READELF=msp430-readelf
+ELFSIZE=msp430-size
+HEX2CNT=naken430util
+
+if [ $# -ne 1 ]
+then
+  echo "error usage: ${cmd} foo.elf"
+  exit 1
+fi
+
+fullpath="$1"
+filename=$(basename "$fullpath")
+ext="${filename##*.}"
+filepart="${filename%.*}"
+
+if [ "${ext}" != "elf" -a "${ext}" != "out" ]
+then
+  echo "error ${cmd}: expecting an msp430 elf file [.elf|.out] got .${ext} file"
+  exit 1
+fi
+
+fileobjdump="${filepart}_asm_mixed.txt"
+fileobjcopy="${filepart}.hex"
+fileobjcnts="${filepart}_asm_count.txt"
+
+${OBJDUMP} -dS "${fullpath}" | msp430-c++filt > "${fileobjdump}"
+${READELF} -x .rodata "${fullpath}" >> "${fileobjdump}" 2>/dev/null
+
+if [ "$(type -t ${HEX2CNT})" ]; then
+    ${OBJCOPY} -O ihex "${fullpath}" "${fileobjcopy}"
+    ${HEX2CNT} -disasm "${fileobjcopy}" > "${fileobjcnts}"
+else
+    echo "warning ${cmd}: can't find ${HEX2CNT} in path. Instruction cycle counts not produced."
+fi
+
+${ELFSIZE} "${fullpath}"

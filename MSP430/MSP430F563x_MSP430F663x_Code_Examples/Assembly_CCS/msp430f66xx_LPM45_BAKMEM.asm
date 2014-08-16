@@ -1,0 +1,239 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;******************************************************************************
+;   MSP430F66x Demo - LPM4.5, Backup RAM
+;
+;   Description: Board is setup to first init all ports, setup for P1.4 lo/hi
+;         transition interrupt, and start XT1 for setting BAKMEM registers.
+;         After registers are written, XT1 is disabled, and LPM4.5 is entered.
+;         Upon a lo/hi transition to P1.4, the device will awaken from LPM4.5
+;         and attempt to verify if the contents remain as they were programmed
+;         previous to entering LPM4.5. If so, the LED is lit, if not, the LED 
+;         will blink quickly. If the device was not properly put into LPM4.5 
+;         (see NOTE) before the transition was made, the LED will blink slowly.
+;	
+;
+;   NOTE: This code example was tested on the MSP-TS430PZ100USB Rev1.2 board.
+;         To get proper execution of this code example, first switch the JP3
+;         to external power, and force 3.0V on the VCC pin. Remove JP1 and set
+;         a multimeter on current reading to ensure proper entrance/exit of 
+;         LPM4.5. Now build the code example and program the device via the 
+;         Debug button. Press "Run" then "Terminate All" buttons. Detatch the 
+;         JTAG interface with the FET from the board. You should read around
+;         0.38uA current through JP1. Attatch a jumper wire from P1.4 (Pin 38)
+;         to Vcc, to trigger a lo/hi transition. The LED on the board should 
+;         light up, signifying a successful verificaiton of the programmed
+;         values for all four BAKMEM registers.
+;
+;  //* An external watch crystal on XIN XOUT is required for ACLK *//	
+;   ACLK = 32.768kHz, MCLK = SMCLK = default DCO~1MHz
+;
+;                MSP430F66xx
+;             -----------------
+;         /|\|              XIN|-
+;          | |                 | 32kHz
+;          --|RST          XOUT|-
+;      /|\   |                 |
+;       --o--|P1.4         P1.0|-->LED
+;      \|/
+;
+;   Tyler Witt
+;   Texas Instruments Inc.
+;   October 2011
+;   Built with Code Composer Studio V4.2
+;******************************************************************************
+ .cdecls C,LIST,"msp430.h"
+
+;------------------------------------------------------------------------------
+            .global _main
+            .text
+;------------------------------------------------------------------------------
+_main
+RESET       mov.w   #0x63FE,SP              ; Initialize stack pointer
+            mov.w   #WDTPW+WDTHOLD,&WDTCTL  ; Stop WDT
+            cmp.w   #0x08,SYSRSTIV          ; was reset due to LPM wakeup?
+            jne     Mainloop
+            calla   #WkUpLPM45              ; Wakeup/reinit
+            bis.b   #BIT0,&P1DIR            ; Ensure P1.0 output
+            cmp.w   #0x0000,BAKMEM0
+            jne     LEDoff                  ; if BAKMEM0 != original value, blink fast
+            cmp.w   #0x1111,BAKMEM1        
+            jne     LEDoff                  ; if BAKMEM0 != original value, blink fast
+            cmp.w   #0x2222,BAKMEM2        
+            jne     LEDoff                  ; if BAKMEM0 != original value, blink fast
+            cmp.w   #0x3333,BAKMEM3        
+            jne     LEDoff                  ; if BAKMEM0 != original value, blink fast
+            jmp     LEDon                   ; if all values = original values, turn on LED
+            
+LEDoff      mov.w   #10000,R15              ; If values don't all match, blink
+BlinkF      dec.w   R15                     ; LED quickly
+            jnz     BlinkF
+            xor.b   #BIT0,&P1OUT
+            jmp     LEDoff
+LEDon       bis.b   #BIT0,&P1OUT            ; Turn on LED if all values match
+            jmp     LEDon                   ; Again
+
+Mainloop    calla   #Board_Init
+            calla   #SetBAKMEM
+            calla   #EnterLPM45
+            
+            ; Code should not go here
+            ; Blink LED slowly if LPM3.5 not entered properly
+            calla   #WkUpLPM45
+BadEntry    mov.w   #300000,R15
+BlinkS      dec.w   R15
+            jnz     BlinkS
+            xor.b   #BIT0,&P1OUT
+            jmp     BadEntry
+            nop                             ; for debugger
+;------------------------------------------------------------------------------
+Board_Init ; Init ports and interrupt
+;------------------------------------------------------------------------------
+            mov.b   #0x00,&P1OUT            ; Port configuration
+            mov.b   #0x00,&P2OUT
+            mov.b   #0x00,&P3OUT
+            mov.b   #0x00,&P4OUT
+            mov.b   #0x00,&P5OUT
+            mov.b   #0x00,&P6OUT
+            mov.b   #0x00,&P7OUT
+            mov.b   #0x00,&P8OUT
+            mov.b   #0x00,&P9OUT
+            mov.b   #0x00,&PJOUT
+            mov.b   #0xFF,&P1DIR
+            mov.b   #0xFF,&P2DIR
+            mov.b   #0xFF,&P3DIR
+            mov.b   #0xFF,&P4DIR
+            mov.b   #0xFF,&P5DIR
+            mov.b   #0xFF,&P6DIR
+            mov.b   #0xFF,&P7DIR
+            mov.b   #0xFF,&P8DIR
+            mov.b   #0xFF,&P9DIR
+            mov.b   #0xFF,&PJDIR
+            
+            ; P1.4 Interrupt config
+            bic.b   #BIT4,&P1IES            ; P1.4 lo/hi edge
+            mov.b   #BIT4,&P1IE             ; P1.4 interrupt enabled
+            clr.b   &P1IFG                  ; P1.4 IFG cleared
+            
+            mov.w   #0x9628,&USBKEYPID      ; Diable VUSB LDO and SLDO
+            bic.w   #SLDOEN+VUSBEN,&USBPWRCTL
+            mov.w   #0x9600,&USBKEYPID
+            mov.w   #5000,R15               ; Delay to settle FLL
+SetFLL      dec.w   R15
+            jnz     SetFLL
+            reta
+;------------------------------------------------------------------------------
+EnterLPM45 ; Turn off PMMREG and enter LPM4.5
+;------------------------------------------------------------------------------
+            EINT                            ; Enable interrupts
+			bis.w   #XT1OFF,&UCSCTL6        ;XT1 Off  
+			bis.w   #BAKDIS,BAKCTL          ;Supply power from Vcc, Vbat disabled
+            mov.b   #PMMPW_H,&PMMCTL0_H     ; Open PMM
+            bis.b   #PMMREGOFF,&PMMCTL0_L   ; Turn off PMMREG
+            bis.w   #LPM4,SR                ; Enter LPM4.5
+            nop
+            reta
+;------------------------------------------------------------------------------
+WkUpLPM45 ;   Reinit Device after waking up from LPM4.5
+;------------------------------------------------------------------------------
+            mov.b   #PMMPW_H,&PMMCTL0_H     ; open PMM
+            bic.w   #LOCKIO,&PM5CTL0        ; Lear LOCKBAK and enable ports
+            clr.b   &PMMCTL0_H              ; close PMM
+            
+            mov.b   #0x00,&P1OUT            ; Port reconfiguration
+            mov.b   #0x00,&P2OUT
+            mov.b   #0x00,&P3OUT
+            mov.b   #0x00,&P4OUT
+            mov.b   #0x00,&P5OUT
+            mov.b   #0x00,&P6OUT
+            mov.b   #0x00,&P7OUT
+            mov.b   #0x00,&P8OUT
+            mov.b   #0x00,&P9OUT
+            mov.b   #0x00,&PJOUT
+            mov.b   #0xFF,&P1DIR
+            mov.b   #0xFF,&P2DIR
+            mov.b   #0xFF,&P3DIR
+            mov.b   #0xFF,&P4DIR
+            mov.b   #0xFF,&P5DIR
+            mov.b   #0xFF,&P6DIR
+            mov.b   #0xFF,&P7DIR
+            mov.b   #0xFF,&P8DIR
+            mov.b   #0xFF,&P9DIR
+            mov.b   #0xFF,&PJDIR
+            
+UnlkXT1     bit.w   #LOCKBAK,&BAKCTL        ; Unlock XT1 pins for operation
+            jz      XT1Chk
+            bic.w   #LOCKBAK,&BAKCTL
+            jmp     UnlkXT1
+XT1Chk      nop          
+            reta
+;------------------------------------------------------------------------------
+SetBAKMEM ;   Set values for backup RAM
+;------------------------------------------------------------------------------           
+            mov.w   #0x0000,&BAKMEM0        ; Set backup RAM values
+            mov.w   #0x1111,&BAKMEM1        
+            mov.w   #0x2222,&BAKMEM2        
+            mov.w   #0x3333,&BAKMEM3        
+
+            reta
+;------------------------------------------------------------------------------
+PORT1_ISR ;   RTC Interrupt Service Routine
+;------------------------------------------------------------------------------
+            mov.b   #PMMPW_H,&PMMCTL0_H     ; open PMM
+            bic.w   #LOCKIO,&PM5CTL0        ; Lear LOCKBAK and enable ports
+            clr.b   &PMMCTL0_H              ; close PMM
+            
+            bic.b   #BIT4,&P1IFG            ; Clear P1.4 IFG
+            bic.w   #LPM4,0(SP)             ; Wakeup from LPM4.5
+            nop
+            reti
+;------------------------------------------------------------------------------
+;           Interrupt Vectors
+;------------------------------------------------------------------------------
+            .sect   ".int47"                ; PORT1_VECTOR
+            .short  PORT1_ISR
+            .sect   ".reset"                ; MSP430 Reset Vector
+            .short  RESET
+            .end

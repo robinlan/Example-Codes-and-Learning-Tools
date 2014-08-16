@@ -1,0 +1,86 @@
+# Microsoft Developer Studio Generated Dependency File, included by cartesian.mak
+
+\prog\cartesian\Cartesian.cpp : \
+	"\prog\cartesian\Cartesian.H"\
+	"\prog\fltk\fl\enumerations.h"\
+	"\prog\fltk\fl\fl.h"\
+	"\prog\fltk\fl\fl_bitmap.h"\
+	"\prog\fltk\fl\fl_box.h"\
+	"\prog\fltk\fl\fl_device.h"\
+	"\prog\fltk\fl\fl_draw.h"\
+	"\prog\fltk\fl\fl_export.h"\
+	"\prog\fltk\fl\fl_group.h"\
+	"\prog\fltk\fl\fl_image.h"\
+	"\prog\fltk\fl\fl_pixmap.h"\
+	"\prog\fltk\fl\fl_widget.h"\
+	"\prog\fltk\fl\fl_window.h"\
+	"\prog\fltk\fl\win32.h"\
+	"\prog\fltk\fl\x.h"\
+	"d:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+\prog\cartesian\test\example.cpp : \
+	"\prog\cartesian\Cartesian.H"\
+	"\prog\fltk\fl\enumerations.h"\
+	"\prog\fltk\fl\filename.h"\
+	"\prog\fltk\fl\fl.h"\
+	"\prog\fltk\fl\fl_ask.h"\
+	"\prog\fltk\fl\fl_bitmap.h"\
+	"\prog\fltk\fl\fl_box.h"\
+	"\prog\fltk\fl\fl_browser.h"\
+	"\prog\fltk\fl\fl_browser_.h"\
+	"\prog\fltk\fl\fl_button.h"\
+	"\prog\fltk\fl\fl_check_button.h"\
+	"\prog\fltk\fl\fl_choice.h"\
+	"\prog\fltk\fl\fl_device.h"\
+	"\prog\fltk\fl\fl_double_window.h"\
+	"\prog\fltk\fl\fl_draw.h"\
+	"\prog\fltk\fl\fl_export.h"\
+	"\prog\fltk\fl\fl_file_browser.h"\
+	"\prog\fltk\fl\fl_file_chooser.h"\
+	"\prog\fltk\fl\fl_file_icon.h"\
+	"\prog\fltk\fl\fl_file_input.h"\
+	"\prog\fltk\fl\fl_gdi.h"\
+	"\prog\fltk\fl\fl_group.h"\
+	"\prog\fltk\fl\fl_image.h"\
+	"\prog\fltk\fl\fl_input.h"\
+	"\prog\fltk\fl\fl_input_.h"\
+	"\prog\fltk\fl\fl_light_button.h"\
+	"\prog\fltk\fl\fl_menu_.h"\
+	"\prog\fltk\fl\fl_menu_button.h"\
+	"\prog\fltk\fl\fl_menu_item.h"\
+	"\prog\fltk\fl\fl_overlay_window.h"\
+	"\prog\fltk\fl\fl_pixmap.h"\
+	"\prog\fltk\fl\fl_postscript.h"\
+	"\prog\fltk\fl\fl_preferences.h"\
+	"\prog\fltk\fl\fl_printer.h"\
+	"\prog\fltk\fl\fl_return_button.h"\
+	"\prog\fltk\fl\fl_scrollbar.h"\
+	"\prog\fltk\fl\fl_slider.h"\
+	"\prog\fltk\fl\fl_tile.h"\
+	"\prog\fltk\fl\fl_valuator.h"\
+	"\prog\fltk\fl\fl_widget.h"\
+	"\prog\fltk\fl\fl_window.h"\
+	"\prog\fltk\fl\win32.h"\
+	"\prog\fltk\fl\x.h"\
+	"d:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+\prog\fltk\src\Fl_Gdi.cxx : \
+	"\prog\fltk\fl\enumerations.h"\
+	"\prog\fltk\fl\fl.h"\
+	"\prog\fltk\fl\fl_bitmap.h"\
+	"\prog\fltk\fl\fl_device.h"\
+	"\prog\fltk\fl\fl_draw.h"\
+	"\prog\fltk\fl\fl_export.h"\
+	"\prog\fltk\fl\fl_gdi.h"\
+	"\prog\fltk\fl\fl_group.h"\
+	"\prog\fltk\fl\fl_image.h"\
+	"\prog\fltk\fl\fl_pixmap.h"\
+	"\prog\fltk\fl\fl_printer.h"\
+	"\prog\fltk\fl\fl_widget.h"\
+	"\prog\fltk\fl\fl_window.h"\
+	"\prog\fltk\fl\win32.h"\
+	"\prog\fltk\fl\x.h"\
+	"d:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	

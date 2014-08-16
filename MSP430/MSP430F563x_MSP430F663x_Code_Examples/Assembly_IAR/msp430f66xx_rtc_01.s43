@@ -1,0 +1,139 @@
+; --COPYRIGHT--,BSD_EX
+;  Copyright (c) 2012, Texas Instruments Incorporated
+;  All rights reserved.
+; 
+;  Redistribution and use in source and binary forms, with or without
+;  modification, are permitted provided that the following conditions
+;  are met:
+; 
+;  *  Redistributions of source code must retain the above copyright
+;     notice, this list of conditions and the following disclaimer.
+; 
+;  *  Redistributions in binary form must reproduce the above copyright
+;     notice, this list of conditions and the following disclaimer in the
+;     documentation and/or other materials provided with the distribution.
+; 
+;  *  Neither the name of Texas Instruments Incorporated nor the names of
+;     its contributors may be used to endorse or promote products derived
+;     from this software without specific prior written permission.
+; 
+;  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+;  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+;  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+;  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+;  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+;  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+;  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+;  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+;  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+; 
+; ******************************************************************************
+;  
+;                        MSP430 CODE EXAMPLE DISCLAIMER
+; 
+;  MSP430 code examples are self-contained low-level programs that typically
+;  demonstrate a single peripheral function or device feature in a highly
+;  concise manner. For this the code may rely on the device's power-on default
+;  register values and settings such as the clock configuration and care must
+;  be taken when combining code from several examples to avoid potential side
+;  effects. Also see www.ti.com/grace for a GUI- and www.ti.com/msp430ware
+;  for an API functional library-approach to peripheral configuration.
+; 
+; --/COPYRIGHT--
+;******************************************************************************
+;   MSP430F66x Demo - RTC_B in real time clock mode
+;
+;   Description: The RTC_B module is used to set the time, start RTC operation,
+;   and read the time from the respective RTC registers. Software will set the
+;   original time to 11:59:45 am on Friday October 7, 2011. Then the RTC will
+;   be activated through software, and the time will be read out once every 
+;   second. The proper handling of the RTC interrupt is shown as well.
+;
+;  ;* An external watch crystal on XIN XOUT is required for ACLK *;	
+;   ACLK = 32.768kHz, MCLK = SMCLK = default DCO~1MHz
+;
+;                MSP430F66xx
+;             -----------------
+;         /|\|              XIN|-
+;          | |                 | 32kHz
+;          --|RST          XOUT|-
+;            |                 |
+;            |             P1.0|--> LED
+;
+;   F.  Chen
+;   Texas Instruments Inc.
+;   December 2012
+;   Built with IAR Embedded Workbench v5.51.1
+;******************************************************************************
+#include <msp430.h>
+#define Seconds     R5
+#define Minutes     R6
+#define Hours       R7
+;-------------------------------------------------------------------------------
+            RSEG    CSTACK                  ; Define stack segment
+;-------------------------------------------------------------------------------
+            RSEG    CODE
+;-------------------------------------------------------------------------------
+RESET       mov.w   #SFE(CSTACK),SP         ; Initialize stackpointer
+            mov.w   #WDTPW+WDTHOLD,&WDTCTL
+UnlkXT1     bit.w   #LOCKBAK,&BAKCTL         ; Unlock XT1 pins for operation
+            jz      XT1On
+            bic.w   #LOCKBAK,&BAKCTL
+            jmp     UnlkXT1
+XT1On       bic.w   #XT1OFF,&UCSCTL6        ; XT1 On
+            bis.w   #XCAP_3,UCSCTL6         ; Internal load cap
+XT1Chk      bic.w   #XT2OFFG+XT1LFOFFG+DCOFFG,&UCSCTL7
+                                            ; Clear XT1,XT2,DCO fault flags
+            bic.w   #OFIFG,&SFRIFG1         ; Clear fault flags
+            bit.w   #OFIFG,&SFRIFG1         ; Test oscilator fault flag
+            jnz     XT1Chk                  ; If set, attempt to clear again
+                                            ; If clear, continue
+            bis.b   #BIT0,&P1DIR            ; P1.0 Output
+            bic.b   #BIT0,&P1OUT            ; Clear LED to start
+            
+            bis.w   #RTCRDYIE+RTCBCD+RTCHOLD,&RTCCTL01 ; configure RTC_B: BCD mode,
+                                                       ; RTC hold, RTCRDY interrupt
+            mov.w   #0x2011,&RTCYEAR        ; Year = 0x2011
+            mov.b   #0x10,&RTCMON           ; Month = 0x10 = October
+            mov.b   #0x07,&RTCDAY           ; Day = 0x07 = 7th
+            mov.b   #0x05,&RTCDOW           ; Day of week = 0x05 = Friday
+            mov.b   #0x11,&RTCHOUR          ; Hour = 0x11
+            mov.b   #0x59,&RTCMIN           ; Minute = 0x59
+            mov.b   #0x45,&RTCSEC           ; Seconds = 0x45
+            
+            bic.w   #RTCHOLD,&RTCCTL01      ; Start RTC calendar mode
+            
+Mainloop    bis.w   #LPM3+GIE,SR            ; Enter LPM3 w/ interrupts
+            nop
+                                            ;
+;------------------------------------------------------------------------------
+RTC_ISR ;   RTC Interrupt Service Routine
+;------------------------------------------------------------------------------
+UnlkXT2     bit.w   #LOCKBAK,&BAKCTL         ; Unlock XT1 pins for operation
+            jz      Judge_IR
+            bic.w   #LOCKBAK,&BAKCTL
+            jmp     UnlkXT2
+Judge_IR    add.w   &RTCIV,PC
+            reti                            ; Vector  0: No interrupt
+            jmp     RTCReady                ; Vector  2: RTCRDYIFG
+            reti                            ; Vector  4: RTCEVIFG
+            reti                            ; Vector  6: RTCAIFG
+            reti                            ; Vector  8: RT0PSIFG
+            reti                            ; Vector 10: RT1PSIFG
+            reti                            ; Vector 12: RTCOFIFG
+            reti                            ; Vector 14: Reserved
+RTCReady    xor.b   #BIT0,P1OUT             ; Toggle LED every second
+            mov.b   RTCSEC,Seconds         ; Read all associated time registers
+            mov.b   RTCMIN,Minutes
+            mov.b   RTCHOUR,Hours
+            reti
+;-------------------------------------------------------------------------------
+            COMMON  INTVEC                  ; Interrupt Vectors
+;-------------------------------------------------------------------------------
+            ORG     RESET_VECTOR            ; POR, ext. Reset
+            DW      RESET
+            ORG     RTC_VECTOR              ; RTC Interrupt Vector
+            DW      RTC_ISR
+            END

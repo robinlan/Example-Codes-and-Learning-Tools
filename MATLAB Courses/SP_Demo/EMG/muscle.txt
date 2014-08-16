@@ -1,0 +1,3 @@
+fs=5000;
+
+Rectus_femoris     Vastus_medialis	Vastus_lateralis
