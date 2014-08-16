@@ -1,0 +1,5 @@
+'playerTileVariable', (512, 11)
+'computerTileVariable', (1024, 11)
+'mainBoardVariable', (0, 194)
+'turnVariable', (1536, 16)
+'showHintsVariable', (2048, 4)
