@@ -1,0 +1,61 @@
+Demonstrates use of the Bluetooth Generic Attribute Profile (Gatt) Windows Runtime API to interact with a Bluetooth Gatt device, which contains a Heart Rate Service.
+
+Note  This sample was created using one of the universal app templates available in Visual Studio. It shows how its solution is structured so it can run on both Windows 8.1 and Windows Phone 8.1. For more info about how to build apps that target Windows and Windows Phone with Visual Studio, see Build apps that target Windows and Windows Phone 8.1 by using Visual Studio.
+
+To obtain an evaluation copy of Windows 8.1, go to Windows 8.1.
+
+To obtain an evaluation copy of Microsoft Visual Studio 2013 Update 2, go to Microsoft Visual Studio 2013.
+
+Note  For Windows 8 app samples, download the Windows 8 app samples pack. The samples in the Windows 8 app samples pack will build and run only on Microsoft Visual Studio 2012.
+
+Note  This sample app is not a qualified Bluetooth product. Meeting necessary Bluetooth Qualification requirements, if any, are the responsibility of the app developer. Visit the Qualification Listing Process webpage to learn more.
+
+Related topics
+
+Windows.Devices.Bluetooth.GenericAttributeProfile
+Windows app samples
+Operating system requirements
+
+Client	
+Windows 8.1
+Server	
+None supported
+Phone	
+Windows Phone 8.1
+Build the sample
+
+Start Visual Studio 2013 Update 2 and select File > Open > Project/Solution.
+Go to the directory to which you unzipped the sample. Then go to the subdirectory named for the sample and double-click the Visual Studio 2013 Update 2 Solution (.sln) file.
+Follow the steps for the version of the sample you want:
+To build the Windows version of the sample:
+
+Select BluetoothGattHeartRate.Windows in Solution Explorer.
+Press Ctrl+Shift+B, or use Build > Build Solution, or use Build > Build BluetoothGattHeartRate.Windows.
+To build the Windows Phone version of the sample:
+
+Select BluetoothGattHeartRate.WindowsPhone in Solution Explorer.
+Press Ctrl+Shift+B or use Build > Build Solution or use Build > Build BluetoothGattHeartRate.WindowsPhone.
+Run the sample
+
+The next steps depend on whether you just want to deploy the sample or you want to both deploy and run it.
+
+Deploying the sample
+
+To deploy the built Windows version of the sample:
+
+Select BluetoothGattHeartRate.Windows in Solution Explorer.
+Use Build > Deploy Solution or Build > Deploy BluetoothGattHeartRate.Windows.
+To deploy the built Windows Phone version of the sample:
+
+Select BluetoothGattHeartRate.WindowsPhone in Solution Explorer.
+Use Build > Deploy Solution or Build > Deploy BluetoothGattHeartRate.WindowsPhone.
+Deploying and running the sample
+
+To deploy and run the Windows version of the sample:
+
+Right-click BluetoothGattHeartRate.Windows in Solution Explorer and select Set as StartUp Project.
+To debug the sample and then run it, press F5 or use Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or use Debug > Start Without Debugging.
+To deploy and run the Windows Phone version of the sample:
+
+Right-click BluetoothGattHeartRate.WindowsPhone in Solution Explorer and select Set as StartUp Project.
+To debug the sample and then run it, press F5 or use Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or use Debug > Start Without Debugging.
