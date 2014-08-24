@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<resources> 
+  <string name="app_name">EX05_25_1</string> 
+  <string name="load_failed">載入失敗!</string> 
+  <string name="list_empty">手勢尚未建立!</string> 
+</resources> 
