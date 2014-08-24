@@ -4,3 +4,6 @@ git push https://github.com/robinlan/Example-Codes-and-Learning-Tools.git
 
 if change status remote last time :
    git pull https://github.com/robinlan/Example-Codes-and-Learning-Tools.git
+
+to update the removed files :
+   git add -A
