@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><?mso-infoPathSolution solutionVersion="1.0.0.6" productVersion="11.0.6357" PIVersion="1.0.0.0" href="file:///C:\excel-stat\練習範例\ch02\大專生看電影問卷.xsn" name="urn:schemas-microsoft-com:office:infopath:W8O-ka-g:-myXSD-2005-03-27T06-28-10" ?><?mso-application progid="InfoPath.Document"?><my:myFields xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2005-03-27T06:28:10" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="zh-tw">
+	<my:欄位1></my:欄位1>
+	<my:欄位2></my:欄位2>
+	<my:地區>北區</my:地區>
+	<my:性別>1</my:性別>
+	<my:生日>1998-01-12</my:生日>
+	<my:每月費用>500</my:每月費用>
+	<my:文藝愛情>false</my:文藝愛情>
+	<my:武俠功夫>false</my:武俠功夫>
+	<my:恐怖靈異>true</my:恐怖靈異>
+	<my:喜劇幽默>false</my:喜劇幽默>
+	<my:動畫卡通>false</my:動畫卡通>
+	<my:經典戲劇>true</my:經典戲劇>
+	<my:緊張動作>false</my:緊張動作>
+	<my:科幻>false</my:科幻>
+</my:myFields>

@@ -1,0 +1,8 @@
+Stock:1101    Return=-0.2085561 
+Stock:1102    Return=-0.1039604 
+Stock:1103    Return=-0.275 
+Stock:1104    Return=-7.042254E-02 
+Stock:1107    Return=-1.709402E-02 
+Stock:1108    Return= 0.25 
+Stock:1109    Return=-2.816901E-02 
+Stock:1110    Return= 2.890173E-02 

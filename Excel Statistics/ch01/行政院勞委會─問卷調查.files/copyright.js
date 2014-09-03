@@ -1,0 +1,2 @@
+document.writeln('本會地址：台北市大同區延平北路二段八十三號九樓　<a href="/cgi-bin/SM_theme?page=41ce3f1d">交通路線圖 </a>| 解析度 800*600<br>');
+document.writeln(' Copyrightc2004 行政院勞工委員會　<a href="/cgi-bin/SM_theme?page=41bea8f8">版權所有</a>｜<a href="/cgi-bin/SM_theme?page=41bea8f8">隱私權及安全政策</a>｜ <a href="/cgi-bin/SM_theme?page=41ff04d6">聯絡我們</a></td>');

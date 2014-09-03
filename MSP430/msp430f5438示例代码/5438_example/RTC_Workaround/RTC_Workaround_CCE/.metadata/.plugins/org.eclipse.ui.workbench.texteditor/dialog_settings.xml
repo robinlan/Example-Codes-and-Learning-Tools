@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="953"/>
+		<item key="DIALOG_Y_ORIGIN" value="241"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wholeword" value="true"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="ret"/>
+		<item key="wrap" value="false"/>
+		<item key="casesensitive" value="false"/>
+		<list key="findhistory">
+			<item value="ret"/>
+			<item value="struct"/>
+			<item value="PMM"/>
+			<item value="EN_FETS"/>
+			<item value="P4OUT"/>
+		</list>
+		<list key="replacehistory">
+			<item value="reta"/>
+		</list>
+	</section>
+</section>
